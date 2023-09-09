@@ -2,7 +2,6 @@
 import Input from './Input.vue';
 import { ref, watch } from 'vue';
 import debounce from '../helpers/debounce.ts';
-import throttle from '../helpers/throttle.ts';
 
 interface Form {
   from: {
@@ -32,13 +31,33 @@ const form = ref<Form>({
     value: '',
     valid: true
   },
-})
+});
 
-const sendForm = debounce(() => {
+const formSended = ref<string>('');
+
+const sendForm = debounce(async () => {
   if (!formHandler()) return;
 
-  console.log('All is ready')
-}, 1000);
+  try {
+    const cfg = {
+      method: 'POST',
+      body: JSON.stringify(form.value),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const request = await fetch('/api/message', cfg);
+    const data = await request.json();
+
+    if (request.ok && data.status === 'success') {
+      formSended.value = "\"❤️ Thanks for your message ❤️\""
+    };
+  } catch (e) {
+    formSended.value = "\"😢 Something did goes wrong, please, try again later 😢\"";
+    console.error(e);
+  }
+}, 700);
 
 const formHandler = function (): boolean {
   const fromValid = form.value.from.value.trim().length > 1;
@@ -49,9 +68,7 @@ const formHandler = function (): boolean {
   form.value.email.valid = emailValid;
   form.value.message.valid = messageValid;
 
-  if (fromValid && emailValid && messageValid) return true;
-
-  return false;
+  return fromValid && emailValid && messageValid;
 };
 
 watch(form.value, () => {
@@ -60,7 +77,7 @@ watch(form.value, () => {
 </script>
 
 <template>
-  <div class="contact-form">
+  <div :class="`contact-form ${formSended ? 'ok' : ''}`" :style="`--message: ${formSended}`">
     <Input :invalid="!form.from.valid" :modelValue="form.from.value"
       @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name" placeholder="Name" />
     <Input :invalid="!form.email.valid" :modelValue="form.email.value"
@@ -74,6 +91,7 @@ watch(form.value, () => {
 
 <style scoped lang="scss">
 .contact-form {
+  position: relative;
   margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
@@ -98,6 +116,39 @@ watch(form.value, () => {
   &__send {
     grid-area: send;
     max-width: 10rem;
+  }
+
+  &::before {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: var(--message);
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--gray-1);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.ok::before {
+    animation: appear .7s ease-in-out .5s forwards;
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 </style>
