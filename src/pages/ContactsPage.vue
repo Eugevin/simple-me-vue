@@ -5,7 +5,7 @@ import ContactForm from '../components/ContactForm.vue';
 
 <template>
   <div class="contacts">
-    <Content background="/src/assets/images/contacts-inner.gif">
+    <Content background="/images/contacts-inner.gif">
       <template v-slot:body>
         <p style="color: var(--white)">Some companies & projects i've worked for.</p>
         <h1>Let's<br>See my works</h1>

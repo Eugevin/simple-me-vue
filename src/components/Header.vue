@@ -7,17 +7,17 @@ const headerLinks = [
   {
     to: '/',
     title: 'Home',
-    image: '/src/assets/images/header-home.jpg',
+    image: '/images/header-home.jpg',
   },
   {
     to: '/works',
     title: 'Projects',
-    image: '/src/assets/images/header-works.jpg',
+    image: '/images/header-works.jpg',
   },
   {
     to: '/contacts',
     title: 'Contacts',
-    image: '/src/assets/images/header-contacts.jpg',
+    image: '/images/header-contacts.jpg',
   },
 ]
 </script>

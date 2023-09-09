@@ -14,25 +14,25 @@ const works: Array<Work> = [
     time: ['1.22', '06.23'],
     title: 'Platinum LTD',
     description: `Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars Actually what i did/maked/created:<br><br>- 2 YEARS NDA*`,
-    image: '/src/assets/images/works-platinum.png'
+    image: '/images/works-platinum.png'
   },
   {
     time: ['01.21', '10.21  '],
     title: 'Travelask',
     description: `TravelAsk is a travel search engine. Searches and compares the best deals on tours, hotels and flights. Inspires new trips and gets content once. Actually what i did/maked/created:<br><br>- Development of new functionality.<br><br>- Bug fixing.<br><br>- Optimizing already written code and translating it to ES6+ standard EcmaScript.<br><br>- Rewriting some functionality written in Vue.js (as a library) into vanilla JavaScript according to OOP principles on classes.`,
-    image: '/src/assets/images/works-travelask.png'
+    image: '/images/works-travelask.png'
   },
   {
     time: ['09.20', '06.21'],
     title: 'R52.ru',
     description: `R52.RU is a multi-service agency with 20 years of experience. They're design and provide effective presence, support and successful development of online business. Actually what i did/maked/created:<br><br>- Layout of commercial projects.<br><br>- Edits on existing sites & fixing bugs.<br><br>- Working with Vue.js projects using VueX and VueRouter.`,
-    image: '/src/assets/images/works-r52.png'
+    image: '/images/works-r52.png'
   },
   {
     time: ['01.18', '01.22'],
     title: 'Freelance',
     description: `As a freelancer, I have worked extensively with technologies such as Vue.js, JWT, JSON handling, WebSocket, WebRTC, Express, Bootstrap and more other technologies/frameworks. Actually what i did/maked/created:<br><br>- Engaged in the development and support of the client part of WEB-applications.<br><br>- Part-time set up Nginx HTTP servers and simple servers on Linux.<br><br>- Wrote small chat applications and worked with the WebSocket API.<br><br>- Participated in the development of Stores and Gaming Sites using the Vue.js framework.<br><br>- Worked with Vue.js, VueRouter and VueX.`,
-    image: '/src/assets/images/index-inner.gif'
+    image: '/images/index-inner.gif'
   },
 ];
 
@@ -72,7 +72,7 @@ function makeSomeMagic(i: number, e: Event) {
 
 <template>
   <div class="works">
-    <Content background="/src/assets/images/works-inner.gif">
+    <Content background="/images/works-inner.gif">
       <template v-slot:body>
         <p style="color: var(--white)">Some companies & projects i've worked for.</p>
         <h1>Let's<br>See my works</h1>

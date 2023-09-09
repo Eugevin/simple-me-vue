@@ -5,7 +5,7 @@ import Content from '../components/Content.vue';
 <template>
   <div class="index">
     <div class="index__inner">
-      <img src="../assets/images/index-inner.gif" alt="index inner image">
+      <img src="/images/index-inner.gif" alt="index inner image">
     </div>
     <Content>
       <template v-slot:heading></template>
