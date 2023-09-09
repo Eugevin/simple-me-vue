@@ -1,14 +1,15 @@
 <script setup lang="ts">
-defineProps<{ type?: 'button' | 'textarea' }>();
-defineEmits(['input'])
+defineProps<{ type?: 'button' | 'textarea', modelValue?: any }>();
+const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
   <button v-if="type === 'button'">
     <slot />
   </button>
-  <textarea v-else-if="type === 'textarea'" name="" id="" cols="30" rows="10"></textarea>
-  <input @input="$emit('input', $event)" v-else type="text">
+  <textarea @input="emit('update:modelValue', $event.target.value)" v-else-if="type === 'textarea'" name="" id=""
+    cols="30" rows="10"></textarea>
+  <input @input="emit('update:modelValue', $event.target.value)" v-else type="text">
 </template>
 
 <style scoped lang="scss">

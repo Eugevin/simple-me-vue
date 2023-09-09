@@ -45,9 +45,13 @@ const formHandler = throttle(() => {
 
 <template>
   <div class="contact-form">
-    <Input @input="formHandler" v-model="form.from.value" class="contact-form__name" placeholder="Name" />
-    <Input @input="formHandler" v-model="form.email.value" class="contact-form__email" placeholder="E-mail" />
-    <Input @input="formHandler" v-model="form.message.value" class="contact-form__message" placeholder="Message" type="textarea" rows="4" />
+    <Input @input="formHandler" :modelValue="form.from.value" @update:modelValue="newValue => form.from.value = newValue"
+      class="contact-form__name" placeholder="Name" />
+    <Input @input="formHandler" :modelValue="form.email.value"
+      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email" placeholder="E-mail" />
+    <Input @input="formHandler" :modelValue="form.message.value"
+      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message" placeholder="Message"
+      type="textarea" rows="4" />
     <Input @click="sendForm" class="contact-form__send" type="button">Submit</Input>
   </div>
 </template>
