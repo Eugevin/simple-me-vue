@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Input from './Input.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import debounce from '../helpers/debounce.ts';
 import throttle from '../helpers/throttle.ts';
 
@@ -35,24 +35,40 @@ const form = ref<Form>({
 })
 
 const sendForm = debounce(() => {
-  console.log(123)
+  if (!formHandler()) return;
+
+  console.log('All is ready')
 }, 1000);
 
-const formHandler = throttle(() => {
-  console.log(123123);
-}, 500);
+const formHandler = function (): boolean {
+  const fromValid = form.value.from.value.trim().length > 1;
+  const emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.value.email.value.trim());
+  const messageValid = form.value.message.value.trim().length > 100;
+
+  form.value.from.valid = fromValid;
+  form.value.email.valid = emailValid;
+  form.value.message.valid = messageValid;
+
+  if (fromValid && emailValid && messageValid) return true;
+
+  return false;
+};
+
+watch(form.value, () => {
+  formHandler();
+});
 </script>
 
 <template>
   <div class="contact-form">
-    <Input @input="formHandler" :modelValue="form.from.value" @update:modelValue="newValue => form.from.value = newValue"
-      class="contact-form__name" placeholder="Name" />
-    <Input @input="formHandler" :modelValue="form.email.value"
+    <Input :invalid="!form.from.valid" :modelValue="form.from.value"
+      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name" placeholder="Name" />
+    <Input :invalid="!form.email.valid" :modelValue="form.email.value"
       @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email" placeholder="E-mail" />
-    <Input @input="formHandler" :modelValue="form.message.value"
+    <Input :invalid="!form.message.valid" :modelValue="form.message.value"
       @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message" placeholder="Message"
       type="textarea" rows="4" />
-    <Input @click="sendForm" class="contact-form__send" type="button">Submit</Input>
+    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">Submit</Input>
   </div>
 </template>
 

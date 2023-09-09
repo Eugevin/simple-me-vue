@@ -1,15 +1,17 @@
 <script setup lang="ts">
-defineProps<{ type?: 'button' | 'textarea', modelValue?: any }>();
+defineProps<{ type?: 'button' | 'textarea', invalid?: boolean, modelValue?: any }>();
 const emit = defineEmits(['update:modelValue'])
+
 </script>
 
 <template>
-  <button v-if="type === 'button'">
+  <button v-if="type === 'button'" :class="`${invalid ? 'invalid' : ''}`">
     <slot />
   </button>
-  <textarea @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else-if="type === 'textarea'" name="" id=""
-    cols="30" rows="10"></textarea>
-  <input @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else type="text">
+  <textarea @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else-if="type === 'textarea'"
+    :class="`${invalid ? 'invalid' : ''}`"></textarea>
+  <input @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else type="text"
+    :class="`${invalid ? 'invalid' : ''}`">
 </template>
 
 <style scoped lang="scss">
@@ -44,6 +46,17 @@ button {
       height: 100%;
     }
   }
+
+  &.invalid {
+    cursor: not-allowed;
+
+    &::before {
+      height: 2px !important;
+      background: red;
+    }
+
+    color: var(--white) !important;
+  }
 }
 
 input,
@@ -67,6 +80,12 @@ textarea {
 
   &:focus {
     border-bottom: 2px solid var(--white);
+  }
+
+  &.invalid {
+    border-bottom: 2px solid red !important;
+
+    color: var(--white) !important;
   }
 }
 </style>
