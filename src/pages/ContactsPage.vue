@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Content from '../components/Content.vue';
-import ContactForm from '../components/ContactForm.vue';
+// import ContactForm from '../components/ContactForm.vue';
 
 interface Social {
   title: string,

@@ -7,9 +7,9 @@ const emit = defineEmits(['update:modelValue'])
   <button v-if="type === 'button'">
     <slot />
   </button>
-  <textarea @input="emit('update:modelValue', $event.target.value)" v-else-if="type === 'textarea'" name="" id=""
+  <textarea @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else-if="type === 'textarea'" name="" id=""
     cols="30" rows="10"></textarea>
-  <input @input="emit('update:modelValue', $event.target.value)" v-else type="text">
+  <input @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else type="text">
 </template>
 
 <style scoped lang="scss">
