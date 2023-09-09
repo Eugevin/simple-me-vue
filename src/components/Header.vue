@@ -37,6 +37,7 @@ const headerLinks = [
         <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ link.title }}</RouterLink>
         <img :src="link.image" alt="">
       </div>
+      <div class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</div>
     </div>
   </header>
 </template>
@@ -179,6 +180,15 @@ const headerLinks = [
           padding-top: 3.125rem;
         }
       }
+    }
+
+    &__copy {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      line-height: 1.5rem;
     }
 
     .header_active & {
