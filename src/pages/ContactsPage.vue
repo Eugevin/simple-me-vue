@@ -44,8 +44,9 @@ function openSocial(social: string) {
         <p>Russia, Nijny Novgorod</p>
         <h5>Email</h5>
         <p>eugene.vinokuroff@gmail.com</p>
+        <!--
         <h5>Get in Touch</h5>
-        <ContactForm />
+         WAIT BEFORE I WRITE BACKEND <ContactForm /> -->
         <h5>Check me here</h5>
         <ul>
           <h5 @click="openSocial(social.link)" :href="social.link" v-for="social in socials" :key="social.title">{{ social.title }}</h5>
