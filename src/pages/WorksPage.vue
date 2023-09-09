@@ -11,13 +11,13 @@ interface Work {
 
 const works: Array<Work> = [
   {
-    time: ['1.22', '06.23'],
+    time: ['01.22', '06.23'],
     title: 'Platinum LTD',
     description: `Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars Actually what i did/maked/created:<br><br>- 2 YEARS NDA*`,
     image: '/images/works-platinum.png'
   },
   {
-    time: ['01.21', '10.21  '],
+    time: ['06.21', '10.21  '],
     title: 'Travelask',
     description: `TravelAsk is a travel search engine. Searches and compares the best deals on tours, hotels and flights. Inspires new trips and gets content once. Actually what i did/maked/created:<br><br>- Development of new functionality.<br><br>- Bug fixing.<br><br>- Optimizing already written code and translating it to ES6+ standard EcmaScript.<br><br>- Rewriting some functionality written in Vue.js (as a library) into vanilla JavaScript according to OOP principles on classes.`,
     image: '/images/works-travelask.png'
