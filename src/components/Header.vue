@@ -62,7 +62,6 @@ const whiteTheme = inject('whiteTheme');
     right: 0;
     width: 6.25rem;
     height: 100%;
-    background: #00000050;
     border-left: 1px solid var(--gray-1);
 
     &__menu {
@@ -219,6 +218,10 @@ const whiteTheme = inject('whiteTheme');
         z-index: -1;
         opacity: 0;
         transition: var(--transition);
+
+        @include media-phone {
+          opacity: 1 !important;
+        }
       }
 
       &:hover {
@@ -246,7 +249,7 @@ const whiteTheme = inject('whiteTheme');
 
       @include media-phone {
         width: 100%;
-        bottom: 6.25rem;
+        bottom: 3rem;
       }
     }
 
@@ -258,7 +261,6 @@ const whiteTheme = inject('whiteTheme');
 
     @include media-phone {
       flex-direction: column;
-      padding-bottom: 6.25rem;
     }
   }
 }
