@@ -139,7 +139,7 @@ function makeSomeMagic(i: number, e: Event) {
   }
 
   .modal {
-    padding: 40rem 6.25rem;
+    padding: 5rem 6.25rem 0 62rem;
     z-index: 1;
     position: fixed;
     top: 0;

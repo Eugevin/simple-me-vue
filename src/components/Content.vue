@@ -17,16 +17,16 @@ defineProps<{ background?: string }>()
 .content {
   display: flex;
   justify-content: flex-end;
-  gap: 10rem;
+  gap: 16rem;
   padding: 4.375rem 0;
 
   &__heading {
-    flex: 0 0 20%;
+    flex: 0 0 25%;
     text-align: right;
   }
 
   &__body {
-    flex: 0 0 50%;
+    flex: 0 0 calc(50% - 6.25rem);
     margin-right: 6.25rem;
   }
 

@@ -36,7 +36,7 @@ main {
     left: 0;
     height: 100%;
     width: 1px;
-    left: 46.1%;
+    left: 50%;
     background: var(--gray-1);
   }
 }
