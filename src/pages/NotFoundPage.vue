@@ -3,9 +3,9 @@ import Content from '../components/Content.vue';
 </script>
 
 <template>
-  <div class="not-found">
-    <div class="not-found__inner">
-      <img src="/images/not-found-inner.gif" alt="index inner image">
+  <div class="simple not-found">
+    <div class="simple__inner">
+      <img src="/images/not-found-inner.gif" alt="not-found inner image">
     </div>
     <Content>
       <template v-slot:heading></template>
@@ -16,46 +16,3 @@ import Content from '../components/Content.vue';
     </Content>
   </div>
 </template>
-
-<style scoped lang="scss">
-@import "../styles/media";
-
-.not-found {
-  padding-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  &__inner {
-    margin: 0 auto;
-    max-width: 50%;
-    width: 100%;
-
-    img {
-      width: 100%;
-    }
-
-
-    @include media-phone {
-      max-width: 100%;
-    }
-  }
-
-  h1 {
-    margin-bottom: 1.5rem;
-
-    ~p {
-      max-width: 50rem;
-    }
-
-    .white-theme & {
-      color: var(--gray-1);
-    }
-  }
-
-
-  @include media-phone {
-    padding-top: 0;
-  }
-}
-</style>

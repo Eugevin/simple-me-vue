@@ -3,8 +3,8 @@ import Content from '../components/Content.vue';
 </script>
 
 <template>
-  <div class="index">
-    <div class="index__inner">
+  <div class="simple index">
+    <div class="simple__inner">
       <img src="/images/index-inner.gif" alt="index inner image">
     </div>
     <Content>
@@ -44,10 +44,10 @@ import Content from '../components/Content.vue';
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../styles/media";
 
-.index {
+.simple {
   padding-top: 5rem;
   display: flex;
   flex-direction: column;
