@@ -46,6 +46,8 @@ const whiteTheme = inject('whiteTheme');
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .header {
   transition: 1s ease;
 
@@ -60,6 +62,7 @@ const whiteTheme = inject('whiteTheme');
     right: 0;
     width: 6.25rem;
     height: 100%;
+    background: #00000050;
     border-left: 1px solid var(--gray-1);
 
     &__menu {
@@ -114,6 +117,10 @@ const whiteTheme = inject('whiteTheme');
           transform: translateY(0.5rem) rotate(70deg) !important;
         }
       }
+
+      @include media-phone {
+        width: 6.25rem;
+      }
     }
 
     &__change {
@@ -137,10 +144,23 @@ const whiteTheme = inject('whiteTheme');
           border: 2px solid var(--gray-1);
         }
       }
+
+      @include media-phone {
+        width: 6.25rem;
+      }
     }
 
     .header_active & {
       border-left: none;
+    }
+
+
+    @include media-phone {
+      top: initial;
+      bottom: 0;
+      height: 6.25rem;
+      width: 100%;
+      flex-direction: row-reverse;
     }
   }
 
@@ -210,6 +230,10 @@ const whiteTheme = inject('whiteTheme');
           padding-top: 3.125rem;
         }
       }
+
+      @include media-phone {
+        width: 100%;
+      }
     }
 
     &__copy {
@@ -219,12 +243,22 @@ const whiteTheme = inject('whiteTheme');
       transform: translateX(-50%);
       text-align: center;
       line-height: 1.5rem;
+
+      @include media-phone {
+        width: 100%;
+        bottom: 6.25rem;
+      }
     }
 
     .header_active & {
       background: #00000075;
       opacity: 1;
       visibility: visible;
+    }
+
+    @include media-phone {
+      flex-direction: column;
+      padding-bottom: 6.25rem;
     }
   }
 }
