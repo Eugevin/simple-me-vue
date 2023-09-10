@@ -39,6 +39,7 @@ const works: Array<Work> = [
 
 const selectedWork = ref<Work | null>(null);
 const selectedPage = ref<number>(0);
+const targetPrevPos: { x: string, y: string } = { x: '', y: '' };
 
 function makeSomeMagic(workTitle: string, e: Event) {
   /* 
@@ -53,20 +54,27 @@ function makeSomeMagic(workTitle: string, e: Event) {
   if (!target) return;
 
   if (selectedWork.value !== null) {
-    selectedWork.value = null;
-    target.removeAttribute('style');
-    parentEl!.removeAttribute('style');
-    return;
+    target.style.top = targetPrevPos.y;
+    target.style.left = targetPrevPos.x;
+
+    setTimeout(() => {
+      selectedWork.value = null;
+    });
+
+    return setTimeout(() => {
+      [target, parentEl, document.body].forEach(el => el.removeAttribute('style'));
+    }, 300);
   }
 
   const pos = target.getBoundingClientRect();
 
-  parentEl!.style.height = `${parentEl.offsetHeight}px`;
+  parentEl.style.height = `${parentEl.offsetHeight}px`;
 
   target.style.position = 'fixed';
-  target.style.top = `${pos.top}px`;
-  target.style.left = `${pos.left}px`;
+  target.style.top = targetPrevPos.y = `${pos.top}px`;
+  target.style.left = targetPrevPos.x = `${pos.left}px`;
 
+  document.body.style.overflowY = 'hidden';
 
   setTimeout(() => {
     const windowIsSmall = window.innerWidth <= 600;
