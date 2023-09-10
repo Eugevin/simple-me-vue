@@ -53,17 +53,17 @@ main {
     background: var(--gray-1);
     transition: var(--transition);
 
-    .white-theme & {
-      background: var(--gray-6);
-    }
-
     @include media-phone {
       content: none;
     }
   }
 
-  .white-theme & {
+  &.white-theme {
     background: var(--white);
+
+    &::after {
+      background: var(--gray-6);
+    }
   }
 }
 </style>
