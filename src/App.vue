@@ -16,6 +16,8 @@ provide('whiteTheme', whiteTheme);
 </template>
 
 <style scoped lang="scss">
+@import './styles/media';
+
 main {
   min-height: 100vh;
   width: 100%;
@@ -33,6 +35,10 @@ main {
     height: 100%;
     width: 43%;
     background: var(--gray-1);
+
+    @include media-phone {
+      content: none;
+    }
   }
 
   &::after {
@@ -49,6 +55,10 @@ main {
 
     .white-theme & {
       background: var(--gray-6);
+    }
+
+    @include media-phone {
+      content: none;
     }
   }
 

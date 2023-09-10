@@ -1,0 +1,17 @@
+@mixin media-fullhd {
+  @media screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin media-laptop {
+  @media screen and (max-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin media-phone {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}

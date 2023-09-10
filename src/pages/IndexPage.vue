@@ -45,6 +45,8 @@ import Content from '../components/Content.vue';
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .index {
   padding-top: 5rem;
   display: flex;
@@ -59,6 +61,10 @@ import Content from '../components/Content.vue';
     img {
       width: 100%;
     }
+
+    @include media-phone {
+      max-width: 100%;
+    }
   }
 
   h1 {
@@ -71,6 +77,10 @@ import Content from '../components/Content.vue';
     .white-theme & {
       color: var(--gray-1);
     }
+  }
+
+  @include media-phone {
+    padding-top: 0;
   }
 }
 </style>

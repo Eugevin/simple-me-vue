@@ -46,12 +46,14 @@ function makeSomeMagic(i: number, e: Event) {
   */
 
   const target = <HTMLElement>e.target;
+  const parentEl = target.parentElement;
 
   if (!target) return;
 
   if (selectedWork.value !== null) {
     selectedWork.value = null;
     target.removeAttribute('style');
+    parentEl!.removeAttribute('style');
     return;
   }
 
@@ -60,6 +62,8 @@ function makeSomeMagic(i: number, e: Event) {
   target.style.position = 'fixed';
   target.style.top = `${pos.top}px`;
   target.style.left = `${pos.left}px`;
+
+  parentEl!.style.height = `${pos.height + 5}px`;
 
   setTimeout(() => {
     target.style.top = `5rem`;
@@ -101,11 +105,12 @@ function makeSomeMagic(i: number, e: Event) {
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .works {
 
   .box {
     text-align: right;
-    height: 22rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -122,6 +127,10 @@ function makeSomeMagic(i: number, e: Event) {
         -webkit-box-orient: vertical;
         overflow: hidden;
         word-break: break-all;
+
+        @include media-phone {
+          text-align: left;
+        }
       }
     }
 
@@ -136,10 +145,15 @@ function makeSomeMagic(i: number, e: Event) {
     z-index: 2;
     cursor: pointer;
     transition: var(--transition);
+
+    @include media-phone {
+      height: initial;
+      width: 100%;
+    }
   }
 
   .modal {
-    padding: 5rem 6.25rem 0 62rem;
+    padding: 5rem 6.25rem 0 44rem;
     z-index: 1;
     position: fixed;
     top: 0;

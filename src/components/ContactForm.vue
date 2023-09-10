@@ -108,6 +108,8 @@ watchEffect(() => {
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .contact-form {
   position: relative;
   margin-bottom: 5rem;
@@ -118,6 +120,13 @@ watchEffect(() => {
   grid-template-areas: "name email null"
     "message message send";
   align-items: flex-end;
+
+  @include media-phone {
+    grid-template-areas: "name"
+    "email"
+    "message"
+    "send";
+  }
 
   &__name {
     grid-area: name;

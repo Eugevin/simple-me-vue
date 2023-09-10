@@ -14,6 +14,8 @@ defineProps<{ background?: string }>()
 </template>
 
 <style scoped lang="scss">
+@import '../styles/media';
+
 .content {
   display: flex;
   justify-content: flex-end;
@@ -28,13 +30,15 @@ defineProps<{ background?: string }>()
   &__body {
     flex: 0 0 calc(50% - 6.25rem);
     margin-right: 6.25rem;
+
+    @include media-phone {
+      margin-right: 0;
+    }
   }
 
   &_inner {
-    margin-bottom: 6.25rem;
     align-items: flex-end;
-    height: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background: var(--blue) no-repeat center / cover;
     background-image: var(--bg);
     position: relative;
@@ -50,6 +54,19 @@ defineProps<{ background?: string }>()
       background: #00000025;
       z-index: -1;
     }
+
+    @include media-fullhd {
+      width: 100vw;
+      max-width: 177.78vh;
+      height: 56.25vw;
+      max-height: 100vh;
+    }
+  }
+
+  @include media-phone {
+    flex-direction: column;
+    padding: 1.375rem;
+    gap: 3rem;
   }
 }
 </style>
