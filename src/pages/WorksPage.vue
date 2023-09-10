@@ -63,7 +63,7 @@ function makeSomeMagic(workTitle: string, e: Event) {
 
     return setTimeout(() => {
       [target, parentEl, document.body].forEach(el => el.removeAttribute('style'));
-    }, 300);
+    }, 200);
   }
 
   const pos = target.getBoundingClientRect();
