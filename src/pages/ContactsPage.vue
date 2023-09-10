@@ -57,7 +57,17 @@ function openSocial(social: string) {
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .contacts {
+  h2 {
+    .white-theme & {
+      @include media-phone {
+        color: var(--gray-1);
+      }
+    }
+  }
+
   h5 {
     margin-bottom: 1.5rem;
 

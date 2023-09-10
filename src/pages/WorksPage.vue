@@ -158,6 +158,12 @@ function makeSomeMagic(workTitle: string, e: Event) {
           text-align: left;
         }
       }
+
+      .white-theme & {
+        @include media-phone {
+          color: var(--gray-1);
+        }
+      }
     }
 
     &_hidden {
@@ -197,6 +203,10 @@ function makeSomeMagic(workTitle: string, e: Event) {
       overflow: auto;
       display: block;
       text-align: left;
+
+      h3 {
+        color: var(--white);
+      }
 
       p {
         max-width: 50rem;
