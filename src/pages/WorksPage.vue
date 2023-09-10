@@ -66,8 +66,15 @@ function makeSomeMagic(i: number, e: Event) {
   parentEl!.style.height = `${pos.height + 5}px`;
 
   setTimeout(() => {
-    target.style.top = `5rem`;
-    target.style.left = `6.25rem`;
+    const windowIsSmall = window.innerWidth <= 600;
+
+    if (windowIsSmall) {
+      target.style.top = `0`;
+      target.style.left = `0`;
+    } else {
+      target.style.top = `5rem`;
+      target.style.left = `6.25rem`;
+    }
 
     selectedWork.value = i;
   });
@@ -180,6 +187,10 @@ function makeSomeMagic(i: number, e: Event) {
     &_active {
       opacity: 1;
       visibility: visible;
+    }
+
+    @include media-phone {
+      padding: 19rem 1.375rem 6.25rem;
     }
   }
 }
