@@ -12,9 +12,15 @@ interface Work {
 
 const works: Array<Work> = [
   {
+    time: ['07.23', 'nowadays'],
+    title: 'Program Product',
+    description: `Russian software developer for the public and private sectors. Development of mobile and web applications, as well as information systems. Actually what i did/maked/created:<br><br>- Working with Vue3, VueRouter and VueX.<br><br>- Bug fixing and writing new functionality`,
+    image: '/images/works-pp.png'
+  },
+  {
     time: ['01.22', '06.23'],
     title: 'Platinum LTD',
-    description: `Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars Actually what i did/maked/created:<br><br>- 2 YEARS NDA*`,
+    description: `Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech starsю Actually what i did/maked/created:<br><br>- 2 YEARS NDA*`,
     image: '/images/works-platinum.png'
   },
   {
