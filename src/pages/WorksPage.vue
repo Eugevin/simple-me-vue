@@ -46,7 +46,7 @@ function makeSomeMagic(i: number, e: Event) {
   */
 
   const target = <HTMLElement>e.target;
-  const parentEl = target.parentElement;
+  const parentEl = <HTMLElement>target.closest('.content');
 
   if (!target) return;
 
@@ -59,11 +59,12 @@ function makeSomeMagic(i: number, e: Event) {
 
   const pos = target.getBoundingClientRect();
 
+  parentEl!.style.height = `${parentEl.offsetHeight}px`;
+
   target.style.position = 'fixed';
   target.style.top = `${pos.top}px`;
   target.style.left = `${pos.left}px`;
 
-  parentEl!.style.height = `${pos.height + 5}px`;
 
   setTimeout(() => {
     const windowIsSmall = window.innerWidth <= 600;
