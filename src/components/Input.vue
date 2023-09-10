@@ -5,7 +5,7 @@ const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
-  <button v-if="type === 'button'" :class="`${invalid ? 'invalid' : ''}`">
+  <button v-if="type === 'button'">
     <slot />
   </button>
   <textarea @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else-if="type === 'textarea'"
@@ -37,25 +37,26 @@ button {
     width: 100%;
     background: var(--white);
     transition: inherit;
+
+    .white-theme & {
+      background: var(--gray-1);
+    }
   }
 
   &:hover {
     color: var(--black);
+
+    .white-theme & {
+      color: var(--white);
+    }
 
     &::before {
       height: 100%;
     }
   }
 
-  &.invalid {
-    cursor: not-allowed;
-
-    &::before {
-      height: 2px !important;
-      background: red;
-    }
-
-    color: var(--white) !important;
+  .white-theme & {
+    color: var(--gray-1);
   }
 }
 
@@ -80,12 +81,18 @@ textarea {
 
   &:focus {
     border-bottom: 2px solid var(--white);
+
+    .white-theme & {
+      border-bottom: 2px solid var(--gray-1);
+    }
   }
 
   &.invalid {
     border-bottom: 2px solid red !important;
+  }
 
-    color: var(--white) !important;
+  .white-theme & {
+    color: var(--gray-1);
   }
 }
 </style>

@@ -146,6 +146,7 @@ function makeSomeMagic(i: number, e: Event) {
     left: 0;
     height: 100%;
     width: 100%;
+    background: #00000090;
     backdrop-filter: blur(1rem);
     opacity: 0;
     visibility: hidden;

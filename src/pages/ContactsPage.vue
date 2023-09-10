@@ -61,6 +61,10 @@ function openSocial(social: string) {
   h5 {
     margin-bottom: 1.5rem;
 
+    .white-theme & {
+      color: var(--gray-1);
+    }
+
     +p {
       margin-bottom: 5rem;
     }

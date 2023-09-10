@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 
 const headerActive = ref<boolean>(false);
 
@@ -19,7 +19,9 @@ const headerLinks = [
     title: 'Contacts',
     image: '/images/header-contacts.jpg',
   },
-]
+];
+
+const whiteTheme = inject('whiteTheme');
 </script>
 
 <template>
@@ -30,14 +32,15 @@ const headerLinks = [
         <span></span>
         <span></span>
       </div>
-      <div class="header__visible__change"></div>
+      <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
     </div>
     <div class="header__body">
       <div class="header__body__item" v-for="link in headerLinks" :key="link.to">
         <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ link.title }}</RouterLink>
         <img :src="link.image" alt="">
       </div>
-      <p class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</p>
+      <p class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images
+        on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</p>
     </div>
   </header>
 </template>
@@ -47,6 +50,10 @@ const headerLinks = [
   transition: 1s ease;
 
   &__visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     z-index: 99;
     position: fixed;
     top: 0;
@@ -71,6 +78,10 @@ const headerLinks = [
         height: 0.125rem;
         background: var(--white);
         transition: inherit;
+
+        .white-theme & {
+          background: var(--gray-1);
+        }
 
         &:nth-of-type(2) {
           width: 1rem;
@@ -106,7 +117,26 @@ const headerLinks = [
     }
 
     &__change {
-      left: 0;
+      position: relative;
+      height: 6.25rem;
+      width: 100%;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 100%;
+        border: 2px solid var(--white);
+
+        .white-theme & {
+          border: 2px solid var(--gray-1);
+        }
+      }
     }
 
     .header_active & {

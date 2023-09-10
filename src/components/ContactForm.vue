@@ -143,7 +143,7 @@ watchEffect(() => {
     align-items: center;
     content: var(--message);
     font-family: "Poppins", sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     position: absolute;
     top: 0;
     left: 0;
