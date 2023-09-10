@@ -37,7 +37,7 @@ const headerLinks = [
         <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ link.title }}</RouterLink>
         <img :src="link.image" alt="">
       </div>
-      <div class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</div>
+      <p class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</p>
     </div>
   </header>
 </template>
