@@ -10,7 +10,7 @@ import Content from '../components/Content.vue';
     <Content>
       <template v-slot:heading></template>
       <template v-slot:body>
-        <p style="color: var(--gray-5)">Frontend dev with more than 4 years experience in Vue.</p>
+        <p>Frontend dev with more than 4 years experience in Vue.</p>
         <h1>Hi, my name's Eugene</h1>
         <p>
           I started to be interested in computers and technology at the age of 7 when I first got into a computer store
