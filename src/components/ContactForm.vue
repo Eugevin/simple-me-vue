@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Input from './Input.vue';
-import { ref, watch } from 'vue';
+import { ref, watchEffect } from 'vue';
 import debounce from '../helpers/debounce.ts';
 
 interface Form {
@@ -36,7 +36,7 @@ const form = ref<Form>({
 const formSended = ref<string>('');
 
 const sendForm = debounce(async () => {
-  if (!formHandler()) return;
+  if (!formHandler('all')) return;
 
   try {
     const cfg = {
@@ -59,21 +59,39 @@ const sendForm = debounce(async () => {
   }
 }, 700);
 
-const formHandler = function (): boolean {
+const formHandler = function (target: string): boolean {
   const fromValid = form.value.from.value.trim().length > 1;
   const emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.value.email.value.trim());
   const messageValid = form.value.message.value.trim().length > 100;
 
-  form.value.from.valid = fromValid;
-  form.value.email.valid = emailValid;
-  form.value.message.valid = messageValid;
+  if (target === 'from' || target === 'all') {
+    form.value.from.valid = fromValid;
+  }
+
+  if (target === 'email' || target === 'all') {
+    form.value.email.valid = emailValid;
+  }
+
+  if (target === 'message' || target === 'all') {
+    form.value.message.valid = messageValid;
+  }
 
   return fromValid && emailValid && messageValid;
 };
 
-watch(form.value, () => {
-  formHandler();
-});
+watchEffect(() => {
+  if (form.value.from.value) {
+    formHandler('from');
+  }
+
+  if (form.value.email.value) {
+    formHandler('email');
+  }
+
+  if (form.value.message.value) {
+    formHandler('message');
+  }
+})
 </script>
 
 <template>
@@ -145,6 +163,7 @@ watch(form.value, () => {
       opacity: 0;
       visibility: hidden;
     }
+
     to {
       opacity: 1;
       visibility: visible;
