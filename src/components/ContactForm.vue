@@ -50,8 +50,8 @@ const sendForm = debounce(async () => {
     const request = await fetch('/api/message', cfg);
     const data = await request.json();
 
-    if (request.ok && data.status === 'success') {
-      formSended.value = "\"❤️ Thanks for your message ❤️\""
+    if (request.ok && data.message) {
+      formSended.value = `\"${data.message}\"`;
     };
   } catch (e) {
     formSended.value = "\"😢 Something did goes wrong, please, try again later 😢\"";
