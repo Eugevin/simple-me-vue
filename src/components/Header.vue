@@ -39,8 +39,6 @@ const whiteTheme = inject('whiteTheme');
         <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ link.title }}</RouterLink>
         <img :src="link.image" alt="">
       </div>
-      <p class="header__body__copy">Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.<br>All images
-        on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).</p>
     </div>
   </header>
 </template>
@@ -236,20 +234,6 @@ const whiteTheme = inject('whiteTheme');
 
       @include media-phone {
         width: 100%;
-      }
-    }
-
-    &__copy {
-      position: fixed;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      line-height: 1.5rem;
-
-      @include media-phone {
-        width: 100%;
-        bottom: 3rem;
       }
     }
 

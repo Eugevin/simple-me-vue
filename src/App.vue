@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { provide, ref } from 'vue';
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 const whiteTheme = ref<boolean>(false);
 provide('whiteTheme', whiteTheme);
 </script>
 
 <template>
-  <div :class="whiteTheme ? 'white-theme' : ''">
+  <main :class="whiteTheme ? 'white-theme' : ''">
     <Header />
-    <main>
-      <RouterView />
-    </main>
-  </div>
+    <RouterView />
+    <Footer />
+  </main>
 </template>
 
 <style scoped lang="scss">
