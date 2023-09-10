@@ -174,6 +174,8 @@ function makeSomeMagic(i: number, e: Event) {
     transition: var(--transition);
 
     .box {
+      height: 100%;
+      overflow: auto;
       display: block;
       text-align: left;
 
