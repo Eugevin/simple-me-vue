@@ -41,7 +41,11 @@ const sendForm = debounce(async () => {
   try {
     const cfg = {
       method: 'POST',
-      body: JSON.stringify(form.value),
+      body: JSON.stringify({
+        from: form.value.from.value,
+        email: form.value.email.value,
+        message: form.value.message.value,
+      }),
       headers: {
         'Content-Type': 'application/json'
       }
