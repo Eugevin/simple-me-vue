@@ -105,7 +105,7 @@ function makeSomeMagic(i: number, e: Event) {
 
   .box {
     text-align: right;
-    height: 35rem;
+    height: 22rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -132,7 +132,7 @@ function makeSomeMagic(i: number, e: Event) {
   }
 
   img {
-    height: 30rem;
+    height: 20rem;
     z-index: 2;
     cursor: pointer;
     transition: var(--transition);
