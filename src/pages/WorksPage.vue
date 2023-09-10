@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Content from '../components/Content.vue';
+import Pagination from '../components/Pagination.vue';
 
 interface Work {
   time: [string, string],
@@ -36,9 +37,10 @@ const works: Array<Work> = [
   },
 ];
 
-const selectedWork = ref<number | null>(null);
+const selectedWork = ref<Work | null>(null);
+const selectedPage = ref<number>(0);
 
-function makeSomeMagic(i: number, e: Event) {
+function makeSomeMagic(workTitle: string, e: Event) {
   /* 
     sooo, you really call this function 'makesomemagic'? wtf is wrong with you?! bruh, you very dissapointment me... 
     i mean, very - it's not like 'veryyy' or 'very, man', i mean its HUGE, bruh, you get it? why you reading this, get you some cup of tea or anywant you need right now and be happy, brother 😘.
@@ -77,7 +79,9 @@ function makeSomeMagic(i: number, e: Event) {
       target.style.left = `6.25rem`;
     }
 
-    selectedWork.value = i;
+    const currentWork = works.find(item => item.title === workTitle);
+
+    if (currentWork) selectedWork.value = currentWork;
   });
 }
 </script>
@@ -90,23 +94,29 @@ function makeSomeMagic(i: number, e: Event) {
         <h1>Let's<br>See my works</h1>
       </template>
     </Content>
-    <Content v-for="work, i in works" :key="work.title">
+    <Content v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title">
       <template v-slot:heading>
-        <div :class="`box ${i === selectedWork ? 'box_hidden' : ''}`">
+        <div :class="`box ${selectedWork && work.title === selectedWork.title ? 'box_hidden' : ''}`">
           <p>{{ work.time[0] }} - {{ work.time[1] }}</p>
           <h3>{{ work.title }}</h3>
           <p v-html="work.description"></p>
         </div>
       </template>
       <template v-slot:body>
-        <img @click="makeSomeMagic(i, $event)" :src="work.image" alt="work personal image">
+        <img @click="makeSomeMagic(work.title, $event)" :src="work.image" alt="work personal image">
       </template>
     </Content>
-    <div :class="`modal ${selectedWork !== null ? 'modal_active' : ''}`">
+    <Content>
+      <template v-slot:body>
+        <Pagination :items="Math.ceil(works.length / 3)" :selected="selectedPage"
+          @update="newValue => selectedPage = newValue" />
+      </template>
+    </Content>
+    <div :class="`modal ${selectedWork && selectedWork.title !== null ? 'modal_active' : ''}`">
       <div v-if="selectedWork !== null" class="box">
-        <p>{{ works[selectedWork].time[0] }} - {{ works[selectedWork].time[1] }}</p>
-        <h3>{{ works[selectedWork].title }}</h3>
-        <p v-html="works[selectedWork].description"></p>
+        <p>{{ selectedWork.time[0] }} - {{ selectedWork.time[1] }}</p>
+        <h3>{{ selectedWork.title }}</h3>
+        <p v-html="selectedWork.description"></p>
       </div>
     </div>
   </div>
