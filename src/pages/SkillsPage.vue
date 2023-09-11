@@ -64,6 +64,8 @@ const techs: Array<Tech> = [
 </template>
 
 <style scoped lang="scss">
+@import "../styles/media";
+
 .skills {
 
   .grid {
@@ -104,6 +106,12 @@ const techs: Array<Tech> = [
 
     h4 {
       color: var(--gray-1);
+    }
+
+    @include media-phone {
+      .content:not(.content_inner) h2 {
+        color: var(--gray-1);
+      }
     }
   }
 }
