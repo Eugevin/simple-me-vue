@@ -10,6 +10,11 @@ const headerLinks = [
     image: '/images/header-home.jpg',
   },
   {
+    to: '/skills',
+    title: 'Skills',
+    image: '/images/header-skills.jpg',
+  },
+  {
     to: '/works',
     title: 'Projects',
     image: '/images/header-works.jpg',
@@ -61,6 +66,7 @@ const whiteTheme = inject('whiteTheme');
     width: 6.25rem;
     height: 100%;
     border-left: 1px solid var(--gray-1);
+    transition: var(--transition);
 
     &__menu {
       cursor: pointer;
@@ -159,6 +165,10 @@ const whiteTheme = inject('whiteTheme');
       width: 100%;
       flex-direction: row-reverse;
     }
+
+    .white-theme & {
+      border-left: 1px solid var(--gray-6);
+    }
   }
 
   &__body {
@@ -183,7 +193,7 @@ const whiteTheme = inject('whiteTheme');
       display: flex;
       justify-content: center;
       align-items: center;
-      flex: 0 0 calc(100% / 3);
+      flex: 0 0 calc(100% / 4);
 
       a {
         font-family: "Poppins", sans-serif;
