@@ -3,7 +3,7 @@ import SkillsPage from './pages/SkillsPage.vue';
 import WorksPage from './pages/WorksPage.vue';
 import ContactsPage from './pages/ContactsPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   { path: '/', component: IndexPage },
@@ -14,7 +14,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
