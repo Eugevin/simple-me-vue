@@ -38,7 +38,8 @@ defineProps<{ background?: string }>()
 
   &_inner {
     align-items: flex-end;
-    height: 100vh;
+    width: 100%;
+    height: calc(100vw * 0.563);
     background: var(--blue) no-repeat center / cover;
     background-image: var(--bg);
     position: relative;
@@ -53,13 +54,6 @@ defineProps<{ background?: string }>()
       width: 100%;
       background: #00000025;
       z-index: -1;
-    }
-
-    @include media-fullhd {
-      width: 100vw;
-      max-width: 177.78vh;
-      height: 56.25vw;
-      max-height: 100vh;
     }
   }
 
