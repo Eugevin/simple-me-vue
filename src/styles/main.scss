@@ -114,3 +114,45 @@ p {
     margin-top: 1rem;
   }
 }
+
+.simple {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 50%;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+
+    @include media-phone {
+      max-width: 100%;
+    }
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+
+    ~p {
+      max-width: 50rem;
+    }
+
+    .white-theme & {
+      color: var(--gray-1);
+    }
+  }
+
+  @include media-phone {
+    padding-top: 0;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 1rem;
+}
