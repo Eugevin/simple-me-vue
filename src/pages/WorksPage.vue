@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import Content from '../components/Content.vue';
 import Pagination from '../components/Pagination.vue';
+import Work from '../components/Work.vue';
 
 interface Work {
   time: [string, string],
@@ -43,61 +44,7 @@ const works: Array<Work> = [
   },
 ];
 
-const selectedWork = ref<Work | null>(null);
 const selectedPage = ref<number>(0);
-const targetPrevPos: { x: string, y: string } = { x: '', y: '' };
-
-function makeSomeMagic(workTitle: string, e: Event) {
-  /* 
-    sooo, you really call this function 'makesomemagic'? wtf is wrong with you?! bruh, you very dissapointment me... 
-    i mean, very - it's not like 'veryyy' or 'very, man', i mean its HUGE, bruh, you get it? why you reading this, get you some cup of tea or anywant you need right now and be happy, brother 😘.
-    IT IS VERY BAD FUNCTION, NEED IN REFACTOR
-  */
-
-  const target = <HTMLElement>e.target;
-  const parentEl = <HTMLElement>target.closest('.content');
-
-  if (!target) return;
-
-  if (selectedWork.value !== null) {
-    target.style.top = targetPrevPos.y;
-    target.style.left = targetPrevPos.x;
-
-    setTimeout(() => {
-      selectedWork.value = null;
-    });
-
-    return setTimeout(() => {
-      [target, parentEl, document.body].forEach(el => el.removeAttribute('style'));
-    }, 200);
-  }
-
-  const pos = target.getBoundingClientRect();
-
-  parentEl.style.height = `${parentEl.offsetHeight}px`;
-
-  target.style.position = 'fixed';
-  target.style.top = targetPrevPos.y = `${pos.top}px`;
-  target.style.left = targetPrevPos.x = `${pos.left}px`;
-
-  document.body.style.overflowY = 'hidden';
-
-  setTimeout(() => {
-    const windowIsSmall = window.innerWidth <= 600;
-
-    if (windowIsSmall) {
-      target.style.top = `0`;
-      target.style.left = `0`;
-    } else {
-      target.style.top = `5rem`;
-      target.style.left = `6.25rem`;
-    }
-
-    const currentWork = works.find(item => item.title === workTitle);
-
-    if (currentWork) selectedWork.value = currentWork;
-  });
-}
 </script>
 
 <template>
@@ -108,127 +55,13 @@ function makeSomeMagic(workTitle: string, e: Event) {
         <h1>Let's<br>See my works</h1>
       </template>
     </Content>
-    <Content v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title">
-      <template v-slot:heading>
-        <div :class="`box ${selectedWork && work.title === selectedWork.title ? 'box_hidden' : ''}`">
-          <p>{{ work.time[0] }} - {{ work.time[1] }}</p>
-          <h3>{{ work.title }}</h3>
-          <p v-html="work.description"></p>
-        </div>
-      </template>
-      <template v-slot:body>
-        <img @click="makeSomeMagic(work.title, $event)" :src="work.image" alt="work personal image">
-      </template>
-    </Content>
+    <Work v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title" :data="work"
+      :hidden="false" />
     <Content>
       <template v-slot:body>
         <Pagination :items="Math.ceil(works.length / 3)" :selected="selectedPage"
           @update="newValue => selectedPage = newValue" />
       </template>
     </Content>
-    <div :class="`modal ${selectedWork && selectedWork.title !== null ? 'modal_active' : ''}`">
-      <div v-if="selectedWork !== null" class="box">
-        <p>{{ selectedWork.time[0] }} - {{ selectedWork.time[1] }}</p>
-        <h3>{{ selectedWork.title }}</h3>
-        <p v-html="selectedWork.description"></p>
-      </div>
-    </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-@import "../styles/media";
-
-.works {
-
-  .box {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    opacity: 1;
-    visibility: visible;
-    transition: var(--transition);
-
-    h3 {
-      margin: 2.5rem 0 1rem;
-
-      +p {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        word-break: break-all;
-
-        @include media-phone {
-          text-align: left;
-        }
-      }
-
-      .white-theme & {
-        @include media-phone {
-          color: var(--gray-1);
-        }
-      }
-    }
-
-    &_hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
-  img {
-    height: 20rem;
-    z-index: 2;
-    cursor: pointer;
-    transition: var(--transition);
-
-    @include media-phone {
-      height: initial;
-      width: 100%;
-    }
-  }
-
-  .modal {
-    padding: 5rem 6.25rem 0 44rem;
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: #00000090;
-    backdrop-filter: blur(1rem);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-
-    .box {
-      height: 100%;
-      overflow: auto;
-      display: block;
-      text-align: left;
-
-      h3 {
-        color: var(--white);
-      }
-
-      p {
-        max-width: 50rem;
-        -webkit-line-clamp: initial;
-        word-break: initial;
-      }
-    }
-
-    &_active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    @include media-phone {
-      padding: 19rem 1.375rem 6.25rem;
-    }
-  }
-}
-</style>
