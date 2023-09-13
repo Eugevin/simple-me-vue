@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, onMounted, reactive, ref } from 'vue';
+import { inject, reactive, ref } from 'vue';
 import Content from './Content.vue';
 import Modal from './Modal.vue';
 import wait from '../helpers/wait.ts';
@@ -54,6 +54,8 @@ async function modalHandler() {
     return;
   };
 
+  positions.root.height = `${rootEl.value.offsetHeight}px`;
+
   const imageBounding = imageEl.value.getBoundingClientRect();
 
   positions.image.initial.left = positions.image.left = `${imageBounding.left}px`;
@@ -70,10 +72,6 @@ async function modalHandler() {
 
   modalIsActive.value = true;
 }
-
-onMounted(() => {
-  positions.root.height = `${rootEl.value.offsetHeight}px`;
-});
 </script>
 
 <template>
