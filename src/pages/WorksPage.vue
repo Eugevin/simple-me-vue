@@ -55,8 +55,7 @@ const selectedPage = ref<number>(0);
         <h1>Let's<br>See my works</h1>
       </template>
     </Content>
-    <Work v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title" :data="work"
-      :hidden="false" />
+    <Work v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title" :data="work" />
     <Content>
       <template v-slot:body>
         <Pagination :items="Math.ceil(works.length / 3)" :selected="selectedPage"

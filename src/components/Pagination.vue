@@ -7,7 +7,7 @@ defineEmits(['update']);
   <div class="pagination">
     <h5 :class="`pagination__item ${i === selected ? 'pagination__item_active' : ''}`" v-for="item, i in items"
       :key="item" @click="$emit('update', i)">
-      {{ i + 1 }}
+      {{ `${i < 10 ? '0' : ''}${i + 1}` }}
     </h5>
   </div>
 </template>
