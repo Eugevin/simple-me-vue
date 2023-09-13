@@ -87,7 +87,7 @@ onMounted(() => {
       </template>
       <template v-slot:body>
         <img ref="imageEl"
-          :style="{ position: positions.image.position, left: positions.image.left, top: positions.image.top }"
+          :style="{ position: positions.image.position ? 'fixed' : 'static', left: positions.image.left, top: positions.image.top }"
           @click="modalHandler()" :src="data.image" alt="work personal image">
       </template>
     </Content>
