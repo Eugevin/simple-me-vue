@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import { provide, ref } from 'vue';
+import { provide, ref, watchEffect } from 'vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
 const whiteTheme = ref<boolean>(false);
 provide('whiteTheme', whiteTheme);
+
+const overflowHidden = ref<boolean>(false);
+provide('overflowHidden', overflowHidden);
+
+watchEffect(() => {
+  if (overflowHidden) {
+    document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial';
+  }
+})
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue';
+import { inject, onMounted, reactive, ref } from 'vue';
 import Content from './Content.vue';
 import Modal from './Modal.vue';
 import wait from '../helpers/wait.ts';
@@ -12,6 +12,8 @@ defineProps<{
     image: string,
   }
 }>()
+
+const overflowHidden = inject('overflowHidden') as { value: boolean };
 
 const rootEl: any = ref(null);
 const imageEl: any = ref(null);
@@ -35,6 +37,8 @@ const positions = reactive({
 const modalIsActive = ref<boolean>(false);
 
 async function modalHandler() {
+  overflowHidden.value = !modalIsActive.value;
+
   if (modalIsActive.value) {
     positions.image.left = positions.image.initial.left;
     positions.image.top = positions.image.initial.top;
@@ -47,7 +51,6 @@ async function modalHandler() {
     positions.image.left = '';
     positions.image.top = '';
 
-    document.body.style.overflowY = 'initial';
     return;
   };
 
@@ -55,8 +58,6 @@ async function modalHandler() {
 
   positions.image.initial.left = positions.image.left = `${imageBounding.left}px`;
   positions.image.initial.top = positions.image.top = `${imageBounding.top}px`;
-
-  document.body.style.overflowY = 'hidden';
 
   await wait(1);
 
