@@ -67,8 +67,8 @@ async function modalHandler() {
 
   const windowIsSmall = window.innerWidth <= 600;
 
-  positions.image.left = windowIsSmall ? '0' : '6.25rem';
-  positions.image.top = windowIsSmall ? '0' : '5rem';
+  positions.image.left = windowIsSmall ? '1.375rem' : '6.25rem';
+  positions.image.top = windowIsSmall ? '1.375rem' : '5rem';
 
   modalIsActive.value = true;
 }
@@ -168,7 +168,7 @@ async function modalHandler() {
 
     @include media-phone {
       height: initial;
-      width: 100%;
+      width: calc(100vw - 1.375rem * 2);
     }
   }
 }
