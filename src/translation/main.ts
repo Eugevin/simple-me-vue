@@ -197,6 +197,16 @@ export default {
           ru: 'Отправить'
         },
       }
+    },
+    empty: {
+      heading: {
+        en: 'The page you are looking is a myth.',
+        ru: 'Страница, которую ты искал - это миф.'
+      },
+      title: {
+        en: 'It seems you are lost',
+        ru: 'Похоже, ты потерялся'
+      }
     }
   },
   footer: {

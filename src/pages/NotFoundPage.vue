@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { inject } from 'vue';
 import Content from '../components/Content.vue';
+import translation from '../translation/main.ts';
+
+const language = inject('language') as 'ru' | 'en';
 </script>
 
 <template>
@@ -10,8 +14,8 @@ import Content from '../components/Content.vue';
     <Content>
       <template v-slot:heading></template>
       <template v-slot:body>
-        <p>The page you are looking is a myth.</p>
-        <h1>It seems you are lost</h1>
+        <p>{{ translation.pages.empty.heading[language] }}</p>
+        <h1>{{ translation.pages.empty.title[language] }}</h1>
       </template>
     </Content>
   </div>
