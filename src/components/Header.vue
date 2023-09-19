@@ -76,6 +76,7 @@ const headerLinks: Array<Link> = [
     width: 6.25rem;
     height: 100%;
     border-left: 1px solid var(--gray-1);
+    will-change: border-left;
     transition: var(--transition);
 
     &__menu {
@@ -190,7 +191,7 @@ const headerLinks: Array<Link> = [
     }
 
     .header_active & {
-      border-left: none;
+      border-left: 1px solid transparent !important;
     }
 
 
