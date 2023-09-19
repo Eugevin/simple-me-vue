@@ -141,23 +141,6 @@ async function modalHandler() {
       opacity: 0;
       visibility: hidden;
     }
-
-    &_modal {
-      height: 100%;
-      overflow: auto;
-      display: block;
-      text-align: left;
-
-      h3 {
-        color: var(--white);
-      }
-
-      p {
-        max-width: 50rem;
-        -webkit-line-clamp: initial;
-        word-break: initial;
-      }
-    }
   }
 
   img {
@@ -170,6 +153,23 @@ async function modalHandler() {
       height: initial;
       width: calc(100vw - 1.375rem * 2);
     }
+  }
+}
+
+.box_modal {
+  height: 100%;
+  overflow: auto;
+  display: block;
+  text-align: left;
+
+  h3 {
+    color: var(--white);
+  }
+
+  p {
+    max-width: 50rem;
+    -webkit-line-clamp: initial;
+    word-break: initial;
   }
 }
 
