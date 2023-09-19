@@ -151,6 +151,7 @@ const headerLinks: Array<Link> = [
       will-change: transform;
       transition: var(--transition);
       color: var(--white);
+      user-select: none;
 
       &:hover {
         transform: scale(1.2) rotate(10deg);
