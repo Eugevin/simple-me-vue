@@ -52,15 +52,15 @@ export default {
         ru: 'Маленькое описание технологий, с которыми я когда-либо работал или имел дело и имею достаточно полное представление о том, how it works:'
       },
       techs: {
-        typescript: {
+        'TypeScript': {
           en: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
           ru: 'TypeScript — это строго типизированный язык программирования, основанный на JavaScript, предоставляющий вам лучшие инструменты в любом масштабе.'
         },
-        javascript: {
+        'Javascript ES6+': {
           en: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
           ru: 'JavaScript — это мультипарадигмальный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Это реализация спецификации ECMAScript. JavaScript обычно используется в качестве встроенного языка для программного доступа к объектам приложения.'
         },
-        vue3: {
+        'Vue 3.0': {
           en: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
           ru: 'Vue.js — это JavaScript-фреймворк с открытым исходным кодом для создания пользовательских интерфейсов. Легко интегрируется в проекты, использующие другие библиотеки JavaScript. Может функционировать как веб-фреймворк для разработки одностраничных приложений в реактивном стиле.'
         },

@@ -4,24 +4,24 @@ import Content from '../components/Content.vue';
 import translation from '../translation/main.ts';
 
 interface Tech {
-  title: 'typescript' | 'javascript' | 'vue3' | 'HTML & CSS' | '_more'
+  title: 'TypeScript' | 'Javascript ES6+' | 'Vue 3.0' | 'HTML & CSS' | '_more'
   description: string
   image: string
 }
 
 const techs: Array<Tech> = [
   {
-    title: 'typescript',
+    title: 'TypeScript',
     description: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
     image: '/images/skills-ts.png'
   },
   {
-    title: 'javascript',
+    title: 'Javascript ES6+',
     description: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
     image: '/images/skills-js.png'
   },
   {
-    title: 'vue3',
+    title: 'Vue 3.0',
     description: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
     image: '/images/skills-vue.png'
   },
