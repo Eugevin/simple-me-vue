@@ -45,7 +45,7 @@ const headerLinks: Array<Link> = [
         <span></span>
       </div>
       <p class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'" @click="language = language === 'en' ? 'ru' : 'en'">
-        {{ language }}</p>
+        {{ language }}<sup v-if="language === 'ru'" style="font-size: 0.4em">beta</sup></p>
       <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
     </div>
     <div class="header__body">
