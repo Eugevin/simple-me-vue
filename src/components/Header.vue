@@ -185,9 +185,22 @@ const headerLinks: Array<Link> = [
         width: 1rem;
         border-radius: 100%;
         border: 2px solid var(--white);
+        background: transparent;
+        will-change: background;
+        transition: var(--transition);
 
         .white-theme & {
           border: 2px solid var(--gray-1);
+        }
+      }
+
+      &:hover {
+        &::before {
+          background: var(--white);
+
+          .white-theme & {
+            background: var(--gray-1);
+          }
         }
       }
 
