@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import { inject } from 'vue';
+import translation from '../translation/main.ts';
+
+const language = inject('language') as 'ru' | 'en';
 </script>
 
 <template>
   <footer class="footer">
     <p class="sm footer__copy">
-      Maked with love by Eugene Vinokurov in 2023. All rights reserved &copy;.
+      {{ translation.footer.description[language][0] }}
       <br>
-      All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).
+      {{ translation.footer.description[language][1] }}
     </p>
   </footer>
 </template>

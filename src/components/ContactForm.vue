@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import Input from './Input.vue';
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, inject } from 'vue';
 import debounce from '../helpers/debounce.ts';
+import translation from '../translation/main.ts';
 
 interface Form {
   from: {
@@ -34,6 +35,7 @@ const form = ref<Form>({
 });
 
 const formSended = ref<string>('');
+const language = inject('language') as 'ru' | 'en';
 
 const sendForm = debounce(async () => {
   if (!formHandler('all')) return;
@@ -101,13 +103,13 @@ watchEffect(() => {
 <template>
   <div :class="`contact-form ${formSended ? 'ok' : ''}`" :style="`--message: ${formSended}`">
     <Input :invalid="!form.from.valid" :modelValue="form.from.value"
-      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name" placeholder="Name" />
+      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name" :placeholder="translation.pages.contacts.form.name[language]" />
     <Input :invalid="!form.email.valid" :modelValue="form.email.value"
-      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email" placeholder="E-mail" />
+      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email" :placeholder="translation.pages.contacts.form.email[language]" />
     <Input :invalid="!form.message.valid" :modelValue="form.message.value"
-      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message" placeholder="Message"
+      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message" :placeholder="translation.pages.contacts.form.message[language]"
       type="textarea" rows="4" />
-    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">Submit</Input>
+    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{ translation.pages.contacts.form.send[language] }}</Input>
   </div>
 </template>
 

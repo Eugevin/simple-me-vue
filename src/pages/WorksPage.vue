@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import Content from '../components/Content.vue';
 import Pagination from '../components/Pagination.vue';
 import Work from '../components/Work.vue';
+import translation from '../translation/main.ts';
 
 interface Work {
   time: [string, string],
@@ -45,14 +46,19 @@ const works: Array<Work> = [
 ];
 
 const selectedPage = ref<number>(0);
+const language = inject('language') as 'ru' | 'en';
 </script>
 
 <template>
   <div class="works">
     <Content background="/images/works-inner.gif">
       <template v-slot:body>
-        <p style="color: var(--white)">Some companies & projects i've worked for.</p>
-        <h1>Let's<br>See my works</h1>
+        <p style="color: var(--white)">{{ translation.pages.projects.inner.heading[language] }}</p>
+        <h1>
+          {{ translation.pages.projects.inner.title[language][0] }}
+          <br>
+          {{ translation.pages.projects.inner.title[language][1] }}
+        </h1>
       </template>
     </Content>
     <Work v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.title" :data="work" />

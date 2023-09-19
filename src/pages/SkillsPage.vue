@@ -1,25 +1,27 @@
 <script setup lang="ts">
+import { inject } from 'vue';
 import Content from '../components/Content.vue';
+import translation from '../translation/main.ts';
 
 interface Tech {
-  title: string
+  title: 'typescript' | 'javascript' | 'vue3' | 'HTML & CSS' | '_more'
   description: string
   image: string
 }
 
 const techs: Array<Tech> = [
   {
-    title: 'TypeScript',
+    title: 'typescript',
     description: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
     image: '/images/skills-ts.png'
   },
   {
-    title: 'JavaScript ES6+',
+    title: 'javascript',
     description: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
     image: '/images/skills-js.png'
   },
   {
-    title: 'Vue3',
+    title: 'vue3',
     description: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
     image: '/images/skills-vue.png'
   },
@@ -29,33 +31,42 @@ const techs: Array<Tech> = [
     image: '/images/skills-base.png'
   },
   {
-    title: 'And more...',
+    title: '_more',
     description: 'VueX, VueRouter, JWT, REST-API, Express / Koa, Bootstrap Grid / Bulma, WebSocket, Canvas, pm2, WebRTC and more... much more...',
     image: '/images/skills-more.png'
   },
 ];
+
+const language = inject('language') as 'ru' | 'en';
 </script>
 
 <template>
   <div class="skills">
     <Content background="/images/skills-inner.gif">
       <template v-slot:body>
-        <p style="color: var(--white)">What i can? What i maked?</p>
-        <h1>Let me<br>Show you this</h1>
+        <p style="color: var(--white)">{{ translation.pages.skills.inner.heading[language] }}</p>
+        <h1>
+          {{ translation.pages.skills.inner.title[language][0] }}
+          <br>
+          {{ translation.pages.skills.inner.title[language][1] }}
+        </h1>
       </template>
     </Content>
     <Content>
       <template v-slot:heading>
-        <h2 class="sticky">Did you think I was lying?<br>I'm in love with frontend!</h2>
+        <h2 class="sticky">
+          {{ translation.pages.skills.heading[language][0] }}
+          <br>
+          {{ translation.pages.skills.heading[language][1] }}
+        </h2>
       </template>
       <template v-slot:body>
-        <p>We combine design, technology and business strategy into a unified discipline powerful enough to propel
-          companies forward:</p>
+        <p>{{ translation.pages.skills.description[language] }}</p>
         <div class="grid">
           <div class="grid__item" v-for="tech in techs" :key="tech.title">
             <img class="grid__item__image" :src="tech.image" alt="tech image">
             <h4 class="grid__item__title">{{ tech.title }}</h4>
-            <p class="grid__item__description">{{ tech.description }}</p>
+            <p class="grid__item__description">{{ translation.pages.skills.techs[tech.title][language] }}</p>
           </div>
         </div>
       </template>
@@ -89,6 +100,7 @@ const techs: Array<Tech> = [
 
       &__title {
         margin: 2rem 0 0.75rem;
+        text-transform: capitalize;
       }
 
       &:hover {

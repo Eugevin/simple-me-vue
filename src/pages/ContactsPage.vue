@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Content from '../components/Content.vue';
 import ContactForm from '../components/ContactForm.vue';
+import translation from '../translation/main.ts';
+import { inject } from 'vue';
 
 interface Social {
   title: string,
@@ -25,28 +27,34 @@ const socials: Array<Social> = [
 function openSocial(social: string) {
   window.open(social, '_blank');
 }
+
+const language = inject('language') as 'ru' | 'en';
 </script>
 
 <template>
   <div class="contacts">
     <Content background="/images/contacts-inner.gif">
       <template v-slot:body>
-        <p style="color: var(--white)">You can find me by links below.</p>
-        <h1>Im always<br>Open to talk</h1>
+        <p style="color: var(--white)">{{ translation.pages.contacts.inner.heading[language] }}</p>
+        <h1>
+          {{ translation.pages.contacts.inner.title[language][0] }}
+          <br>
+          {{ translation.pages.contacts.inner.title[language][1] }}
+        </h1>
       </template>
     </Content>
     <Content>
       <template v-slot:heading>
-        <h2>Let’s work together and make beautiful projects.</h2>
+        <h2>{{ translation.pages.contacts.heading[language] }}</h2>
       </template>
       <template v-slot:body>
-        <h5>Address</h5>
-        <p>Russia, Nijny Novgorod</p>
-        <h5>Email</h5>
-        <p>eugene.vinokuroff@gmail.com</p>
-        <h5>Get in Touch</h5>
+        <h5>{{ translation.pages.contacts.content.address[language] }}</h5>
+        <p>{{ translation.pages.contacts.content.addressValue[language] }}</p>
+        <h5>{{ translation.pages.contacts.content.email[language] }}</h5>
+        <p>{{ translation.pages.contacts.content.emailValue[language] }}</p>
+        <h5>{{ translation.pages.contacts.content.touch[language] }}</h5>
         <ContactForm />
-        <h5>Check me here</h5>
+        <h5>{{ translation.pages.contacts.content.check[language] }}</h5>
         <ul>
           <h5 @click="openSocial(social.link)" :href="social.link" v-for="social in socials" :key="social.title">{{
             social.title }}</h5>

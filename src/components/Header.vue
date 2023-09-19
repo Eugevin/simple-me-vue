@@ -1,32 +1,39 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue';
+import translation from '../translation/main.ts';
 
 const headerActive = ref<boolean>(false);
+const whiteTheme = inject('whiteTheme') as boolean;
+const language = inject('language') as 'ru' | 'en';
 
-const headerLinks = [
+interface Link {
+  to: string
+  title: 'home' | 'skills' | 'projects' | 'contacts'
+  image: string
+}
+
+const headerLinks: Array<Link> = [
   {
     to: '/',
-    title: 'Home',
+    title: 'home',
     image: '/images/header-home.jpg',
   },
   {
     to: '/skills',
-    title: 'Skills',
+    title: 'skills',
     image: '/images/header-skills.jpg',
   },
   {
     to: '/works',
-    title: 'Projects',
+    title: 'projects',
     image: '/images/header-works.jpg',
   },
   {
     to: '/contacts',
-    title: 'Contacts',
+    title: 'contacts',
     image: '/images/header-contacts.jpg',
   },
 ];
-
-const whiteTheme = inject('whiteTheme');
 </script>
 
 <template>
@@ -37,11 +44,14 @@ const whiteTheme = inject('whiteTheme');
         <span></span>
         <span></span>
       </div>
+      <div class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'" @click="language = language === 'en' ? 'ru' : 'en'">
+        {{ language }}</div>
       <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
     </div>
     <div class="header__body">
       <div class="header__body__item" v-for="link in headerLinks" :key="link.to">
-        <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ link.title }}</RouterLink>
+        <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ translation.header[link.title][language] }}
+        </RouterLink>
         <img :src="link.image" alt="">
       </div>
     </div>
@@ -119,6 +129,30 @@ const whiteTheme = inject('whiteTheme');
         .header_active & span:nth-of-type(1) {
           transform: translateY(0.5rem) rotate(70deg) !important;
         }
+      }
+
+      @include media-phone {
+        width: 6.25rem;
+      }
+    }
+
+    &__language {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      height: 6.25rem;
+      width: 100%;
+      will-change: transform;
+      transition: var(--transition);
+
+      &:hover {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      &:active {
+        transform: scale(1) rotate(5deg);
       }
 
       @include media-phone {
