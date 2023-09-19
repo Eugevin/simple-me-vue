@@ -10,27 +10,27 @@ interface Tech {
 const techs: Array<Tech> = [
   {
     title: 'TypeScript',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    description: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
     image: '/images/skills-ts.png'
   },
   {
-    title: 'JavaScript',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    title: 'JavaScript ES6+',
+    description: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
     image: '/images/skills-js.png'
   },
   {
     title: 'Vue3',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    description: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
     image: '/images/skills-vue.png'
   },
   {
     title: 'HTML & CSS',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    description: 'HTML is a markup language used to create static web pages and web applications. CSS is a style sheet language responsible for the presentation of documents written in a markup language.',
     image: '/images/skills-base.png'
   },
   {
     title: 'And more...',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    description: 'VueX, VueRouter, JWT, REST-API, Express / Koa, Bootstrap Grid / Bulma, WebSocket, Canvas, pm2, WebRTC and more... much more...',
     image: '/images/skills-more.png'
   },
 ];
@@ -99,6 +99,14 @@ const techs: Array<Tech> = [
       .white-theme & {
         outline: 1px solid var(--gray-6);
       }
+
+      @include media-phone {
+        flex: 0 0 100%;
+      }
+    }
+
+    @include media-phone {
+      gap: 1rem;
     }
   }
 
