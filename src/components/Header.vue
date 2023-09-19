@@ -44,8 +44,8 @@ const headerLinks: Array<Link> = [
         <span></span>
         <span></span>
       </div>
-      <div class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'" @click="language = language === 'en' ? 'ru' : 'en'">
-        {{ language }}</div>
+      <p class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'" @click="language = language === 'en' ? 'ru' : 'en'">
+        {{ language }}</p>
       <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
     </div>
     <div class="header__body">
@@ -144,6 +144,8 @@ const headerLinks: Array<Link> = [
       text-transform: uppercase;
       height: 6.25rem;
       width: 100%;
+      font-weight: 700;
+      font-size: 1.25rem;
       will-change: transform;
       transition: var(--transition);
 
