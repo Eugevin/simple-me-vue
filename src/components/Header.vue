@@ -44,8 +44,9 @@ const headerLinks: Array<Link> = [
         <span></span>
         <span></span>
       </div>
-      <p class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'" @click="language = language === 'en' ? 'ru' : 'en'">
-        {{ language }}<sup v-if="language === 'ru'" style="font-size: 0.4em">beta</sup></p>
+      <div class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'"
+        @click="language = language === 'en' ? 'ru' : 'en'">
+        {{ language }}<sup v-if="language === 'ru'" style="font-size: 0.4em">beta</sup></div>
       <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
     </div>
     <div class="header__body">
@@ -149,6 +150,7 @@ const headerLinks: Array<Link> = [
       font-size: 1.25rem;
       will-change: transform;
       transition: var(--transition);
+      color: var(--white);
 
       &:hover {
         transform: scale(1.2) rotate(10deg);
@@ -156,6 +158,10 @@ const headerLinks: Array<Link> = [
 
       &:active {
         transform: scale(1) rotate(5deg);
+      }
+
+      .white-theme & {
+        color: var(--gray-1);
       }
 
       @include media-phone {
