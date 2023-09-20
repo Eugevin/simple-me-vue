@@ -13,9 +13,7 @@ const language = ref<'ru' | 'en'>('en');
 provide('language', language);
 
 watchEffect(() => {
-  if (overflowHidden) {
-    document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial';
-  }
+  document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial';
 })
 </script>
 
