@@ -172,14 +172,4 @@ async function modalHandler() {
     word-break: initial;
   }
 }
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity .3s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 </style>

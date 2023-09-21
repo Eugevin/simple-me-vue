@@ -2,6 +2,7 @@
 import { provide, ref, watchEffect } from 'vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import Loader from './components/Loader.vue';
 
 const whiteTheme = ref<boolean>(false);
 provide('whiteTheme', whiteTheme);
@@ -14,18 +15,23 @@ provide('language', language);
 
 watchEffect(() => {
   document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial';
-})
+});
+
+const loading = ref<boolean>(true);
 </script>
 
 <template>
-  <main :class="whiteTheme ? 'white-theme' : ''">
-    <Header />
-    <RouterView />
-    <Footer />
-  </main>
+  <Transition>
+    <Loader v-if="loading" @loaded="loading = false" />
+    <main v-else :class="whiteTheme ? 'white-theme' : ''">
+      <Header />
+      <RouterView />
+      <Footer />
+    </main>
+  </Transition>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import './styles/media';
 
 main {
@@ -75,5 +81,15 @@ main {
       background: var(--gray-6);
     }
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
