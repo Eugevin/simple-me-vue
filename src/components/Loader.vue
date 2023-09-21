@@ -28,7 +28,116 @@ const emit = defineEmits<{
 
 const progress = ref<number>(10);
 
+const canvas = ref<HTMLCanvasElement>();
+
+class Bubble {
+  #canvas: HTMLCanvasElement;
+  #ctx: CanvasRenderingContext2D;
+  #x: number;
+  #y: number;
+  #gradient: CanvasGradient;
+  #radius: number;
+  #vx: number;
+  #vy: number;
+
+  constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
+    this.#canvas = canvas;
+    this.#ctx = ctx;
+    this.#x = Math.random() * this.#canvas.width;
+    this.#y = Math.random() * this.#canvas.height;
+    this.#gradient = this.#ctx.createLinearGradient(0, 0, this.#canvas.width, this.#canvas.height);
+    this.#radius = Math.random() * 20;
+    this.#vx = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
+    this.#vy = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
+
+    this.#gradient.addColorStop(0, '#BE93C5');
+    this.#gradient.addColorStop(0.5, '#7BC6CC');
+    this.#gradient.addColorStop(1, '#FFFFFF');
+
+    this.#ctx.fillStyle = this.#gradient;
+  }
+
+  draw() {
+    this.#ctx.beginPath();
+    this.#ctx.arc(this.#x, this.#y, this.#radius, 0, Math.PI * 2);
+    this.#ctx.fillStyle = this.#gradient;
+    this.#ctx.fill();
+  }
+
+  move() {
+    this.#x += this.#vx;
+
+    if (this.#x > this.#canvas.width - this.#radius || this.#x < this.#radius) {
+      this.#vx *= -1;
+    }
+
+    this.#y += this.#vy;
+
+    if (this.#y > this.#canvas.height - this.#radius || this.#y < this.#radius) {
+      this.#vy *= -1;
+    }
+  }
+}
+
+class CanvasBg {
+  #canvas: HTMLCanvasElement;
+  #ctx: CanvasRenderingContext2D;
+  #bubbles: Array<Bubble>;
+  #totalBubbles: number;
+
+  constructor(canvas: HTMLCanvasElement) {
+    this.#canvas = canvas as HTMLCanvasElement;
+    this.#ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+
+
+    this.#bubbles = [];
+    this.#totalBubbles = 20;
+  }
+
+  init() {
+    this.#handleSize();
+    this.#createBubbles();
+    this.#drawLoop();
+  }
+
+  #handleBubbles() {
+    this.#bubbles.forEach(bubble => {
+      bubble.draw();
+      bubble.move();
+    });
+  }
+
+  #createBubbles() {
+    for (let i = 0; i < this.#totalBubbles; i++) {
+      this.#bubbles.push(new Bubble(this.#canvas, this.#ctx));
+    }
+  }
+
+  #drawLoop() {
+    this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
+
+    this.#handleBubbles();
+
+    requestAnimationFrame(this.#drawLoop.bind(this));
+  }
+
+  #handleSize() {
+    this.#canvas.width = window.innerWidth;
+    this.#canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      this.#canvas.width = window.innerWidth;
+      this.#canvas.height = window.innerHeight;
+    });
+  }
+}
+
 onMounted(() => {
+  if (!canvas.value) return;
+
+  const canvasHandler: CanvasBg = new CanvasBg(canvas.value);
+  canvasHandler.init();
+
   loaderHandler();
 });
 
@@ -56,6 +165,7 @@ function hideLoader() {
 
 <template>
   <div class="loader">
+    <canvas ref="canvas"></canvas>
     <h1 class="loader__title">Loading</h1>
     <h5>{{ progress }}%</h5>
     <div class="loader__progress" :style="`--progress: ${progress}%;`"></div>
@@ -92,6 +202,13 @@ function hideLoader() {
       background: var(--white);
       transition: var(--transition);
     }
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
   }
 }
 </style>
