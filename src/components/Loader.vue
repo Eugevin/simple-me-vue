@@ -43,7 +43,7 @@ class Bubble {
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
     this.#canvas = canvas;
     this.#ctx = ctx;
-    this.#radius = Math.random() * 20;
+    this.#radius = 5 + Math.random() * 10;
     this.#x = this.#radius + Math.random() * (this.#canvas.width - this.#radius * 2);
     this.#y = this.#radius + Math.random() * (this.#canvas.height - this.#radius * 2);
     this.#gradient = this.#ctx.createLinearGradient(0, 0, this.#canvas.width, this.#canvas.height);
@@ -91,7 +91,7 @@ class CanvasBg {
 
 
     this.#bubbles = [];
-    this.#totalBubbles = 20;
+    this.#totalBubbles = 10;
   }
 
   init() {
@@ -208,7 +208,7 @@ function hideLoader() {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: -1;
   }
 }
 </style>
