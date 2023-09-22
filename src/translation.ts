@@ -52,23 +52,23 @@ export default {
         ru: 'Маленькое описание технологий, с которыми я когда-либо работал или имел дело и имею достаточно полное представление о том, how it works:'
       },
       techs: {
-        'TypeScript': {
+        typescript: {
           en: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
           ru: 'TypeScript — это строго типизированный язык программирования, основанный на JavaScript, предоставляющий вам лучшие инструменты в любом масштабе.'
         },
-        'Javascript ES6+': {
+        javascript: {
           en: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
           ru: 'JavaScript — это мультипарадигмальный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Это реализация спецификации ECMAScript. JavaScript обычно используется в качестве встроенного языка для программного доступа к объектам приложения.'
         },
-        'Vue 3.0': {
+        vue: {
           en: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
           ru: 'Vue.js — это JavaScript-фреймворк с открытым исходным кодом для создания пользовательских интерфейсов. Легко интегрируется в проекты, использующие другие библиотеки JavaScript. Может функционировать как веб-фреймворк для разработки одностраничных приложений в реактивном стиле.'
         },
-        'HTML & CSS': {
+        htmlcss: {
           en: 'HTML is a markup language used to create static web pages and web applications. CSS is a style sheet language responsible for the presentation of documents written in a markup language.',
           ru: 'HTML — это язык разметки, используемый для создания статических веб-страниц и веб-приложений. CSS — это язык таблиц стилей, отвечающий за представление документов, написанных на языке разметки.'
         },
-        '_more': {
+        more: {
           en: 'VueX, VueRouter, JWT, REST-API, Express / Koa, Bootstrap Grid / Bulma, WebSocket, Canvas, pm2, WebRTC and more... much more...',
           ru: 'VueX, VueRouter, JWT, REST-API, Express/Koa, Bootstrap Grid/Bulma, WebSocket, Canvas, pm2, WebRTC и многое другое... многое другое...'
         },
@@ -86,7 +86,7 @@ export default {
         }
       },
       content: {
-        'Program Product': {
+        pp: {
           title: {
             en: 'Program Product',
             ru: 'Программный Продукт'
@@ -96,7 +96,7 @@ export default {
             ru: 'Российский разработчик программного обеспечения для государственного и частного сектора. Разработка мобильных и веб-приложений, а также информационных систем. Собственно, что я сделал/сделал/создал:<br><br>- Работа с Vue3, VueRouter and VueX.<br><br>- Фикс багов и написание нового функционала'
           }
         },
-        'Platinum LTD': {
+        platinum: {
           title: {
             en: 'Platinum LTD',
             ru: 'Platinum LTD'
@@ -106,7 +106,7 @@ export default {
             ru: 'Platinum Engineering — это технологический инкубатор нового поколения с опытом работы в области сетевых технологий, который предоставляет первоклассный опыт будущим звездам FinTech. Собственно, что я сделал/создал/создал:<br><br>- 2 ГОДА NDA*'
           }
         },
-        'Travelask': {
+        travelask: {
           title: {
             en: 'Travelask',
             ru: 'Travelask'
@@ -116,7 +116,7 @@ export default {
             ru: 'TravelAsk — поисковая система для путешествий. Ищет и сравнивает лучшие предложения на туры, отели и авиабилеты. Вдохновляет на новые путешествия и получает контент один раз. Собственно, что я сделал/сделал/создал:<br><br>- Разработка новых функциональных компонентов.<br><br>- Фикс багов.<br><br>- Оптимизация уже написанного кода на Vue.js и транспиляция его на ES6+ стандарт EcmaScript.<br><br>- Переписание некоторой кодовой базы, написанной с помощью Vue.js (как библиотеке), на ванильный JavaScript на классах с соблюдением принципов ООП.'
           }
         },
-        'R52.ru': {
+        r52: {
           title: {
             en: 'R52.ru',
             ru: 'R52.ru'
@@ -126,7 +126,7 @@ export default {
             ru: 'R52.RU — мультисервисное агентство с 20-летним опытом. Они проектируют и обеспечивают эффективное присутствие, поддержку и успешное развитие онлайн-бизнеса. Собственно, что я сделал/сделал/создал:<br><br>- Верстка и основная фронтендная часть коммерческих проектов.<br><br>- Правки на уже существующих сайтах &amp; фикс багов.<br><br>- Работа с проектами на Vue.js, используя VueX и VueRouter.'
           }
         },
-        'Freelance': {
+        freelance: {
           title: {
             en: 'Freelance',
             ru: 'Фриланс'
@@ -211,8 +211,14 @@ export default {
   },
   footer: {
     description: {
-      en: ['Maked with love by Eugene Vinokurov in 2023. All rights reserved ©.', 'All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).'],
-      ru: ['Сделано с любовью Евгением Винокуровым в 2023 году. Все права защищены ©.', 'Все изображения на сайте принадлежат их законным владельцам (материалы взяты из открытых источников — Giphy & Unsplash).']
+      maked: {
+        en: 'Maked with love by Eugene Vinokurov in 2023. All rights reserved ©.',
+        ru: 'Сделано с любовью Евгением Винокуровым в 2023 году. Все права защищены ©.'
+      },
+      copy: {
+        en: 'All images on the site belong to their rightful owners (materials taken from open sources - Giphy & Unsplash).',
+        ru: 'Все изображения на сайте принадлежат их законным владельцам (материалы взяты из открытых источников — Giphy & Unsplash).'
+      }
     }
   }
 }

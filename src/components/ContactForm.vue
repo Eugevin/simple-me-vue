@@ -2,7 +2,6 @@
 import Input from './Input.vue';
 import { ref, watchEffect, inject } from 'vue';
 import debounce from '../helpers/debounce.ts';
-import translation from '../translation/main.ts';
 
 const form = ref<Form>({
   from: {
@@ -88,13 +87,16 @@ watchEffect(() => {
 <template>
   <div :class="`contact-form ${formSended ? 'ok' : ''}`" :style="`--message: ${formSended}`">
     <Input :invalid="!form.from.valid" :modelValue="form.from.value"
-      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name" :placeholder="translation.pages.contacts.form.name[language]" />
+      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name"
+      :placeholder="$translate(`pages.contacts.form.name.${language}`)" />
     <Input :invalid="!form.email.valid" :modelValue="form.email.value"
-      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email" :placeholder="translation.pages.contacts.form.email[language]" />
+      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email"
+      :placeholder="$translate(`pages.contacts.form.email.${language}`)" />
     <Input :invalid="!form.message.valid" :modelValue="form.message.value"
-      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message" :placeholder="translation.pages.contacts.form.message[language]"
-      type="textarea" rows="4" />
-    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{ translation.pages.contacts.form.send[language] }}</Input>
+      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message"
+      :placeholder="$translate(`pages.contacts.form.message.${language}`)" type="textarea" rows="4" />
+    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{
+      $translate(`pages.contacts.form.send.${language}`) }}</Input>
   </div>
 </template>
 
@@ -114,9 +116,9 @@ watchEffect(() => {
 
   @include media-phone {
     grid-template-areas: "name"
-    "email"
-    "message"
-    "send";
+      "email"
+      "message"
+      "send";
   }
 
   &__name {
@@ -169,5 +171,4 @@ watchEffect(() => {
       visibility: visible;
     }
   }
-}
-</style>
+}</style>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue';
-import translation from '../translation/main.ts';
 
 const headerActive = ref<boolean>(false);
 const whiteTheme = inject('whiteTheme') as boolean;
@@ -45,7 +44,8 @@ const headerLinks: Array<Link> = [
     </div>
     <div class="header__body">
       <div class="header__body__item" v-for="link in headerLinks" :key="link.to">
-        <RouterLink @click="headerActive = !headerActive" :to="link.to">{{ translation.header[link.title][language] }}
+        <RouterLink @click="headerActive = !headerActive" :to="link.to">
+          {{ $translate(`header.${link.title}.${language}`) }}
         </RouterLink>
         <img :src="link.image" alt="">
       </div>

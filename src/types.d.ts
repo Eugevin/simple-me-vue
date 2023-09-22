@@ -20,15 +20,15 @@ interface Link {
 }
 
 interface Tech {
-  title: 'TypeScript' | 'Javascript ES6+' | 'Vue 3.0' | 'HTML & CSS' | '_more'
-  description: string
+  title: string
   image: string
+  pointer: string
 }
 
 interface Work {
   time: [string, string],
-  title: 'Program Product' | 'Platinum LTD' | 'Travelask' | 'R52.ru' | 'Freelance',
   image: string,
+  pointer: string,
 }
 
 interface Social {

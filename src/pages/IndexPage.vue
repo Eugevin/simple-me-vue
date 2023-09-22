@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject } from 'vue';
 import Content from '../components/Content.vue';
-import translation from '../translation/main.ts';
 
 // TODO: It's not normal, need in refactor later... I think, i refactor this later... 🤡
 const language = inject('language') as 'ru' | 'en';
@@ -15,9 +14,9 @@ const language = inject('language') as 'ru' | 'en';
     <Content>
       <template v-slot:heading></template>
       <template v-slot:body>
-        <p>{{ translation.pages.index.heading[language] }}</p>
-        <h1>{{ translation.pages.index.title[language] }}</h1>
-        <p v-for="item in translation.pages.index.description[language]" :key="item">
+        <p>{{ $translate(`pages.index.heading.${language}`) }}</p>
+        <h1>{{ $translate(`pages.index.title.${language}`) }}</h1>
+        <p v-for="item in $translate(`pages.index.description.${language}`)" :key="item">
           {{ item }}
         </p>
       </template>

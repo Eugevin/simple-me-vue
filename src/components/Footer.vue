@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { inject } from 'vue';
-import translation from '../translation/main.ts';
 
 const language = inject('language') as 'ru' | 'en';
 </script>
@@ -8,9 +7,9 @@ const language = inject('language') as 'ru' | 'en';
 <template>
   <footer class="footer">
     <p class="sm footer__copy">
-      {{ translation.footer.description[language][0] }}
+      {{ $translate(`footer.description.maked.${language}`) }}
       <br>
-      {{ translation.footer.description[language][1] }}
+      {{ $translate(`footer.description.copy.${language}`) }}
     </p>
   </footer>
 </template>
