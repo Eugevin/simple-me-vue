@@ -207,7 +207,7 @@ function hideLoader() {
   flex-direction: column;
   gap: 2rem;
   
-  &__title, &__progress {
+  &__title, h5 {
     pointer-events: none;
     user-select: none;
   }
