@@ -206,6 +206,10 @@ function hideLoader() {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  
+  &__title, &__progress {
+    pointer-events: none;
+  }
 
   &__progress {
     width: 50%;
