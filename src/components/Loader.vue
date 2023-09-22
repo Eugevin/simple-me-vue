@@ -92,6 +92,7 @@ class CanvasBg {
   #ctx: CanvasRenderingContext2D;
   #bubbles: Array<Bubble>;
   #totalBubbles: number;
+  #spawningInterval: any;
 
   constructor(canvas: HTMLCanvasElement) {
     this.#canvas = canvas as HTMLCanvasElement;
@@ -146,8 +147,26 @@ class CanvasBg {
   }
 
   #handleClick() {
-    this.#canvas.addEventListener('click', e => {
+    this.#canvas.addEventListener('mousedown', e => {
       this.#createBubbles(e.x, e.y);
+
+      this.#spawningInterval = setInterval(() => {
+        this.#createBubbles(e.x, e.y);
+      }, 100);
+    });
+
+    this.#canvas.addEventListener('touchstart', e => {
+      this.#spawningInterval = setInterval(() => {
+        this.#createBubbles(e.touches[0].clientX, e.touches[0].clientY);
+      }, 100);
+    });
+
+    this.#canvas.addEventListener('mouseup', () => {
+      clearInterval(this.#spawningInterval);
+    });
+
+    this.#canvas.addEventListener('touchend', () => {
+      clearInterval(this.#spawningInterval);
     });
   }
 }
@@ -206,8 +225,10 @@ function hideLoader() {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  
-  &__title, h5 {
+
+  &__title,
+  h5,
+  &__progress {
     pointer-events: none;
     user-select: none;
   }
