@@ -43,10 +43,10 @@ class Bubble {
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
     this.#canvas = canvas;
     this.#ctx = ctx;
-    this.#x = Math.random() * this.#canvas.width;
-    this.#y = Math.random() * this.#canvas.height;
-    this.#gradient = this.#ctx.createLinearGradient(0, 0, this.#canvas.width, this.#canvas.height);
     this.#radius = Math.random() * 20;
+    this.#x = this.#radius + Math.random() * (this.#canvas.width - this.#radius * 2);
+    this.#y = this.#radius + Math.random() * (this.#canvas.height - this.#radius * 2);
+    this.#gradient = this.#ctx.createLinearGradient(0, 0, this.#canvas.width, this.#canvas.height);
     this.#vx = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
     this.#vy = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
 
