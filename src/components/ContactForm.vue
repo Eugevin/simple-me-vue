@@ -4,21 +4,6 @@ import { ref, watchEffect, inject } from 'vue';
 import debounce from '../helpers/debounce.ts';
 import translation from '../translation/main.ts';
 
-interface Form {
-  from: {
-    value: string,
-    valid: boolean
-  },
-  email: {
-    value: string,
-    valid: boolean
-  },
-  message: {
-    value: string,
-    valid: boolean
-  }
-}
-
 const form = ref<Form>({
   from: {
     value: '',

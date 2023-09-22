@@ -6,12 +6,6 @@ const headerActive = ref<boolean>(false);
 const whiteTheme = inject('whiteTheme') as boolean;
 const language = inject('language') as 'ru' | 'en';
 
-interface Link {
-  to: string
-  title: 'home' | 'skills' | 'projects' | 'contacts'
-  image: string
-}
-
 const headerLinks: Array<Link> = [
   {
     to: '/',

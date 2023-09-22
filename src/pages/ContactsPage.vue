@@ -4,11 +4,6 @@ import ContactForm from '../components/ContactForm.vue';
 import translation from '../translation/main.ts';
 import { inject } from 'vue';
 
-interface Social {
-  title: string,
-  link: string
-}
-
 const socials: Array<Social> = [
   {
     title: 'Telegram',

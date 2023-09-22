@@ -3,12 +3,6 @@ import { inject } from 'vue';
 import Content from '../components/Content.vue';
 import translation from '../translation/main.ts';
 
-interface Tech {
-  title: 'TypeScript' | 'Javascript ES6+' | 'Vue 3.0' | 'HTML & CSS' | '_more'
-  description: string
-  image: string
-}
-
 const techs: Array<Tech> = [
   {
     title: 'TypeScript',

@@ -5,12 +5,6 @@ import Pagination from '../components/Pagination.vue';
 import Work from '../components/Work.vue';
 import translation from '../translation/main.ts';
 
-interface Work {
-  time: [string, string],
-  title: 'Program Product' | 'Platinum LTD' | 'Travelask' | 'R52.ru' | 'Freelance',
-  image: string,
-}
-
 const works: Array<Work> = [
   {
     time: ['07.23', ''],
