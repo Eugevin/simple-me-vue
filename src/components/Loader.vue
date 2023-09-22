@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const filesToPreload = [
   '/images/contacts-inner.gif',
@@ -93,6 +93,7 @@ class CanvasBg {
   #bubbles: Array<Bubble>;
   #totalBubbles: number;
   #mousePressed: boolean;
+  #animationFrame: any;
 
   constructor(canvas: HTMLCanvasElement) {
     this.#canvas = canvas as HTMLCanvasElement;
@@ -109,6 +110,10 @@ class CanvasBg {
     this.#handleClick();
     this.#createBubbles();
     this.#drawLoop();
+  }
+
+  stop() {
+    cancelAnimationFrame(this.#animationFrame);
   }
 
   #handleBubbles() {
@@ -134,7 +139,7 @@ class CanvasBg {
 
     this.#handleBubbles();
 
-    requestAnimationFrame(this.#drawLoop.bind(this));
+    this.#animationFrame = requestAnimationFrame(this.#drawLoop.bind(this));
   }
 
   #handleSize() {
@@ -176,13 +181,19 @@ class CanvasBg {
   }
 }
 
+let canvasHandler: CanvasBg;
+
 onMounted(() => {
   if (!canvas.value) return;
 
-  const canvasHandler: CanvasBg = new CanvasBg(canvas.value);
+  canvasHandler = new CanvasBg(canvas.value)
   canvasHandler.init();
 
   loaderHandler();
+});
+
+onUnmounted(() => {
+  canvasHandler.stop();
 });
 
 async function loaderHandler() {
