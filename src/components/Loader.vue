@@ -37,15 +37,16 @@ class Bubble {
   #y: number;
   #gradient: CanvasGradient;
   #radius: number;
+  #alpha: number;
   #vx: number;
   #vy: number;
 
-  constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
+  constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, x?: number, y?: number) {
     this.#canvas = canvas;
     this.#ctx = ctx;
     this.#radius = 5 + Math.random() * 10;
-    this.#x = this.#radius + Math.random() * (this.#canvas.width - this.#radius * 2);
-    this.#y = this.#radius + Math.random() * (this.#canvas.height - this.#radius * 2);
+    this.#x = x ? x : this.#radius + Math.random() * (this.#canvas.width - this.#radius * 2);
+    this.#y = y ? y : this.#radius + Math.random() * (this.#canvas.height - this.#radius * 2);
     this.#gradient = this.#ctx.createLinearGradient(0, 0, this.#canvas.width, this.#canvas.height);
     this.#vx = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
     this.#vy = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
@@ -54,10 +55,17 @@ class Bubble {
     this.#gradient.addColorStop(0.5, '#7BC6CC');
     this.#gradient.addColorStop(1, '#FFFFFF');
 
+    this.#alpha = 0;
+
     this.#ctx.fillStyle = this.#gradient;
   }
 
   draw() {
+    if (this.#alpha < 1) {
+      this.#alpha = +(this.#alpha + 0.1).toFixed(1);
+    }
+
+    this.#ctx.globalAlpha = this.#alpha;
     this.#ctx.beginPath();
     this.#ctx.arc(this.#x, this.#y, this.#radius, 0, Math.PI * 2);
     this.#ctx.fillStyle = this.#gradient;
@@ -96,6 +104,7 @@ class CanvasBg {
 
   init() {
     this.#handleSize();
+    this.#handleClick();
     this.#createBubbles();
     this.#drawLoop();
   }
@@ -107,7 +116,12 @@ class CanvasBg {
     });
   }
 
-  #createBubbles() {
+  #createBubbles(x?: number, y?: number) {
+    if (x && y) {
+      this.#bubbles.push(new Bubble(this.#canvas, this.#ctx, x, y))
+      return;
+    }
+
     for (let i = 0; i < this.#totalBubbles; i++) {
       this.#bubbles.push(new Bubble(this.#canvas, this.#ctx));
     }
@@ -128,6 +142,12 @@ class CanvasBg {
     window.addEventListener('resize', () => {
       this.#canvas.width = window.innerWidth;
       this.#canvas.height = window.innerHeight;
+    });
+  }
+
+  #handleClick() {
+    this.#canvas.addEventListener('click', e => {
+      this.#createBubbles(e.x, e.y);
     });
   }
 }
