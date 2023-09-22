@@ -209,6 +209,7 @@ function hideLoader() {
   
   &__title, &__progress {
     pointer-events: none;
+    user-select: none;
   }
 
   &__progress {
