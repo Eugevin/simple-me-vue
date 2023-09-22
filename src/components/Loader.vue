@@ -51,9 +51,9 @@ class Bubble {
     this.#vx = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
     this.#vy = Math.round(Math.random()) === 1 ? Math.random() * 1 : Math.random() * -1;
 
-    this.#gradient.addColorStop(0, '#BE93C5');
-    this.#gradient.addColorStop(0.5, '#7BC6CC');
-    this.#gradient.addColorStop(1, '#FFFFFF');
+    this.#gradient.addColorStop(0, '#833ab4');
+    this.#gradient.addColorStop(0.5, '#fd1d1d');
+    this.#gradient.addColorStop(1, '#fcb045');
 
     this.#alpha = 0;
 
@@ -92,15 +92,16 @@ class CanvasBg {
   #ctx: CanvasRenderingContext2D;
   #bubbles: Array<Bubble>;
   #totalBubbles: number;
-  #spawningInterval: any;
+  #mousePressed: boolean;
 
   constructor(canvas: HTMLCanvasElement) {
     this.#canvas = canvas as HTMLCanvasElement;
     this.#ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-
     this.#bubbles = [];
     this.#totalBubbles = 10;
+
+    this.#mousePressed = false;
   }
 
   init() {
@@ -148,25 +149,29 @@ class CanvasBg {
 
   #handleClick() {
     this.#canvas.addEventListener('mousedown', e => {
+      this.#mousePressed = true;
       this.#createBubbles(e.x, e.y);
-
-      this.#spawningInterval = setInterval(() => {
-        this.#createBubbles(e.x, e.y);
-      }, 100);
     });
 
     this.#canvas.addEventListener('touchstart', e => {
-      this.#spawningInterval = setInterval(() => {
-        this.#createBubbles(e.touches[0].clientX, e.touches[0].clientY);
-      }, 100);
+      this.#mousePressed = true;
+      this.#createBubbles(e.touches[0].clientX, e.touches[0].clientY);
+    });
+
+    this.#canvas.addEventListener('mousemove', e => {
+      if (this.#mousePressed) this.#createBubbles(e.x, e.y);
+    });
+
+    this.#canvas.addEventListener('touchmove', e => {
+      if (this.#mousePressed) this.#createBubbles(e.touches[0].clientX, e.touches[0].clientY);
     });
 
     this.#canvas.addEventListener('mouseup', () => {
-      clearInterval(this.#spawningInterval);
+      this.#mousePressed = false;
     });
 
     this.#canvas.addEventListener('touchend', () => {
-      clearInterval(this.#spawningInterval);
+      this.#mousePressed = false;
     });
   }
 }
@@ -255,6 +260,7 @@ function hideLoader() {
     top: 0;
     left: 0;
     z-index: -1;
+    filter: blur(0.5rem);
   }
 }
 </style>
