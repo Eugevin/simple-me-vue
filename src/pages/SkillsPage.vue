@@ -24,6 +24,11 @@ const techs: Array<Tech> = [
     image: '/images/skills-base.png'
   },
   {
+    pointer: 'golang',
+    title: 'Go',
+    image: '/images/skills-go.png'
+  },
+  {
     pointer: 'more',
     title: '_more',
     image: '/images/skills-more.png'

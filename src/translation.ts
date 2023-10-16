@@ -53,12 +53,12 @@ export default {
       },
       techs: {
         typescript: {
-          en: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.',
-          ru: 'TypeScript — это строго типизированный язык программирования, основанный на JavaScript, предоставляющий вам лучшие инструменты в любом масштабе.'
+          en: `TypeScript is a strongly typed programming language based on JavaScript (like a superset for JS). He is cool? Yes, he's cool. I love TypeScript - it's wonderful.`,
+          ru: 'TypeScript — это строго типизированный язык программирования, основанный на JavaScript (как суперсет для JS). Он классный? Да, он классный. Я люблю TypeScript - он прекрасен.'
         },
         javascript: {
-          en: 'JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. It is an implementation of the ECMAScript specification. JavaScript is typically used as an embedded language for programmatically accessing application objects.',
-          ru: 'JavaScript — это мультипарадигмальный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Это реализация спецификации ECMAScript. JavaScript обычно используется в качестве встроенного языка для программного доступа к объектам приложения.'
+          en: `JavaScript is a multi-paradigm programming language. Supports object-oriented, imperative and functional styles. The only language at the moment in which the front-end part of applications in the browser is written (and not only).`,
+          ru: 'JavaScript — это мультипарадигмальный язык программирования. Поддерживает объектно-ориентированный, императивный и функциональный стили. Единственный на данный момент язык, на котором пишут фронтенд-часть приложений в браузере (и не только).'
         },
         vue: {
           en: 'Vue.js is an open source JavaScript framework for creating user interfaces. Easily integrates into projects using other JavaScript libraries. Can function as a web framework for developing single page applications in a reactive style.',
@@ -67,6 +67,10 @@ export default {
         htmlcss: {
           en: 'HTML is a markup language used to create static web pages and web applications. CSS is a style sheet language responsible for the presentation of documents written in a markup language.',
           ru: 'HTML — это язык разметки, используемый для создания статических веб-страниц и веб-приложений. CSS — это язык таблиц стилей, отвечающий за представление документов, написанных на языке разметки.'
+        },
+        golang: {
+          en: `Go is a great language that I use to create the backend part of my applications. It's incredibly fast, structured, quite easy to learn, and just beautiful.`,
+          ru: 'Go - прекрасный  язык, который я использую для создания бэкенд части своих приложений. Он безумно быстрый, структурированный, достаточно простой в освоении, да и просто красивый.'
         },
         more: {
           en: 'VueX, VueRouter, JWT, REST-API, Express / Koa, Bootstrap Grid / Bulma, WebSocket, Canvas, pm2, WebRTC and more... much more...',
