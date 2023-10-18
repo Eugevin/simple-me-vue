@@ -197,8 +197,8 @@ export default {
           ru: 'Почта'
         },
         message: {
-          en: 'Message',
-          ru: 'Сообщение'
+          en: 'Message (min: 50)',
+          ru: 'Сообщение (минимум 50)'
         },
         send: {
           en: 'Submit',
