@@ -97,7 +97,7 @@ watchEffect(() => {
       <Input :invalid="!form.message.valid" :modelValue="form.message.value"
         @update:modelValue="newValue => form.message.value = newValue"
         :placeholder="$translate(`pages.contacts.form.message.${language}`)" type="textarea" rows="4" />
-        <div>{{ form.message.value.trim().length }} &lt; 1000</div>
+        <p>{{ form.message.value.trim().length }} &lt; 1000</p>
     </div>
     <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{
       $translate(`pages.contacts.form.send.${language}`) }}</Input>
@@ -137,7 +137,7 @@ watchEffect(() => {
     grid-area: message;
     position: relative;
 
-    div {
+    p {
       position: absolute;
       right: 0;
       bottom: -2rem;
