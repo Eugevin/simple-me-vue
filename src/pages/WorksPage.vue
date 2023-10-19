@@ -8,22 +8,22 @@ const works: Array<Work> = [
   {
     time: ['07.23', ''],
     pointer: 'pp',
-    image: '/images/works-pp.png'
+    image: '/images/works-pp.jpg'
   },
   {
     time: ['01.22', '06.23'],
     pointer: 'platinum',
-    image: '/images/works-platinum.png'
+    image: '/images/works-platinum.jpg'
   },
   {
     time: ['06.21', '10.21  '],
     pointer: 'travelask',
-    image: '/images/works-travelask.png'
+    image: '/images/works-travelask.jpg'
   },
   {
     time: ['09.20', '06.21'],
     pointer: 'r52',
-    image: '/images/works-r52.png'
+    image: '/images/works-r52.jpg'
   },
   {
     time: ['01.18', '01.22'],

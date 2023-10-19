@@ -16,10 +16,10 @@ const filesToPreload = [
   '/images/skills-ts.png',
   '/images/skills-vue.png',
   '/images/works-inner.gif',
-  '/images/works-platinum.png',
-  '/images/works-pp.png',
-  '/images/works-r52.png',
-  '/images/works-travelask.png',
+  '/images/works-platinum.jpg',
+  '/images/works-pp.jpg',
+  '/images/works-r52.jpg',
+  '/images/works-travelask.jpg',
 ]
 
 const emit = defineEmits<{
