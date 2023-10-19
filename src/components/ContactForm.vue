@@ -2,8 +2,9 @@
 import Input from './Input.vue';
 import { ref, watchEffect, inject } from 'vue';
 import debounce from '../helpers/debounce.ts';
+import { reactive } from 'vue';
 
-const form = ref<Form>({
+const form = reactive<Form>({
   from: {
     value: '',
     valid: true
@@ -28,9 +29,9 @@ const sendForm = debounce(async () => {
     const cfg = {
       method: 'POST',
       body: JSON.stringify({
-        from: form.value.from.value,
-        email: form.value.email.value,
-        message: form.value.message.value,
+        from: form.from.value,
+        email: form.email.value,
+        message: form.message.value,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -50,35 +51,35 @@ const sendForm = debounce(async () => {
 }, 700);
 
 const formHandler = function (target: string): boolean {
-  const fromValid = form.value.from.value.trim().length > 1;
-  const emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.value.email.value.trim());
-  const messageValid = form.value.message.value.trim().length > 100;
+  const fromValid = form.from.value.trim().length > 1;
+  const emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.email.value.trim());
+  const messageValid = form.message.value.trim().length >= 50 && form.message.value.trim().length <= 1000;
 
   if (target === 'from' || target === 'all') {
-    form.value.from.valid = fromValid;
+    form.from.valid = fromValid;
   }
 
   if (target === 'email' || target === 'all') {
-    form.value.email.valid = emailValid;
+    form.email.valid = emailValid;
   }
 
   if (target === 'message' || target === 'all') {
-    form.value.message.valid = messageValid;
+    form.message.valid = messageValid;
   }
 
   return fromValid && emailValid && messageValid;
 };
 
 watchEffect(() => {
-  if (form.value.from.value) {
+  if (form.from.value) {
     formHandler('from');
   }
 
-  if (form.value.email.value) {
+  if (form.email.value) {
     formHandler('email');
   }
 
-  if (form.value.message.value) {
+  if (form.message.value) {
     formHandler('message');
   }
 })
@@ -92,9 +93,12 @@ watchEffect(() => {
     <Input :invalid="!form.email.valid" :modelValue="form.email.value"
       @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email"
       :placeholder="$translate(`pages.contacts.form.email.${language}`)" />
-    <Input :invalid="!form.message.valid" :modelValue="form.message.value"
-      @update:modelValue="newValue => form.message.value = newValue" class="contact-form__message"
-      :placeholder="$translate(`pages.contacts.form.message.${language}`)" type="textarea" rows="4" />
+    <div class="contact-form__message">
+      <Input :invalid="!form.message.valid" :modelValue="form.message.value"
+        @update:modelValue="newValue => form.message.value = newValue"
+        :placeholder="$translate(`pages.contacts.form.message.${language}`)" type="textarea" rows="4" />
+        <p>{{ form.message.value.trim().length }} &lt; 1000</p>
+    </div>
     <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{
       $translate(`pages.contacts.form.send.${language}`) }}</Input>
   </div>
@@ -131,6 +135,13 @@ watchEffect(() => {
 
   &__message {
     grid-area: message;
+    position: relative;
+
+    p {
+      position: absolute;
+      right: 0;
+      bottom: -2rem;
+    }
   }
 
   &__send {
@@ -171,4 +182,5 @@ watchEffect(() => {
       visibility: visible;
     }
   }
-}</style>
+}
+</style>

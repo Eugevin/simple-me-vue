@@ -74,6 +74,7 @@ button {
 
 input,
 textarea {
+  width: 100%;
   resize: none;
   outline: none;
   padding: 0.5rem 0;
