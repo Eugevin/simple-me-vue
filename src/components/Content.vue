@@ -5,6 +5,7 @@ defineProps<{ background?: string }>()
 <template>
   <div :class="`content ${background ? 'content_inner' : ''}`">
     <video
+      v-if="background"
       :src="background"
       loop
       autoplay
