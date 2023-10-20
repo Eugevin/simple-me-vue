@@ -37,26 +37,18 @@ const positions = reactive({
 
 const modalIsActive = ref<boolean>(false)
 
-// TODO: Refactor this shit
 async function modalHandler() {
   overflowHidden.value = !modalIsActive.value
 
   if (!imageEl.value) return
 
-  if (modalIsActive.value) {
-    positions.image.left = positions.image.initial.left
-    positions.image.top = positions.image.initial.top
+  modalIsActive.value ? hideModal(imageEl.value) : showModal(imageEl.value)
+}
 
-    modalIsActive.value = false
-
-    imageEl.value.addEventListener('transitionend', hideModal)
-
-    return
-  }
-
+async function showModal(imageEl: HTMLElement) {
   positions.root.height = `${rootEl?.value?.offsetHeight}px`
 
-  const imageBounding = imageEl.value.getBoundingClientRect()
+  const imageBounding = imageEl.getBoundingClientRect()
 
   positions.image.initial.left = positions.image.left = `${imageBounding?.left}px`
   positions.image.initial.top = positions.image.top = `${imageBounding?.top}px`
@@ -72,14 +64,23 @@ async function modalHandler() {
   modalIsActive.value = true
 }
 
-function hideModal(e: TransitionEvent) {
+function hideModal(imageEl: HTMLElement) {
+  positions.image.left = positions.image.initial.left
+  positions.image.top = positions.image.initial.top
+
+  modalIsActive.value = false
+
+  imageEl.addEventListener('transitionend', hideModalListener)
+}
+
+function hideModalListener(e: TransitionEvent) {
   if (e.propertyName !== 'top') return
 
   positions.image.position = ''
   positions.image.left = ''
   positions.image.top = ''
 
-  imageEl.value?.removeEventListener('transitionend', hideModal)
+  imageEl.value?.removeEventListener('transitionend', hideModalListener)
 }
 </script>
 
