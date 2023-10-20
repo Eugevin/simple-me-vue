@@ -26,6 +26,7 @@ const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
 @import '../styles/media';
 
 .content {
+  overflow: hidden;
   display: flex;
   justify-content: flex-end;
   gap: 16rem;
