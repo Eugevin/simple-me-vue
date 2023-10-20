@@ -37,10 +37,9 @@ async function loaderHandler(i: number, arr: string[]) {
     const video = document.createElement('video')
     video.src = arr[i]
     video.volume = 0
-    video.play()
+    video.load()
 
     video.addEventListener('canplaythrough', () => {
-      video.remove()
       progress.value += Math.floor(100 / filesToPreload.length)
 
       loaderHandler(++i, arr)
@@ -53,7 +52,6 @@ async function loaderHandler(i: number, arr: string[]) {
   img.src = arr[i]
 
   img.addEventListener('load', () => {
-    img.remove()
     progress.value += Math.floor(100 / filesToPreload.length)
 
     loaderHandler(++i, arr)
