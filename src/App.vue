@@ -3,6 +3,7 @@ import { provide, ref, watchEffect } from 'vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Loader from './components/Loader.vue'
+import Cookie from './components/Cookie.vue'
 
 const whiteTheme = ref<boolean>(false)
 provide('whiteTheme', whiteTheme)
@@ -12,6 +13,8 @@ provide('overflowHidden', overflowHidden)
 
 const language = ref<'ru' | 'en'>('en')
 provide('language', language)
+
+const cookieAccepted = ref<boolean>(!!localStorage.getItem('cookie'))
 
 watchEffect(() => {
   document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial'
@@ -33,6 +36,12 @@ const loading = ref<boolean>(true)
       <Header />
       <RouterView />
       <Footer />
+      <Transition>
+        <Cookie
+          v-if="!cookieAccepted"
+          @accepted="cookieAccepted = true"
+        />
+      </Transition>
     </main>
   </Transition>
 </template>
