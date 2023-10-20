@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Content from '../components/Content.vue';
-import ContactForm from '../components/ContactForm.vue';
-import { inject } from 'vue';
+import Content from '../components/Content.vue'
+import ContactForm from '../components/ContactForm.vue'
+import { inject } from 'vue'
 
 const socials: Array<Social> = [
   {
@@ -19,17 +19,19 @@ const socials: Array<Social> = [
 ]
 
 function openSocial(social: string) {
-  window.open(social, '_blank');
+  window.open(social, '_blank')
 }
 
-const language = inject('language') as 'ru' | 'en';
+const language = inject('language') as 'ru' | 'en'
 </script>
 
 <template>
   <div class="contacts">
     <Content background="/images/contacts-inner.gif">
-      <template v-slot:body>
-        <p style="color: var(--white)">{{ $translate(`pages.contacts.inner.heading.${language}`) }}</p>
+      <template #body>
+        <p style="color: var(--white)">
+          {{ $translate(`pages.contacts.inner.heading.${language}`) }}
+        </p>
         <h1>
           {{ $translate(`pages.contacts.inner.title.${language}.0`) }}
           <br>
@@ -38,10 +40,10 @@ const language = inject('language') as 'ru' | 'en';
       </template>
     </Content>
     <Content>
-      <template v-slot:heading>
+      <template #heading>
         <h2>{{ $translate(`pages.contacts.heading.${language}`) }}</h2>
       </template>
-      <template v-slot:body>
+      <template #body>
         <h5>{{ $translate(`pages.contacts.content.address.${language}`) }}</h5>
         <p>{{ $translate(`pages.contacts.content.addressValue.${language}`) }}</p>
         <h5>{{ $translate(`pages.contacts.content.email.${language}`) }}</h5>
@@ -50,8 +52,15 @@ const language = inject('language') as 'ru' | 'en';
         <ContactForm />
         <h5>{{ $translate(`pages.contacts.content.check.${language}`) }}</h5>
         <ul>
-          <h5 @click="openSocial(social.link)" :href="social.link" v-for="social in socials" :key="social.title">{{
-            social.title }}</h5>
+          <h5
+            v-for="social in socials"
+            :key="social.title"
+            :href="social.link"
+            @click="openSocial(social.link)"
+          >
+            {{
+              social.title }}
+          </h5>
         </ul>
       </template>
     </Content>

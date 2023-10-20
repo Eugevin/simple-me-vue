@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { inject } from 'vue';
+import { inject } from 'vue'
 
-const language = inject('language') as 'ru' | 'en';
+const language = inject('language') as 'ru' | 'en'
 </script>
 
 <template>

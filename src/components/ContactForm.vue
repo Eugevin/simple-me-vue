@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Input from './Input.vue';
-import { ref, watchEffect, inject } from 'vue';
-import debounce from '../helpers/debounce.ts';
-import { reactive } from 'vue';
+import Input from './Input.vue'
+import { ref, watchEffect, inject } from 'vue'
+import debounce from '../helpers/debounce.ts'
+import { reactive } from 'vue'
 
 const form = reactive<Form>({
   from: {
@@ -17,13 +17,13 @@ const form = reactive<Form>({
     value: '',
     valid: true
   },
-});
+})
 
-const formSended = ref<string>('');
-const language = inject('language') as 'ru' | 'en';
+const formSended = ref<string>('')
+const language = inject('language') as 'ru' | 'en'
 
 const sendForm = debounce(async () => {
-  if (!formHandler('all')) return;
+  if (!formHandler('all')) return
 
   try {
     const cfg = {
@@ -36,71 +36,94 @@ const sendForm = debounce(async () => {
       headers: {
         'Content-Type': 'application/json'
       }
-    };
+    }
 
-    const request = await fetch('/api/message', cfg);
-    const data = await request.json();
+    const request = await fetch('/api/message', cfg)
+    const data = await request.json()
 
     if (request.ok && data.message) {
-      formSended.value = `\"${data.message}\"`;
-    };
+      formSended.value = `"${data.message}"`
+    }
   } catch (e) {
-    formSended.value = "\"😢 Something did goes wrong, please, try again later 😢\"";
-    console.error(e);
+    formSended.value = "\"😢 Something did goes wrong, please, try again later 😢\""
+    console.error(e)
   }
-}, 700);
+}, 700)
 
 const formHandler = function (target: string): boolean {
-  const fromValid = form.from.value.trim().length > 1;
-  const emailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.email.value.trim());
-  const messageValid = form.message.value.trim().length >= 50 && form.message.value.trim().length <= 1000;
+  const fromValid = form.from.value.trim().length > 1
+  const emailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(form.email.value.trim())
+  const messageValid = form.message.value.trim().length >= 50 && form.message.value.trim().length <= 1000
 
   if (target === 'from' || target === 'all') {
-    form.from.valid = fromValid;
+    form.from.valid = fromValid
   }
 
   if (target === 'email' || target === 'all') {
-    form.email.valid = emailValid;
+    form.email.valid = emailValid
   }
 
   if (target === 'message' || target === 'all') {
-    form.message.valid = messageValid;
+    form.message.valid = messageValid
   }
 
-  return fromValid && emailValid && messageValid;
-};
+  return fromValid && emailValid && messageValid
+}
 
 watchEffect(() => {
   if (form.from.value) {
-    formHandler('from');
+    formHandler('from')
   }
 
   if (form.email.value) {
-    formHandler('email');
+    formHandler('email')
   }
 
   if (form.message.value) {
-    formHandler('message');
+    formHandler('message')
   }
 })
 </script>
 
 <template>
-  <div :class="`contact-form ${formSended ? 'ok' : ''}`" :style="`--message: ${formSended}`">
-    <Input :invalid="!form.from.valid" :modelValue="form.from.value"
-      @update:modelValue="newValue => form.from.value = newValue" class="contact-form__name"
-      :placeholder="$translate(`pages.contacts.form.name.${language}`)" />
-    <Input :invalid="!form.email.valid" :modelValue="form.email.value"
-      @update:modelValue="newValue => form.email.value = newValue" class="contact-form__email"
-      :placeholder="$translate(`pages.contacts.form.email.${language}`)" />
+  <div
+    :class="`contact-form ${formSended ? 'ok' : ''}`"
+    :style="`--message: ${formSended}`"
+  >
+    <Input
+      :invalid="!form.from.valid"
+      :model-value="form.from.value"
+      class="contact-form__name"
+      :placeholder="$translate(`pages.contacts.form.name.${language}`)"
+      @update:model-value="newValue => form.from.value = newValue"
+    />
+    <Input
+      :invalid="!form.email.valid"
+      :model-value="form.email.value"
+      class="contact-form__email"
+      :placeholder="$translate(`pages.contacts.form.email.${language}`)"
+      @update:model-value="newValue => form.email.value = newValue"
+    />
     <div class="contact-form__message">
-      <Input :invalid="!form.message.valid" :modelValue="form.message.value"
-        @update:modelValue="newValue => form.message.value = newValue"
-        :placeholder="$translate(`pages.contacts.form.message.${language}`)" type="textarea" rows="4" />
-        <p>{{ form.message.value.trim().length }} &lt; 1000</p>
+      <Input
+        :invalid="!form.message.valid"
+        :model-value="form.message.value"
+        :placeholder="$translate(`pages.contacts.form.message.${language}`)"
+        type="textarea"
+        rows="4"
+        @update:model-value="newValue => form.message.value = newValue"
+      />
+      <p>{{ form.message.value.trim().length }} &lt; 1000</p>
     </div>
-    <Input :invalid="false" @click="sendForm" class="contact-form__send" type="button">{{
-      $translate(`pages.contacts.form.send.${language}`) }}</Input>
+    <Input
+      :invalid="false"
+      class="contact-form__send"
+      type="button"
+      @click="sendForm"
+    >
+      {{
+        $translate(`pages.contacts.form.send.${language}`) }}
+    </Input>
   </div>
 </template>
 

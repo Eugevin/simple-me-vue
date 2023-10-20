@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, inject } from 'vue';
-import Content from '../components/Content.vue';
-import Pagination from '../components/Pagination.vue';
-import Work from '../components/Work.vue';
+import { ref, inject } from 'vue'
+import Content from '../components/Content.vue'
+import Pagination from '../components/Pagination.vue'
+import Work from '../components/Work.vue'
 
 const works: Array<Work> = [
   {
@@ -30,17 +30,19 @@ const works: Array<Work> = [
     pointer: 'freelance',
     image: '/images/index-inner.gif'
   },
-];
+]
 
-const selectedPage = ref<number>(0);
-const language = inject('language') as 'ru' | 'en';
+const selectedPage = ref<number>(0)
+const language = inject('language') as 'ru' | 'en'
 </script>
 
 <template>
   <div class="works">
     <Content background="/images/works-inner.gif">
-      <template v-slot:body>
-        <p style="color: var(--white)">{{ $translate(`pages.projects.inner.heading.${language}`) }}</p>
+      <template #body>
+        <p style="color: var(--white)">
+          {{ $translate(`pages.projects.inner.heading.${language}`) }}
+        </p>
         <h1>
           {{ $translate(`pages.projects.inner.title.${language}.0`) }}
           <br>
@@ -48,12 +50,18 @@ const language = inject('language') as 'ru' | 'en';
         </h1>
       </template>
     </Content>
-    <Work v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)" :key="work.pointer"
-      :data="{ time: work.time, title: $translate(`pages.projects.content.${work.pointer}.title.${language}`), description: $translate(`pages.projects.content.${work.pointer}.description.${language}`), image: work.image }" />
+    <Work
+      v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)"
+      :key="work.pointer"
+      :data="{ time: work.time, title: $translate(`pages.projects.content.${work.pointer}.title.${language}`), description: $translate(`pages.projects.content.${work.pointer}.description.${language}`), image: work.image }"
+    />
     <Content>
-      <template v-slot:body>
-        <Pagination :items="Math.ceil(works.length / 3)" :selected="selectedPage"
-          @update="newValue => selectedPage = newValue" />
+      <template #body>
+        <Pagination
+          :items="Math.ceil(works.length / 3)"
+          :selected="selectedPage"
+          @update="newValue => selectedPage = newValue"
+        />
       </template>
     </Content>
   </div>

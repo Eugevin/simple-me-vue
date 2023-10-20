@@ -1,9 +1,9 @@
-import IndexPage from './pages/IndexPage.vue';
-import SkillsPage from './pages/SkillsPage.vue';
-import WorksPage from './pages/WorksPage.vue';
-import ContactsPage from './pages/ContactsPage.vue';
-import NotFoundPage from './pages/NotFoundPage.vue';
-import { createRouter, createWebHistory } from 'vue-router';
+import IndexPage from './pages/IndexPage.vue'
+import SkillsPage from './pages/SkillsPage.vue'
+import WorksPage from './pages/WorksPage.vue'
+import ContactsPage from './pages/ContactsPage.vue'
+import NotFoundPage from './pages/NotFoundPage.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   { path: '/', component: IndexPage },
@@ -18,4 +18,4 @@ const router = createRouter({
   routes
 })
 
-export default router;
+export default router

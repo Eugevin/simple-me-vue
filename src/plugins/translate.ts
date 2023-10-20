@@ -1,18 +1,18 @@
-import translation from "../translation.ts";
+import translation from "../translation.ts"
 
 export default {
   install: (app: any) => {
     app.config.globalProperties.$translate = (path: string) => {
       const targetString: any = path.split('.').reduce((prev, current) => {
         // @ts-ignore
-        return prev[current];
-      }, translation);
+        return prev[current]
+      }, translation)
 
 
-      return targetString;
+      return targetString
     }
   }
-};
+}
 
 export { }
 

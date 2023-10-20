@@ -1,29 +1,35 @@
 <script setup lang="ts">
-import { provide, ref, watchEffect } from 'vue';
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Loader from './components/Loader.vue';
+import { provide, ref, watchEffect } from 'vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+import Loader from './components/Loader.vue'
 
-const whiteTheme = ref<boolean>(false);
-provide('whiteTheme', whiteTheme);
+const whiteTheme = ref<boolean>(false)
+provide('whiteTheme', whiteTheme)
 
-const overflowHidden = ref<boolean>(false);
-provide('overflowHidden', overflowHidden);
+const overflowHidden = ref<boolean>(false)
+provide('overflowHidden', overflowHidden)
 
-const language = ref<'ru' | 'en'>('en');
-provide('language', language);
+const language = ref<'ru' | 'en'>('en')
+provide('language', language)
 
 watchEffect(() => {
-  document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial';
-});
+  document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial'
+})
 
-const loading = ref<boolean>(true);
+const loading = ref<boolean>(true)
 </script>
 
 <template>
   <Transition>
-    <Loader v-if="loading" @loaded="loading = false" />
-    <main v-else :class="whiteTheme ? 'white-theme' : ''">
+    <Loader
+      v-if="loading"
+      @loaded="loading = false"
+    />
+    <main
+      v-else
+      :class="whiteTheme ? 'white-theme' : ''"
+    >
       <Header />
       <RouterView />
       <Footer />

@@ -1,9 +1,9 @@
 async function wait(delay: number): Promise<void> {
-  return new Promise((resolve, _) => {
+  return new Promise(resolve => {
     setTimeout(() => {
-      resolve();
-    }, delay);
-  });
+      resolve()
+    }, delay)
+  })
 }
 
-export default wait;
+export default wait

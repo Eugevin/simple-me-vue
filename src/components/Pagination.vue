@@ -1,12 +1,16 @@
 <script setup lang="ts">
 defineProps<{ items: number, selected: number }>()
-defineEmits(['update']);
+defineEmits(['update'])
 </script>
 
 <template>
   <div class="pagination">
-    <h5 :class="`pagination__item ${i === selected ? 'pagination__item_active' : ''}`" v-for="item, i in items"
-      :key="item" @click="$emit('update', i)">
+    <h5
+      v-for="item, i in items"
+      :key="item"
+      :class="`pagination__item ${i === selected ? 'pagination__item_active' : ''}`"
+      @click="$emit('update', i)"
+    >
       {{ `${i < 10 ? '0' : ''}${i + 1}` }}
     </h5>
   </div>

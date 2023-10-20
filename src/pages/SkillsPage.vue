@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { inject } from 'vue';
-import Content from '../components/Content.vue';
+import { inject } from 'vue'
+import Content from '../components/Content.vue'
 
 const techs: Array<Tech> = [
   {
@@ -33,16 +33,18 @@ const techs: Array<Tech> = [
     title: '_more',
     image: '/images/skills-more.png'
   },
-];
+]
 
-const language = inject('language') as 'ru' | 'en';
+const language = inject('language') as 'ru' | 'en'
 </script>
 
 <template>
   <div class="skills">
     <Content background="/images/skills-inner.gif">
-      <template v-slot:body>
-        <p style="color: var(--white)">{{ $translate(`pages.skills.inner.heading.${language}`) }}</p>
+      <template #body>
+        <p style="color: var(--white)">
+          {{ $translate(`pages.skills.inner.heading.${language}`) }}
+        </p>
         <h1>
           {{ $translate(`pages.skills.inner.title.${language}.0`) }}
           <br>
@@ -51,20 +53,32 @@ const language = inject('language') as 'ru' | 'en';
       </template>
     </Content>
     <Content>
-      <template v-slot:heading>
+      <template #heading>
         <h2 class="sticky">
           {{ $translate(`pages.skills.heading.${language}.0`) }}
           <br>
           {{ $translate(`pages.skills.heading.${language}.1`) }}
         </h2>
       </template>
-      <template v-slot:body>
+      <template #body>
         <p>{{ $translate(`pages.skills.description.${language}`) }}</p>
         <div class="grid">
-          <div class="grid__item" v-for="tech in techs" :key="tech.title">
-            <img class="grid__item__image" :src="tech.image" alt="tech image">
-            <h4 class="grid__item__title">{{ tech.title }}</h4>
-            <p class="grid__item__description">{{ $translate(`pages.skills.techs.${tech.pointer}.${language}`) }}</p>
+          <div
+            v-for="tech in techs"
+            :key="tech.title"
+            class="grid__item"
+          >
+            <img
+              class="grid__item__image"
+              :src="tech.image"
+              alt="tech image"
+            >
+            <h4 class="grid__item__title">
+              {{ tech.title }}
+            </h4>
+            <p class="grid__item__description">
+              {{ $translate(`pages.skills.techs.${tech.pointer}.${language}`) }}
+            </p>
           </div>
         </div>
       </template>

@@ -1,16 +1,16 @@
 function throttle(fn: () => void, delay: number) {
-  let timer = false;
+  let timer = false
 
   return () => {
-    if (timer) return;
+    if (timer) return
 
-    fn();
-    timer = true;
+    fn()
+    timer = true
 
     setTimeout(() => {
-      timer = false;
-    }, delay);
+      timer = false
+    }, delay)
   }
 }
 
-export default throttle;
+export default throttle

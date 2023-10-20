@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
+import { inject, ref } from 'vue'
 
-const headerActive = ref<boolean>(false);
-const whiteTheme = inject('whiteTheme') as boolean;
-const language = inject('language') as 'ru' | 'en';
+const headerActive = ref<boolean>(false)
+const whiteTheme = inject('whiteTheme') as boolean
+const language = inject('language') as 'ru' | 'en'
 
 const headerLinks: Array<Link> = [
   {
@@ -26,28 +26,51 @@ const headerLinks: Array<Link> = [
     title: 'contacts',
     image: '/images/header-contacts.jpg',
   },
-];
+]
 </script>
 
 <template>
   <header :class="`header ${headerActive ? 'header_active' : ''}`">
     <div class="header__visible">
-      <div class="header__visible__menu" @click="headerActive = !headerActive">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div
+        class="header__visible__menu"
+        @click="headerActive = !headerActive"
+      >
+        <span />
+        <span />
+        <span />
       </div>
-      <div class="header__visible__language" :title="language === 'en' ? 'Change language' : 'Сменить язык'"
-        @click="language = language === 'en' ? 'ru' : 'en'">
-        {{ language }}<sup v-if="language === 'ru'" style="font-size: 0.4em">beta</sup></div>
-      <div class="header__visible__change" @click="whiteTheme = !whiteTheme"></div>
+      <div
+        class="header__visible__language"
+        :title="language === 'en' ? 'Change language' : 'Сменить язык'"
+        @click="language = language === 'en' ? 'ru' : 'en'"
+      >
+        {{ language }}<sup
+          v-if="language === 'ru'"
+          style="font-size: 0.4em"
+        >beta</sup>
+      </div>
+      <div
+        class="header__visible__change"
+        @click="whiteTheme = !whiteTheme"
+      />
     </div>
     <div class="header__body">
-      <div class="header__body__item" v-for="link in headerLinks" :key="link.to">
-        <RouterLink @click="headerActive = !headerActive" :to="link.to">
+      <div
+        v-for="link in headerLinks"
+        :key="link.to"
+        class="header__body__item"
+      >
+        <RouterLink
+          :to="link.to"
+          @click="headerActive = !headerActive"
+        >
           {{ $translate(`header.${link.title}.${language}`) }}
         </RouterLink>
-        <img :src="link.image" alt="">
+        <img
+          :src="link.image"
+          alt=""
+        >
       </div>
     </div>
   </header>

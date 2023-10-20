@@ -3,7 +3,10 @@ defineProps<{ background?: string }>()
 </script>
 
 <template>
-  <div :class="`content ${background ? 'content_inner' : ''}`" :style="`--bg: url('${background}')`">
+  <div
+    :class="`content ${background ? 'content_inner' : ''}`"
+    :style="`--bg: url('${background}')`"
+  >
     <div class="content__heading">
       <slot name="heading" />
     </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ type?: 'button' | 'textarea', invalid?: boolean, modelValue?: any }>();
+defineProps<{ type?: 'button' | 'textarea', invalid?: boolean }>()
 const emit = defineEmits(['update:modelValue'])
 
 </script>
@@ -10,10 +10,17 @@ const emit = defineEmits(['update:modelValue'])
       <slot />
     </span>
   </button>
-  <textarea @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else-if="type === 'textarea'"
-    :class="`${invalid ? 'invalid' : ''}`"></textarea>
-  <input @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" v-else type="text"
-    :class="`${invalid ? 'invalid' : ''}`">
+  <textarea
+    v-else-if="type === 'textarea'"
+    :class="`${invalid ? 'invalid' : ''}`"
+    @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+  />
+  <input
+    v-else
+    type="text"
+    :class="`${invalid ? 'invalid' : ''}`"
+    @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+  >
 </template>
 
 <style scoped lang="scss">

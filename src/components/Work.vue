@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { inject, reactive, ref } from 'vue';
-import Content from './Content.vue';
-import Modal from './Modal.vue';
-import wait from '../helpers/wait.ts';
+import { inject, reactive, ref } from 'vue'
+import Content from './Content.vue'
+import Modal from './Modal.vue'
+import wait from '../helpers/wait.ts'
+import { Ref } from 'vue'
 
 defineProps<{
   data: {
@@ -13,10 +14,10 @@ defineProps<{
   }
 }>()
 
-const overflowHidden = inject('overflowHidden') as { value: boolean };
+const overflowHidden = inject('overflowHidden') as { value: boolean }
 
-const rootEl: any = ref(null);
-const imageEl: any = ref(null);
+const rootEl: Ref<HTMLElement | null> = ref(null)
+const imageEl: Ref<HTMLElement | null> = ref(null)
 
 const positions = reactive({
   root: {
@@ -32,62 +33,70 @@ const positions = reactive({
       top: ''
     }
   }
-});
+})
 
-const modalIsActive = ref<boolean>(false);
+const modalIsActive = ref<boolean>(false)
 
 async function modalHandler() {
-  overflowHidden.value = !modalIsActive.value;
+  overflowHidden.value = !modalIsActive.value
 
   if (modalIsActive.value) {
-    positions.image.left = positions.image.initial.left;
-    positions.image.top = positions.image.initial.top;
+    positions.image.left = positions.image.initial.left
+    positions.image.top = positions.image.initial.top
 
-    modalIsActive.value = false;
+    modalIsActive.value = false
 
-    await wait(300);
+    await wait(300)
 
-    positions.image.position = '';
-    positions.image.left = '';
-    positions.image.top = '';
+    positions.image.position = ''
+    positions.image.left = ''
+    positions.image.top = ''
 
-    return;
-  };
+    return
+  }
 
-  positions.root.height = `${rootEl.value.offsetHeight}px`;
+  positions.root.height = `${rootEl?.value?.offsetHeight}px`
 
-  const imageBounding = imageEl.value.getBoundingClientRect();
+  const imageBounding = imageEl?.value?.getBoundingClientRect()
 
-  positions.image.initial.left = positions.image.left = `${imageBounding.left}px`;
-  positions.image.initial.top = positions.image.top = `${imageBounding.top}px`;
+  positions.image.initial.left = positions.image.left = `${imageBounding?.left}px`
+  positions.image.initial.top = positions.image.top = `${imageBounding?.top}px`
 
-  await wait(1);
+  await wait(1)
 
-  positions.image.position = 'fixed';
+  positions.image.position = 'fixed'
 
-  const windowIsSmall = window.innerWidth <= 600;
+  const windowIsSmall = window.innerWidth <= 600
 
-  positions.image.left = windowIsSmall ? '1.375rem' : '6.25rem';
-  positions.image.top = windowIsSmall ? '1.375rem' : '5rem';
+  positions.image.left = windowIsSmall ? '1.375rem' : '6.25rem'
+  positions.image.top = windowIsSmall ? '1.375rem' : '5rem'
 
-  modalIsActive.value = true;
+  modalIsActive.value = true
 }
 </script>
 
 <template>
-  <div class="work" ref="rootEl" :style="{ height: positions.root.height }">
+  <div
+    ref="rootEl"
+    class="work"
+    :style="{ height: positions.root.height }"
+  >
     <Content>
-      <template v-slot:heading>
+      <template #heading>
         <div :class="`box ${modalIsActive ? 'box_hidden' : ''}`">
           <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
           <h3>{{ data.title }}</h3>
-          <p v-html="data.description"></p>
+          <p v-html="data.description" />
         </div>
       </template>
-      <template v-slot:body>
-        <img ref="imageEl"
+      <template #body>
+        <img
+          ref="imageEl"
           :style="{ position: positions.image.position ? 'fixed' : 'static', left: positions.image.left, top: positions.image.top }"
-          @click="modalHandler()" :src="data.image" alt="work personal image">
+          :src="data.image"
+          alt="work personal image"
+          @click="modalHandler()"
+        >
       </template>
     </Content>
   </div>
@@ -96,7 +105,7 @@ async function modalHandler() {
       <div class="box box_modal">
         <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
         <h3>{{ data.title }}</h3>
-        <p v-html="data.description"></p>
+        <p v-html="data.description" />
       </div>
     </Modal>
   </Transition>
