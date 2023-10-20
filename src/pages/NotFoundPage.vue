@@ -9,7 +9,7 @@ const language = inject('language') as 'ru' | 'en'
   <div class="simple not-found">
     <div class="simple__inner">
       <img
-        src="/images/not-found-inner.gif"
+        src="/images/not-found-inner.jpg"
         alt="not-found inner image"
       >
     </div>

@@ -27,7 +27,7 @@ const language = inject('language') as 'ru' | 'en'
 
 <template>
   <div class="contacts">
-    <Content background="/images/contacts-inner.gif">
+    <Content background="/videos/contacts-inner.mp4">
       <template #body>
         <p style="color: var(--white)">
           {{ $translate(`pages.contacts.inner.heading.${language}`) }}

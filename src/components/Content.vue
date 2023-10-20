@@ -3,10 +3,13 @@ defineProps<{ background?: string }>()
 </script>
 
 <template>
-  <div
-    :class="`content ${background ? 'content_inner' : ''}`"
-    :style="`--bg: url('${background}')`"
-  >
+  <div :class="`content ${background ? 'content_inner' : ''}`">
+    <video
+      :src="background"
+      loop
+      autoplay
+      muted
+    />
     <div class="content__heading">
       <slot name="heading" />
     </div>
@@ -44,7 +47,6 @@ defineProps<{ background?: string }>()
     width: 100%;
     height: calc(100vw * 0.563);
     background: var(--blue) no-repeat center / cover;
-    background-image: var(--bg);
     position: relative;
     z-index: 1;
 
@@ -57,6 +59,13 @@ defineProps<{ background?: string }>()
       width: 100%;
       background: #00000025;
       z-index: -1;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
     }
   }
 

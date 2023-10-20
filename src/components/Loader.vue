@@ -33,10 +33,27 @@ async function loaderHandler(i: number, arr: string[]) {
 
   loadingFile.value = arr[i]
 
+  if (arr[i].split('.')[1] === 'mp4') {
+    const video = document.createElement('video')
+    video.src = arr[i]
+    video.volume = 0
+    video.play()
+
+    video.addEventListener('canplaythrough', () => {
+      video.remove()
+      progress.value += Math.floor(100 / filesToPreload.length)
+
+      loaderHandler(++i, arr)
+    })
+
+    return
+  }
+
   const img = new Image()
   img.src = arr[i]
 
   img.addEventListener('load', () => {
+    img.remove()
     progress.value += Math.floor(100 / filesToPreload.length)
 
     loaderHandler(++i, arr)
