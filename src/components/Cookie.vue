@@ -13,8 +13,8 @@ function acceptCookie() {
 
 <template>
   <div class="cookie">
-    <h4>🍪 Cookie Policy 🍪</h4>
-    <p>
+    <p>🍪 Cookie Policy</p>
+    <p class="sm">
       Life is better with cookies. Most people would agree cookies make life better. For me, they help me make my products
       better. By continuing to use this site, you agree to the use of cookies.
     </p>
@@ -32,24 +32,35 @@ function acceptCookie() {
 
 .cookie {
   z-index: 99;
-  background: var(--black);
-  max-width: 30%;
-  backdrop-filter: blur(1rem);
+  max-width: 10%;
   position: fixed;
+  background: var(--gray-2);
+  border: 2px solid var(--gray-2);
   bottom: 1rem;
   left: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
+  transition: var(--transition);
 
-  button {
-    width: 50%;
+  p {
+    color: var(--gray-5);
+    margin: 0;
+    transition: var(--transition);
+
+    .white-theme & {
+      color: var(--gray-2);
+    }
   }
 
   @include media-phone {
     max-width: calc(100% - 2rem);
     bottom: 7.25rem;
+  }
+
+  .white-theme & {
+    background: var(--white);
   }
 }
 </style>
