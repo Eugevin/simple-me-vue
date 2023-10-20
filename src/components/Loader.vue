@@ -7,7 +7,7 @@ const filesToPreload = [
   '/images/header-home.jpg',
   '/images/header-skills.jpg',
   '/images/header-works.jpg',
-  '/images/index-inner.gif',
+  '/images/me.jpg',
   '/images/not-found-inner.gif',
   '/images/skills-base.png',
   '/images/skills-inner.gif',

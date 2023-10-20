@@ -28,7 +28,7 @@ const works: Array<Work> = [
   {
     time: ['01.18', '01.22'],
     pointer: 'freelance',
-    image: '/images/index-inner.gif'
+    image: '/images/me.jpg'
   },
 ]
 
