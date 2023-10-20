@@ -309,6 +309,7 @@ const headerLinks: Array<Link> = [
       &:hover {
         img {
           opacity: 1;
+          transform: scale(1.05);
         }
 
         a {
