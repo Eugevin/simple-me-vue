@@ -17,7 +17,13 @@ provide('language', language)
 const cookieAccepted = ref<boolean>(!!localStorage.getItem('cookie'))
 
 watchEffect(() => {
-  document.body.style.overflow = overflowHidden.value ? 'hidden' : 'initial'
+  if (overflowHidden.value) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100%'
+  } else {
+    document.body.style.overflow = 'initial'
+    document.body.style.height = 'initial'
+  }
 })
 
 const loading = ref<boolean>(true)
