@@ -16,11 +16,13 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@types/node": "^20.8.7",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "bun-types": "latest",
     "eslint": "^8.51.0",
+    "path": "^0.12.7",
     "eslint-plugin-vue": "^9.17.0",
     "sass": "^1.66.1",
     "typescript": "^5.0.2",

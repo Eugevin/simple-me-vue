@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -23,7 +24,7 @@
     /* Resolve virtual routes */
     "paths": {
       "@/*": [
-        "./*"
+        "src/*"
       ]
     }
   },
