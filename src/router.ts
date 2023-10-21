@@ -1,11 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import IndexPage from '@/pages/IndexPage.vue'
+import SkillsPage from '@/pages/SkillsPage.vue'
+import WorksPage from '@/pages/WorksPage.vue'
+import ContactsPage from '@/pages/ContactsPage.vue'
+import NotFoundPage from '@/pages/NotFoundPage.vue'
 
 const routes = [
-  { path: '/', component: () => import('@/pages/IndexPage.vue') },
-  { path: '/skills', component: () => import('@/pages/SkillsPage.vue') },
-  { path: '/works', component: () => import('@/pages/WorksPage.vue') },
-  { path: '/contacts', component: () => import('@/pages/ContactsPage.vue') },
-  { path: '/:pathMatch(.*)*', component: () => import('@/pages/NotFoundPage.vue') },
+  { path: '/', component: IndexPage },
+  { path: '/skills', component: SkillsPage },
+  { path: '/works', component: WorksPage },
+  { path: '/contacts', component: ContactsPage },
+  { path: '/:pathMatch(.*)*', component: NotFoundPage },
 ]
 
 const router = createRouter({
