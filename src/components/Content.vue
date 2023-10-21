@@ -1,7 +1,5 @@
 <script setup lang="ts">
 defineProps<{ background?: string }>()
-
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
 </script>
 
 <template>
@@ -10,8 +8,9 @@ const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
       v-if="background"
       :src="background"
       loop
-      :autoplay="!isIOS"
+      autoplay
       muted
+      playsinline
     />
     <div class="content__heading">
       <slot name="heading" />
