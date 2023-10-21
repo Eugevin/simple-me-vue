@@ -8,27 +8,27 @@ const works: Array<Work> = [
   {
     time: ['07.23', ''],
     pointer: 'pp',
-    image: '/images/works-pp.jpg'
+    image: '/images/works-pp.webp'
   },
   {
     time: ['01.22', '06.23'],
     pointer: 'platinum',
-    image: '/images/works-platinum.jpg'
+    image: '/images/works-platinum.webp'
   },
   {
     time: ['06.21', '10.21  '],
     pointer: 'travelask',
-    image: '/images/works-travelask.jpg'
+    image: '/images/works-travelask.webp'
   },
   {
     time: ['09.20', '06.21'],
     pointer: 'r52',
-    image: '/images/works-r52.jpg'
+    image: '/images/works-r52.webp'
   },
   {
     time: ['01.18', '01.22'],
     pointer: 'freelance',
-    image: '/images/me.jpg'
+    image: '/images/me.webp'
   },
 ]
 

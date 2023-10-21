@@ -6,32 +6,32 @@ const techs: Array<Tech> = [
   {
     pointer: 'typescript',
     title: 'TypeScript',
-    image: '/images/skills-ts.png'
+    image: '/images/skills-ts.webp'
   },
   {
     pointer: 'javascript',
     title: 'Javascript ES6+',
-    image: '/images/skills-js.png'
+    image: '/images/skills-js.webp'
   },
   {
     pointer: 'vue',
     title: 'Vue 3.0',
-    image: '/images/skills-vue.png'
+    image: '/images/skills-vue.webp'
   },
   {
     pointer: 'htmlcss',
     title: 'HTML & CSS',
-    image: '/images/skills-base.png'
+    image: '/images/skills-base.webp'
   },
   {
     pointer: 'golang',
     title: 'Go',
-    image: '/images/skills-go.png'
+    image: '/images/skills-go.webp'
   },
   {
     pointer: 'more',
     title: '_more',
-    image: '/images/skills-more.png'
+    image: '/images/skills-more.webp'
   },
 ]
 

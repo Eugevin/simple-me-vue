@@ -16,7 +16,7 @@ function backToHome() {
   <div class="simple not-found">
     <div class="simple__inner">
       <img
-        src="/images/not-found-inner.jpg"
+        src="/images/not-found-inner.webp"
         alt="not-found inner image"
       >
     </div>

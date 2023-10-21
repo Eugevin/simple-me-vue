@@ -9,22 +9,22 @@ const headerLinks: Array<Link> = [
   {
     to: '/',
     title: 'home',
-    image: '/images/header-home.jpg',
+    image: '/images/header-home.webp',
   },
   {
     to: '/skills',
     title: 'skills',
-    image: '/images/header-skills.jpg',
+    image: '/images/header-skills.webp',
   },
   {
     to: '/works',
     title: 'projects',
-    image: '/images/header-works.jpg',
+    image: '/images/header-works.webp',
   },
   {
     to: '/contacts',
     title: 'contacts',
-    image: '/images/header-contacts.jpg',
+    image: '/images/header-contacts.webp',
   },
 ]
 </script>

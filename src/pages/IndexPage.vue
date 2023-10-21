@@ -15,7 +15,7 @@ function cvHandler() {
   <div class="simple index">
     <div class="simple__inner">
       <img
-        src="/images/me.jpg"
+        src="/images/me.webp"
         alt="index inner image"
       >
     </div>
