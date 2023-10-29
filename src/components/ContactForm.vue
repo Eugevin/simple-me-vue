@@ -94,6 +94,7 @@ watchEffect(() => {
       :invalid="!form.from.valid"
       :model-value="form.from.value"
       class="contact-form__name"
+      autocomplete="name"
       :placeholder="$translate(`pages.contacts.form.name.${language}`)"
       @update:model-value="newValue => form.from.value = newValue"
     />
@@ -101,6 +102,7 @@ watchEffect(() => {
       :invalid="!form.email.valid"
       :model-value="form.email.value"
       class="contact-form__email"
+      autocomplete="email"
       :placeholder="$translate(`pages.contacts.form.email.${language}`)"
       @update:model-value="newValue => form.email.value = newValue"
     />
@@ -109,6 +111,7 @@ watchEffect(() => {
         :invalid="!form.message.valid"
         :model-value="form.message.value"
         :placeholder="$translate(`pages.contacts.form.message.${language}`)"
+        autocomplete="message"
         type="textarea"
         rows="4"
         @update:model-value="newValue => form.message.value = newValue"
