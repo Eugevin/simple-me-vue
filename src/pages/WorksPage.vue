@@ -26,6 +26,11 @@ const works: Array<Work> = [
     image: '/images/works-r52.webp'
   },
   {
+    time: ['04.21', ''],
+    pointer: 'sms',
+    image: '/images/works-sms.webp'
+  },
+  {
     time: ['01.18', '01.22'],
     pointer: 'freelance',
     image: '/images/me.webp'

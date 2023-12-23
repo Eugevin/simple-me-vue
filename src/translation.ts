@@ -134,6 +134,16 @@ export default {
             ru: 'R52.RU — мультисервисное агентство с 20-летним опытом. Они проектируют и обеспечивают эффективное присутствие, поддержку и успешное развитие онлайн-бизнеса.<br><br>- Верстка и основная фронтендная часть коммерческих проектов.<br><br>- Правки на уже существующих сайтах &amp; фикс багов.<br><br>- Работа с проектами на Vue.js, используя VueX и VueRouter.'
           }
         },
+        sms: {
+          title: {
+            en: 'Show Me Some',
+            ru: 'Show Me Some'
+          },
+          description: {
+            en: 'Show Me Some is my author\'s project together with my wife, where I am the main Backend and Frontend developer. The project is a visual novel with a lot of ramifications in a gloomy setting of an alternative Middle Ages.<br><br>- Game engine development in Rust.<br><br>- Writing a branched script.',
+            ru: 'Show Me Some - мой авторский проект совместно с моей женой, где я выступаю основным разработчиком Backend и Frontend. Проект представляет из себя визуальную новеллу с большим количеством разветвлений в мрачном сеттинге альтернативного средневековья.<br><br>- Разработка игрового движка на языке Rust.<br><br>- Написание разветвленного сценария.'
+          }
+        },
         freelance: {
           title: {
             en: 'Freelance',
