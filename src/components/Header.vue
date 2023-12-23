@@ -17,7 +17,7 @@ const headerLinks: Array<Link> = [
     image: '/images/header-skills.webp',
   },
   {
-    to: '/works',
+    to: '/works?current=0',
     title: 'projects',
     image: '/images/header-works.webp',
   },

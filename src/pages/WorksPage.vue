@@ -3,6 +3,7 @@ import { ref, inject } from 'vue'
 import Content from '../components/Content.vue'
 import Pagination from '../components/Pagination.vue'
 import Work from '../components/Work.vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const works: Array<Work> = [
   {
@@ -37,8 +38,17 @@ const works: Array<Work> = [
   },
 ]
 
-const selectedPage = ref<number>(0)
+const router = useRouter()
+const route = useRoute()
+
+const selectedPage = ref<number>(Number(route.query.current) ?? 0)
 const language = inject('language') as 'ru' | 'en'
+
+function pageHandler(newValue: number) {
+  selectedPage.value = newValue
+
+  router.push({ path: 'works', query: { current: newValue }})
+}
 </script>
 
 <template>
@@ -65,7 +75,7 @@ const language = inject('language') as 'ru' | 'en'
         <Pagination
           :items="Math.ceil(works.length / 3)"
           :selected="selectedPage"
-          @update="newValue => selectedPage = newValue"
+          @update="pageHandler"
         />
       </template>
     </Content>
