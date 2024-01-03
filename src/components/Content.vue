@@ -46,7 +46,6 @@ defineProps<{ background?: string }>()
     align-items: flex-end;
     width: 100%;
     height: calc(100vw * 0.5);
-    background: var(--blue) no-repeat center / cover;
     position: relative;
     z-index: 1;
 
