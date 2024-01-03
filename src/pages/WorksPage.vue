@@ -53,7 +53,7 @@ function pageHandler(newValue: number) {
 
 <template>
   <div class="works">
-    <Content background="/videos/works-inner.mp4">
+    <Content background="/images/works-inner.webp">
       <template #body>
         <p style="color: var(--white)">
           {{ $translate(`pages.projects.inner.heading.${language}`) }}

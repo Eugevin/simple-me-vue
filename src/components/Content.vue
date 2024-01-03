@@ -4,13 +4,10 @@ defineProps<{ background?: string }>()
 
 <template>
   <div :class="`content ${background ? 'content_inner' : ''}`">
-    <video
+    <div 
       v-if="background"
-      :src="background"
-      loop
-      autoplay
-      muted
-      playsinline
+      :style="`--bg: url(${background})`"
+      class="content__background"
     />
     <div class="content__heading">
       <slot name="heading" />
@@ -48,7 +45,7 @@ defineProps<{ background?: string }>()
   &_inner {
     align-items: flex-end;
     width: 100%;
-    height: calc(100vw * 0.563);
+    height: calc(100vw * 0.5);
     background: var(--blue) no-repeat center / cover;
     position: relative;
     z-index: 1;
@@ -64,12 +61,14 @@ defineProps<{ background?: string }>()
       z-index: -1;
     }
 
-    video {
+    .content__background {
       z-index: -1;
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
+      width: 100%;
+      background: var(--bg) no-repeat center fixed;
     }
   }
 

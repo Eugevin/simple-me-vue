@@ -1,7 +1,7 @@
 const filesToPreload = [
-  '/videos/skills-inner.mp4',
-  '/videos/works-inner.mp4',
-  '/videos/contacts-inner.mp4',
+  '/images/skills-inner.webp',
+  '/images/works-inner.webp',
+  '/images/contacts-inner.webp',
   '/images/not-found-inner.webp',
   '/images/header-contacts.webp',
   '/images/header-home.webp',
@@ -21,12 +21,6 @@ const filesToPreload = [
   '/images/skills-vue.webp',
 ]
 
-filesToPreload.sort(a => {
-  if (a.split('.')[1] === 'mp4') {
-    return 1
-  }
-
-  return -1
-})
+filesToPreload.sort(a => a.split('.')[1] === 'mp4' ? 1 : -1)
 
 export default filesToPreload
