@@ -30,12 +30,12 @@ function cvHandler() {
         >
           {{ item }}
         </p>
-        <Input
+        <!-- <Input
           type="button"
           @click="cvHandler"
         >
           {{ $translate(`pages.index.cv.${language}`) }}
-        </Input>
+        </Input> -->
       </template>
     </Content>
   </div>
