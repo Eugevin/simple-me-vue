@@ -22,7 +22,7 @@ function cvHandler() {
     <Content>
       <template #heading />
       <template #body>
-        <p>{{ $translate(`pages.index.heading.${language}`) }}</p>
+        <p>{{ $translate(`pages.index.heading.${language}`, { workTime: new Date().getFullYear() - 2019 }) }}</p>
         <h1>{{ $translate(`pages.index.title.${language}`) }}</h1>
         <p
           v-for="item in $translate(`pages.index.description.${language}`)"
