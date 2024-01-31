@@ -32,6 +32,7 @@ interface Work {
 }
 
 interface Social {
+  src: string,
   title: string,
   link: string
 }

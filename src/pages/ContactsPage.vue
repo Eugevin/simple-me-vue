@@ -5,17 +5,25 @@ import { inject } from 'vue'
 
 const socials: Array<Social> = [
   {
+    src: '/images/contacts-telegram.webp',
     title: 'Telegram',
     link: 'https://t.me/eugevin'
   },
   {
-    title: 'GMail',
-    link: 'mailto:eugene.vinokuroff@gmail.com'
+    src: '/images/contacts-habr.webp',
+    title: 'Habr',
+    link: 'https://career.habr.com/eugevin'
   },
   {
+    src: '/images/contacts-github.webp',
     title: 'GitHub',
     link: 'https://github.com/Eugevin/simple-me-vue'
   },
+  {
+    src: '/images/contacts-mail.webp',
+    title: 'GMail',
+    link: 'mailto:eugene.vinokuroff@gmail.com'
+  }
 ]
 
 function openSocial(social: string) {
@@ -52,15 +60,16 @@ const language = inject('language') as 'ru' | 'en'
         <ContactForm />
         <h5>{{ $translate(`pages.contacts.content.check.${language}`) }}</h5>
         <ul>
-          <h5
+          <li
             v-for="social in socials"
             :key="social.title"
-            :href="social.link"
             @click="openSocial(social.link)"
           >
-            {{
-              social.title }}
-          </h5>
+            <img 
+              :src="social.src"
+              :alt="`${social.title} icon`"
+            >
+          </li>
         </ul>
       </template>
     </Content>
@@ -92,17 +101,25 @@ const language = inject('language') as 'ru' | 'en'
   }
 
   ul {
+    margin-left: -0.75rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 2.25rem;
+    list-style: none;
 
-    h5 {
+    li {
+      padding: .75rem;
       cursor: pointer;
       opacity: 0.5;
       transition: var(--transition);
 
+      img {
+        height: 2rem;
+        width: 2rem;
+      }
+
       &:hover {
         opacity: 1;
+        transform: scale(1.1);
       }
     }
   }
