@@ -19,6 +19,10 @@ const filesToPreload = [
   '/images/skills-ts.webp',
   '/images/skills-go.webp',
   '/images/skills-vue.webp',
+  '/images/contacts-github.webp',
+  '/images/contacts-habr.webp',
+  '/images/contacts-mail.webp',
+  '/images/contacts-telegram.webp',
 ]
 
 filesToPreload.sort(a => a.split('.')[1] === 'mp4' ? 1 : -1)

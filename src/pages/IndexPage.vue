@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import Content from '../components/Content.vue'
-import Input from '../components/Input.vue'
+// import Input from '../components/Input.vue'
 
 // TODO: It's not normal, need in refactor later... I think, i refactor this later... 🤡
 const language = inject('language') as 'ru' | 'en'
 
-function cvHandler() {
-  window.open('https://cv.eugevin.ru', '_blank')
-}
+// function cvHandler() {
+//   window.open('https://cv.eugevin.ru', '_blank')
+// }
 </script>
 
 <template>
