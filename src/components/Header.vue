@@ -114,7 +114,7 @@ const headerLinks: Array<Link> = [
         background: var(--white);
         transition: inherit;
 
-        .white-theme & {
+        .white-theme .header:not(.header_active) & {
           background: var(--gray-1);
         }
 
@@ -178,7 +178,7 @@ const headerLinks: Array<Link> = [
         transform: scale(1) rotate(5deg);
       }
 
-      .white-theme & {
+      .white-theme .header:not(.header_active) & {
         color: var(--gray-1);
       }
 
@@ -207,7 +207,7 @@ const headerLinks: Array<Link> = [
         will-change: background;
         transition: var(--transition);
 
-        .white-theme & {
+        .white-theme .header:not(.header_active) & {
           border: 2px solid var(--gray-1);
         }
       }
@@ -216,7 +216,7 @@ const headerLinks: Array<Link> = [
         &::before {
           background: var(--white);
 
-          .white-theme & {
+          .white-theme .header:not(.header_active) & {
             background: var(--gray-1);
           }
         }
