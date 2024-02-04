@@ -115,10 +115,6 @@ function hideModalListener(e: TransitionEvent) {
         <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
         <h3>{{ data.title }}</h3>
         <p v-html="data.description" />
-        <div
-          class="modal-close"
-          @click="modalHandler()" 
-        />
       </div>
     </Modal>
   </Transition>
@@ -192,50 +188,6 @@ function hideModalListener(e: TransitionEvent) {
     max-width: 50rem;
     -webkit-line-clamp: initial;
     word-break: initial;
-  }
-
-  .modal-close {
-    position: fixed;
-    top: 1rem;
-    right: 8rem;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-    transition: var(--transition);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(1.5rem) rotate(45deg);
-      width: 2rem;
-      height: 0.125rem;
-      background: #ffffff;
-      transition: inherit;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(1.5rem) rotate(-45deg);
-      width: 2rem;
-      height: 0.125rem;
-      background: #ffffff;
-      transition: inherit;
-    }
-
-    &:hover {
-      &::before {
-        transform: translateY(1.5rem) rotate(80deg);
-      }
-
-      &::after {
-        transform: translateY(1.5rem) rotate(-10deg);
-      }
-    }
   }
 }
 </style>
