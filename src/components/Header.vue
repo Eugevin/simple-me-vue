@@ -96,6 +96,7 @@ const headerLinks: Array<Link> = [
     border-left: 1px solid var(--gray-1);
     will-change: border-left;
     transition: var(--transition);
+    background: #00000050;
 
     &__menu {
       cursor: pointer;
@@ -229,6 +230,7 @@ const headerLinks: Array<Link> = [
 
     .header_active & {
       border-left: 1px solid transparent !important;
+      background: none !important;
     }
 
 
@@ -242,6 +244,7 @@ const headerLinks: Array<Link> = [
 
     .white-theme & {
       border-left: 1px solid var(--gray-6);
+      background: #ffffff50;
     }
   }
 
