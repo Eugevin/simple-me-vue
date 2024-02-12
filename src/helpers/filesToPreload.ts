@@ -17,7 +17,7 @@ const filesToPreload = [
   '/images/skills-js.webp',
   '/images/skills-more.webp',
   '/images/skills-ts.webp',
-  '/images/skills-go.webp',
+  '/images/skills-rust.webp',
   '/images/skills-vue.webp',
   '/images/contacts-github.webp',
   '/images/contacts-habr.webp',

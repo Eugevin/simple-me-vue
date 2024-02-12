@@ -72,9 +72,9 @@ export default {
           en: 'HTML is a markup language used to create static web pages and web applications. CSS is a style sheet language responsible for the presentation of documents written in a markup language.',
           ru: 'HTML — это язык разметки, используемый для создания статических веб-страниц и веб-приложений. CSS — это язык таблиц стилей, отвечающий за представление документов, написанных на языке разметки.'
         },
-        golang: {
-          en: `Go is a great language that I use to create the backend part of my applications. It's incredibly fast, structured, quite easy to learn, and just beautiful.`,
-          ru: 'Go - прекрасный  язык, который я использую для создания бэкенд части своих приложений. Он безумно быстрый, структурированный, достаточно простой в освоении, да и просто красивый.'
+        rust: {
+          en: `Rust is another language that complements JavaScript and TypeScript that I use in my home development. This is an excellent tool that allows you to write truly productive desktop and server applications (by the way, the backend for the contact form on this site is written in Rust).`,
+          ru: 'Rust — еще один язык, дополнение к JavaScript и TypeScript, который я использую при моей домашней разработке. Это прекрасный инструмент, который позволяет писать по-настоящему производительные десктопные, серверные приложения (кстати, бэкенд для формы связи на этом сайте написан на Rust).'
         },
         more: {
           en: 'VueX, VueRouter, JWT, REST-API, Express / Koa, Bootstrap Grid / Bulma, WebSocket, Canvas, pm2, WebRTC and more... much more...',

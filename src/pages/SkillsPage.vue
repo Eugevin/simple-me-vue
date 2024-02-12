@@ -24,9 +24,9 @@ const techs: Array<Tech> = [
     image: '/images/skills-base.webp'
   },
   {
-    pointer: 'golang',
-    title: 'Go',
-    image: '/images/skills-go.webp'
+    pointer: 'rust',
+    title: 'Rust',
+    image: '/images/skills-rust.webp'
   },
   {
     pointer: 'more',
