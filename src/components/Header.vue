@@ -273,8 +273,9 @@ const headerLinks: Array<Link> = [
       flex: 0 0 calc(100% / 4);
 
       a {
-        font-family: "Poppins", sans-serif;
+        font-family: "Poppins", "Roboto", sans-serif;
         font-size: 2.875rem;
+        font-weight: 700;
         line-height: 3.75rem;
         color: white;
         text-decoration: none;
