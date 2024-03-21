@@ -6,7 +6,7 @@ const emit = defineEmits<{
 }>()
 
 function acceptCookie() {
-  localStorage.setItem('cookie', "true")
+  localStorage.setItem('cookie', 'true')
   emit('accepted')
 }
 </script>

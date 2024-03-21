@@ -14,6 +14,9 @@ provide('overflowHidden', overflowHidden)
 const language = ref<'ru' | 'en'>('en')
 provide('language', language)
 
+const worksClicked = ref<boolean>(!!localStorage.getItem('worksClicked'))
+provide('worksClicked', worksClicked)
+
 const cookieAccepted = ref<boolean>(!!localStorage.getItem('cookie'))
 
 watchEffect(() => {

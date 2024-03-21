@@ -15,6 +15,7 @@ defineProps<{
 }>()
 
 const overflowHidden = inject('overflowHidden') as { value: boolean }
+const worksClicked = inject('worksClicked') as { value: boolean }
 
 const rootEl: Ref<HTMLElement | null> = ref(null)
 const imageEl: Ref<HTMLElement | null> = ref(null)
@@ -38,6 +39,11 @@ const positions = reactive({
 const modalIsActive = ref<boolean>(false)
 
 async function modalHandler() {
+  if (!worksClicked.value) {
+    worksClicked.value = true
+    localStorage.setItem('worksClicked', 'true')
+  }
+
   overflowHidden.value = !modalIsActive.value
 
   if (!imageEl.value) return
@@ -102,6 +108,7 @@ function hideModalListener(e: TransitionEvent) {
         <img
           ref="imageEl"
           :style="{ position: positions.image.position ? 'fixed' : 'static', left: positions.image.left, top: positions.image.top }"
+          :class="{ notice: !worksClicked }"
           :src="data.image"
           alt="work personal image"
           @click="modalHandler()"
@@ -167,9 +174,22 @@ function hideModalListener(e: TransitionEvent) {
     cursor: pointer;
     transition: var(--transition);
 
+    &.notice {
+      animation: notice infinite 1s alternate ease-in-out;
+    }
+
     @include media-phone {
       height: initial;
       width: calc(100vw - 1.375rem * 2);
+    }
+  }
+
+  @keyframes notice {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
     }
   }
 }
