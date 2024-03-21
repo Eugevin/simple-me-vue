@@ -60,7 +60,7 @@ async function showModal(imageEl: HTMLElement) {
   positions.image.initial.top = positions.image.top = `${imageBounding?.top}px`
   positions.image.position = 'fixed'
 
-  await wait(1)
+  await wait(50)
 
   const windowIsSmall = window.innerWidth <= 600
 
