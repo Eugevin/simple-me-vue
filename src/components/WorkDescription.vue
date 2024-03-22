@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { inject, computed } from 'vue'
 
 const props = defineProps<{
   data: {
@@ -12,11 +12,19 @@ const props = defineProps<{
   modal?: boolean
 }>()
 
+const language = inject('language') as 'ru' | 'en'
+
 const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
 </script>
 
 <template>
   <div :class="`box ${hiding ? 'box_hidden' : ''} ${modal ? 'box_modal' : ''}`">
+    <p
+      v-if="modal"
+      class="sm"
+    >
+      {{ $translate(`constants.${language}`) }}
+    </p>
     <p>{{ worktime }}</p>
     <h3>{{ data.title }}</h3>
     <div class="box__description">
