@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { inject, reactive, ref } from 'vue'
+import { Ref } from 'vue'
+
 import Content from './Content.vue'
 import Modal from './Modal.vue'
+import WorkDescription from './WorkDescription.vue'
+
 import wait from '../helpers/wait.ts'
-import { Ref } from 'vue'
 
 defineProps<{
   data: {
@@ -98,29 +101,10 @@ function hideModalListener(e: TransitionEvent) {
   >
     <Content>
       <template #heading>
-        <div :class="`box ${modalIsActive ? 'box_hidden' : ''}`">
-          <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
-          <h3>{{ data.title }}</h3>
-          <!-- TODO: Move to other component -->
-          <div class="box__description">
-            <template
-              v-for="item in data.description"
-              :key="item"
-            >
-              <p v-if="typeof item === 'string'">
-                {{ item }}
-              </p>
-              <ul v-if="Array.isArray(item)">
-                <li
-                  v-for="string in item"
-                  :key="string"
-                >
-                  {{ string }}
-                </li>              
-              </ul>
-            </template>
-          </div>
-        </div>
+        <WorkDescription
+          :data="data"
+          :hiding="modalIsActive"
+        />
       </template>
       <template #body>
         <img
@@ -136,28 +120,10 @@ function hideModalListener(e: TransitionEvent) {
   </div>
   <Transition>
     <Modal v-if="modalIsActive">
-      <div class="box box_modal">
-        <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
-        <h3>{{ data.title }}</h3>
-        <div class="box__description">
-          <template
-            v-for="item in data.description"
-            :key="item"
-          >
-            <p v-if="typeof item === 'string'">
-              {{ item }}
-            </p>
-            <ul v-if="Array.isArray(item)">
-              <li
-                v-for="string in item"
-                :key="string"
-              >
-                {{ string }}
-              </li>              
-            </ul>
-          </template>
-        </div>
-      </div>
+      <WorkDescription
+        :data="data"
+        :modal="true"
+      />
     </Modal>
   </Transition>
 </template>
@@ -166,43 +132,6 @@ function hideModalListener(e: TransitionEvent) {
 @import "../styles/media";
 
 .work {
-  .box {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    opacity: 1;
-    visibility: visible;
-    transition: var(--transition);
-
-    h3 {
-      margin: 2.5rem 0 1rem;
-
-      .white-theme & {
-        @include media-phone {
-          color: var(--gray-1);
-        }
-      }
-    }
-
-    &__description {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      word-break: break-all;
-
-      @include media-phone {
-        text-align: left;
-      }
-    }
-
-    &_hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
   img {
     height: 20rem;
     z-index: 2;
@@ -225,44 +154,6 @@ function hideModalListener(e: TransitionEvent) {
     }
     to {
       opacity: 1;
-    }
-  }
-}
-
-.box_modal {
-  height: 100%;
-  overflow: auto;
-  display: block;
-  text-align: left;
-
-  h3 {
-    color: var(--white);
-  }
-
-  .box__description {
-    max-width: 50rem;
-    -webkit-line-clamp: initial;
-    word-break: initial;
-
-    ul {
-      margin-top: 1rem;
-      font-family: "Roboto", sans-serif;
-      font-size: 1rem;
-      line-height: 1.875rem;
-      color: var(--gray-5);
-
-      li {
-        margin-top: 0.25rem;
-        position: relative;
-        padding-left: 1.5rem;
-
-        &::before {
-          content: "=>";
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
     }
   }
 }
