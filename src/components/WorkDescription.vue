@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = defineProps<{
   data: {
     time: [string, string],
     title: string,
@@ -9,13 +11,14 @@ defineProps<{
   hiding?: boolean,
   modal?: boolean
 }>()
+
+const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
 </script>
 
 <template>
   <div :class="`box ${hiding ? 'box_hidden' : ''} ${modal ? 'box_modal' : ''}`">
-    <p>{{ data.time[0] }} - {{ data.time[1] }}</p>
+    <p>{{ worktime }}</p>
     <h3>{{ data.title }}</h3>
-    <!-- TODO: Move to other component -->
     <div class="box__description">
       <template
         v-for="item in data.description"
@@ -29,7 +32,7 @@ defineProps<{
             v-for="string in item"
             :key="string"
           >
-            {{ string }}
+            => {{ string }}
           </li>              
         </ul>
       </template>
@@ -101,15 +104,6 @@ defineProps<{
 
         li {
           margin-top: 0.25rem;
-          position: relative;
-          padding-left: 1.5rem;
-
-          &::before {
-            content: "=>";
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
         }
       }
     }
