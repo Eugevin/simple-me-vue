@@ -100,8 +100,20 @@ export default {
             ru: 'Программный Продукт'
           },
           description: {
-            en: 'Russian software developer for the public and private sectors. Development of mobile and web applications, as well as information systems.<br><br>- Working with Vue3, VueRouter and VueX.<br><br>- Bug fixing and writing new functionality',
-            ru: 'Российский разработчик программного обеспечения для государственного и частного сектора. Разработка мобильных и веб-приложений, а также информационных систем.<br><br>- Работа с Vue3, VueRouter and VueX.<br><br>- Фикс багов и написание нового функционала'
+            en: [
+              'Russian software developer for the public and private sectors. Development of mobile and web applications, as well as information systems.',
+              [
+                'Working with Vue3, VueRouter and VueX.',
+                'Bug fixing and writing new functionality.'
+              ]
+            ],
+            ru: [
+              'Российский разработчик программного обеспечения для государственного и частного сектора. Разработка мобильных и веб-приложений, а также информационных систем.',
+              [
+                'Работа с Vue3, VueRouter and VueX.',
+                'Фикс багов и написание нового функционала.'
+              ]
+            ],
           }
         },
         platinum: {
@@ -110,8 +122,24 @@ export default {
             ru: 'Platinum LTD'
           },
           description: {
-            en: 'Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars<br><br>- 2 YEARS NDA*',
-            ru: 'Platinum Engineering — это технологический инкубатор нового поколения с опытом работы в области сетевых технологий, который предоставляет первоклассный опыт будущим звездам FinTech. Собственно, что я сделал/создал/создал:<br><br>- 2 ГОДА NDA*'
+            en: [
+              'Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars.',
+              [
+                'Writing frontend using Vue3 with Composition API, TypeScript and Pinia.',
+                'Work with difficult Canvas and WebGL engines. Describing types for game entities.',
+                'Work with blockchain arhitecture, making request and logic for "backendless" applications.',
+                'Error handling caused by game engine, fix bugs, adding new and refactor old functional features.',
+              ]
+            ],
+            ru: [
+              'Platinum Engineering — это технологический инкубатор нового поколения с опытом работы в области сетевых технологий, который предоставляет первоклассный опыт будущим звездам FinTech.',
+              [
+                'Написание фронтенда на Vue3 с Composition API, TypeScript и Pinia.',
+                'Работа с сложными Canvas и WebGL движками. Описание типов для игровых сущностей.',
+                'Работа с блокчейн архитектурой, формирование работы и написание логики для "backendless" приложений.',
+                'Обработка ошибок игровых движков, фикс багов, добавление нового и рефактор старого функционала.',
+              ]
+            ],
           }
         },
         travelask: {
@@ -120,8 +148,24 @@ export default {
             ru: 'Travelask'
           },
           description: {
-            en: 'TravelAsk is a travel search engine. Searches and compares the best deals on tours, hotels and flights. Inspires new trips and gets content once.<br><br>- Development of new functionality.<br><br>- Bug fixing.<br><br>- Optimizing already written code and translating it to ES6+ standard EcmaScript.<br><br>- Rewriting some functionality written in Vue.js (as a library) into vanilla JavaScript according to OOP principles on classes.',
-            ru: 'TravelAsk — поисковая система для путешествий. Ищет и сравнивает лучшие предложения на туры, отели и авиабилеты. Вдохновляет на новые путешествия и получает контент один раз.<br><br>- Разработка новых функциональных компонентов.<br><br>- Фикс багов.<br><br>- Оптимизация уже написанного кода на Vue.js и транспиляция его на ES6+ стандарт EcmaScript.<br><br>- Переписание некоторой кодовой базы, написанной с помощью Vue.js (как библиотеке), на ванильный JavaScript на классах с соблюдением принципов ООП.'
+            en: [
+              'TravelAsk is a travel search engine. Searches and compares the best deals on tours, hotels and flights. Inspires new trips and gets content once.',
+              [
+                'Development of new functionality.',
+                'Bug fixing.',
+                'Optimizing already written code and translating it to ES6+ standard EcmaScript.',
+                'Rewriting some functionality written in Vue.js (as a library) into vanilla JavaScript according to OOP principles on classes.'
+              ]
+            ],
+            ru: [
+              'TravelAsk — поисковая система для путешествий. Ищет и сравнивает лучшие предложения на туры, отели и авиабилеты. Вдохновляет на новые путешествия и получает контент один раз.',
+              [
+                'Разработка новых функциональных компонентов.',
+                'Фикс багов.',
+                'Оптимизация уже написанного кода на Vue.js и транспиляция его на ES6+ стандарт EcmaScript.',
+                'Переписывание некоторой кодовой базы, написанной с помощью Vue.js (как библиотеке), на ванильный JavaScript на классах с соблюдением принципов ООП.'
+              ]
+            ],
           }
         },
         r52: {
@@ -130,8 +174,22 @@ export default {
             ru: 'R52.ru'
           },
           description: {
-            en: 'R52.RU is a multi-service agency with 20 years of experience. They\'re design and provide effective presence, support and successful development of online business.<br><br>- Layout of commercial projects.<br><br>- Edits on existing sites & fixing bugs.<br><br>- Working with Vue.js projects using VueX and VueRouter.',
-            ru: 'R52.RU — мультисервисное агентство с 20-летним опытом. Они проектируют и обеспечивают эффективное присутствие, поддержку и успешное развитие онлайн-бизнеса.<br><br>- Верстка и основная фронтендная часть коммерческих проектов.<br><br>- Правки на уже существующих сайтах &amp; фикс багов.<br><br>- Работа с проектами на Vue.js, используя VueX и VueRouter.'
+            en: [
+              'R52.RU is a multi-service agency with 20 years of experience. They\'re design and provide effective presence, support and successful development of online business.',
+              [
+                'Layout of commercial projects.',
+                'Edits on existing sites & fixing bugs.',
+                'Working with Vue.js projects using VueX and VueRouter.',
+              ]
+            ],
+            ru: [
+              'R52.RU — мультисервисное агентство с 20-летним опытом. Они проектируют и обеспечивают эффективное присутствие, поддержку и успешное развитие онлайн-бизнеса.',
+              [
+                'Верстка и основная фронтендная часть коммерческих проектов.',
+                'Правки на уже существующих сайтах & фикс багов.',
+                'Работа с проектами на Vue.js, используя VueX и VueRouter.',
+              ]
+            ],
           }
         },
         sms: {
@@ -140,8 +198,22 @@ export default {
             ru: 'Show Me Some'
           },
           description: {
-            en: 'Show Me Some is my author\'s project together with my wife, where I am the main Backend and Frontend developer. The project is a visual novel with a lot of ramifications in a gloomy setting of an alternative Middle Ages.<br><br>- Game engine development in Rust.<br><br>- Writing a branched script.',
-            ru: 'Show Me Some - мой авторский проект совместно с моей женой, где я выступаю основным разработчиком Backend и Frontend. Проект представляет из себя визуальную новеллу с большим количеством разветвлений в мрачном сеттинге альтернативного средневековья.<br><br>- Разработка игрового движка на языке Rust.<br><br>- Написание разветвленного сценария.'
+            en: [
+              'Show Me Some is my author\'s project together with my wife, where I am the main Backend and Frontend developer. The project is a visual novel with a lot of ramifications in a gloomy setting of an alternative Middle Ages.',
+              [
+                'Develop backend for game engine in Rust.',
+                'Writing a branched script.',
+                'Writing frontend using canvas.',
+              ]
+            ],
+            ru: [
+              'Show Me Some - мой авторский проект совместно с моей женой, где я выступаю основным разработчиком Backend и Frontend. Проект представляет из себя визуальную новеллу с большим количеством разветвлений в мрачном сеттинге альтернативного средневековья.',
+              [
+                'Разработка игровой бэкенд части движка на языке Rust.',
+                'Написание разветвленного сценария.',
+                'Написание фронтенда с использованием canvas.',
+              ]
+            ],
           }
         },
         freelance: {
@@ -150,8 +222,26 @@ export default {
             ru: 'Фриланс'
           },
           description: {
-            en: 'As a freelancer, I have worked extensively with technologies such as Vue.js, JWT, JSON handling, WebSocket, WebRTC, Express, Bootstrap and more other technologies/frameworks.<br><br>- Engaged in the development and support of the client part of WEB-applications.<br><br>- Part-time set up Nginx HTTP servers and simple servers on Linux.<br><br>- Wrote small chat applications and parsers, also worked with the WebSocket API.<br><br>- Participated in the development of Stores and Gaming Sites using the Vue.js framework.<br><br>- Worked with Vue.js, VueRouter and VueX.',
-            ru: 'Как фрилансер, я много работал с такими технологиями, как Vue.js, JWT, обработка JSON, WebSocket, WebRTC, Express, Bootstrap и многими другими технологиями/фреймворками.<br><br>- Занимался разработкой и поддержкой клиентской части WEB-приложений.<br><br>- Частичная настройка HTTP-серверов Nginx и простых серверов на Linux.<br><br>- Писал небольшие чат-приложения и парсеры, а также работал с WebSocket API.<br><br>- Участвовал в разработке магазинов и игровых сайтов с использованием фреймворка Vue.js..<br><br>- Работал с Vue.js, VueRouter и VueX.'
+            en: [
+              'As a freelancer, I have worked extensively with technologies such as Vue.js, JWT, JSON handling, WebSocket, WebRTC, Express, Bootstrap and more other technologies/frameworks.',
+              [
+                'Engaged in the development and support of the client part of WEB-applications.',
+                'Part-time set up Nginx HTTP servers and simple servers on Linux.',
+                'Wrote small chat applications and parsers, also worked with the WebSocket API.',
+                'Participated in the development of Stores and Gaming Sites using the Vue.js framework.',
+                'Worked with Vue.js, VueRouter and VueX.'
+              ]
+            ],
+            ru: [
+              'Как фрилансер, я много работал с такими технологиями, как Vue.js, JWT, обработка JSON, WebSocket, WebRTC, Express, Bootstrap и многими другими технологиями/фреймворками.',
+              [
+                'Занимался разработкой и поддержкой клиентской части WEB-приложений.',
+                'Частичная настройка HTTP-серверов Nginx и простых серверов на Linux.',
+                'Писал небольшие чат-приложения и парсеры, а также работал с WebSocket API.',
+                'Участвовал в разработке магазинов и игровых сайтов с использованием фреймворка Vue.js.',
+                'Работал с Vue.js, VueRouter и VueX.'
+              ]
+            ],
           }
         },
       }
