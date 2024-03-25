@@ -67,7 +67,7 @@ defineProps<{ background?: string }>()
       left: 0;
       height: 100%;
       width: 100%;
-      background: var(--bg) no-repeat center fixed;
+      background: var(--bg) no-repeat center top / cover;
     }
   }
 
