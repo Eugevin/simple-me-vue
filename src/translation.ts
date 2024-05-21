@@ -192,6 +192,30 @@ export default {
             ],
           }
         },
+        olumni: {
+          title: {
+            en: 'Olumni Chat',
+            ru: 'Olumni Чат'
+          },
+          description: {
+            en: [
+              'Olumni Chat is a UI-simple web application that allows you to connect two or more people in audio calls via WebRTC technology',
+              [
+                'Development of the frontend part of the application: flow control, audio processing via AudioContext, etc.',
+                'Development of backend part for interactive chat and initial negotiation',
+                'Packaging the application in Docker and CI/CD setup',
+              ]
+            ],
+            ru: [
+              'Olumni Чат - это простое с точки зрения UI веб приложение, которое позволяет связывать двух и более людей в аудиозвонках посредством WebRTC технологии',
+              [
+                'Разработка фронтенд части приложения: управление потоками, обработка звука через AudioContext и так далее',
+                'Разработка бэкенд части для интерактивного чата и первоначального negotiation',
+                'Упаковка приложения в Docker и настройка CI/CD',
+              ]
+            ],
+          }
+        },
         sms: {
           title: {
             en: 'Show Me Some',

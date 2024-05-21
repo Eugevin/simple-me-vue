@@ -12,6 +12,7 @@ const filesToPreload = [
   '/images/works-pp.webp',
   '/images/works-r52.webp',
   '/images/works-travelask.webp',
+  '/images/works-olumni.webp',
   '/images/works-sms.webp',
   '/images/skills-base.webp',
   '/images/skills-js.webp',
