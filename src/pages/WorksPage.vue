@@ -7,39 +7,46 @@ import { useRoute, useRouter } from 'vue-router'
 
 const works: Array<Work> = [
   {
-    time: ['07.23', ''],
+    time: ['07.23', 'NOW'],
     pointer: 'pp',
-    image: '/images/works-pp.webp'
+    image: '/images/works-pp.webp',
+    link: 'https://ppr.ru/'
   },
   {
     time: ['01.22', '06.23'],
     pointer: 'platinum',
-    image: '/images/works-platinum.webp'
+    image: '/images/works-platinum.webp',
+    link: 'https://sidusheroes.com/'
   },
   {
     time: ['06.21', '10.21  '],
     pointer: 'travelask',
-    image: '/images/works-travelask.webp'
+    image: '/images/works-travelask.webp',
+    link: 'https://travelask.ru/'
   },
   {
     time: ['09.20', '06.21'],
     pointer: 'r52',
-    image: '/images/works-r52.webp'
+    image: '/images/works-r52.webp',
+    link: 'https://r52.ru/'
   },
   {
     time: ['05.24', 'NOW'],
     pointer: 'olumni',
-    image: '/images/works-olumni.webp'
+    image: '/images/works-olumni.webp',
+    link: 'https://olumni.ru/'
   },
   {
     time: ['04.21', 'NOW'],
     pointer: 'sms',
-    image: '/images/works-sms.webp'
+    image: '/images/works-sms.webp',
+    link: ''
   },
   {
     time: ['01.18', '01.22'],
     pointer: 'freelance',
-    image: '/images/me.webp'
+    image: '/images/me.webp',
+    link: ''
   },
 ]
 
@@ -73,7 +80,7 @@ function pageHandler(newValue: number) {
     <Work
       v-for="work in works.slice(selectedPage * 3, selectedPage * 3 + 3)"
       :key="work.pointer"
-      :data="{ time: work.time, title: $translate(`pages.projects.content.${work.pointer}.title.${language}`), description: $translate(`pages.projects.content.${work.pointer}.description.${language}`), image: work.image }"
+      :data="{ time: work.time, title: $translate(`pages.projects.content.${work.pointer}.title.${language}`), description: $translate(`pages.projects.content.${work.pointer}.description.${language}`), image: work.image, link: work.link }"
     />
     <Content>
       <template #body>

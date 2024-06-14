@@ -27,7 +27,7 @@ const emit = defineEmits(['update:modelValue'])
 button {
   cursor: pointer;
   padding: 0.5rem 1.5rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Roboto", sans-serif;
   font-size: 0.875rem;
   line-height: 1.625rem;
   background: none;

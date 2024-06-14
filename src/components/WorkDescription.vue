@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { inject, computed } from 'vue'
 
+import Input from './Input.vue'
+
 const props = defineProps<{
   data: {
     time: [string, string],
     title: string,
     description: string,
     image: string,
+    link: string
   },
   hiding?: boolean,
   modal?: boolean
@@ -15,6 +18,11 @@ const props = defineProps<{
 const language = inject('language') as 'ru' | 'en'
 
 const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
+
+function workLinkHandler(workLink: string) {
+  window.open(workLink, '_blank')
+
+}
 </script>
 
 <template>
@@ -41,9 +49,18 @@ const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
             :key="string"
           >
             => {{ string }}
-          </li>              
+          </li>
         </ul>
       </template>
+    </div>
+    <div class="box__link">
+      <Input
+        v-if="data.link"
+        type="button"
+        @click="workLinkHandler(data.link)"
+      >
+        {{ $translate(`goToProject.${language}`) }}
+      </Input>
     </div>
   </div>
 </template>
@@ -74,6 +91,10 @@ const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
     @include media-phone {
       text-align: left;
     }
+  }
+
+  &__link {
+    margin-top: 1rem;
   }
 
   &_hidden {

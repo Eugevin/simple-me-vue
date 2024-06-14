@@ -101,17 +101,19 @@ export default {
           },
           description: {
             en: [
-              'Russian software developer for the public and private sectors. Development of mobile and web applications, as well as information systems.',
+              'The first six months I was engaged in the development of a highly loaded "Frontend as API" system, after the removal of important tasks on the project was transferred to the backend development department on ExpressJS/Nest.js.',
               [
-                'Working with Vue3, VueRouter and VueX.',
-                'Bug fixing and writing new functionality.'
+                'Development of systems for user authorization with a system of roles, a large number of queries to the database through the UUID.',
+                'Improved project code style, utilizing new techniques and implementing productivity approaches in frontend-server development.',
+                'Writing WebAPI for multi-level data reconciliation, recalculations and working with map data.'
               ]
             ],
             ru: [
-              'Российский разработчик программного обеспечения для государственного и частного сектора. Разработка мобильных и веб-приложений, а также информационных систем.',
+              'Первые полгода занимался разработкой высоконагруженной "Frontend as API" системы, после снятия важных задач по проекту был переведен в отдел бэкенд разработки на ExpressJS/Nest.js.',
               [
-                'Работа с Vue3, VueRouter and VueX.',
-                'Фикс багов и написание нового функционала.'
+                'Разработка систем для авторизации пользователей с системой ролей, большим количеством запросов к бд через UUID.',
+                'Улучшение кодового стиля проекта, использование новых методик и внедрение производительных подходов в фронтенд-серверную разработку.',
+                'Написание WebAPI для многоуровневой сверки данных, перерасчетов и работы с картографическими данными.'
               ]
             ],
           }
@@ -123,7 +125,7 @@ export default {
           },
           description: {
             en: [
-              'Platinum Engineering is a new generation tech incubator with a background in networking that provides top grade expertise to future FinTech stars.',
+              'I spent the first two months doing "standard frontend", then moved to the SidusHeroes team and developed multiplayer blockchain games using WebGL.',
               [
                 'Writing frontend using Vue3 with Composition API, TypeScript and Pinia.',
                 'Work with difficult Canvas and WebGL engines. Describing types for game entities.',
@@ -132,7 +134,7 @@ export default {
               ]
             ],
             ru: [
-              'Platinum Engineering — это технологический инкубатор нового поколения с опытом работы в области сетевых технологий, который предоставляет первоклассный опыт будущим звездам FinTech.',
+              'Первые два месяца занимался "стандартным фронтендом", потом перешел в команду SidusHeroes и разрабатывал мультиплеерные блокчейн игры с использованием WebGL.',
               [
                 'Написание фронтенда на Vue3 с Composition API, TypeScript и Pinia.',
                 'Работа с сложными Canvas и WebGL движками. Описание типов для игровых сущностей.',
@@ -149,21 +151,17 @@ export default {
           },
           description: {
             en: [
-              'TravelAsk is a travel search engine. Searches and compares the best deals on tours, hotels and flights. Inspires new trips and gets content once.',
+              'Worked on improving site health, search engine optimization, and performance troubleshooting (problems related to long drags and main thread locking up for a few seconds).',
               [
-                'Development of new functionality.',
-                'Bug fixing.',
-                'Optimizing already written code and translating it to ES6+ standard EcmaScript.',
-                'Rewriting some functionality written in Vue.js (as a library) into vanilla JavaScript according to OOP principles on classes.'
+                'Migration of existing functionality from VueJS to native class EcmaScript 6+.',
+                'Optimizing already written code.',
               ]
             ],
             ru: [
-              'TravelAsk — поисковая система для путешествий. Ищет и сравнивает лучшие предложения на туры, отели и авиабилеты. Вдохновляет на новые путешествия и получает контент один раз.',
+              'Работал над улучшением состояния сайта, производил работы по оптимизации поисковых запросов и устранял производительность (проблемы связанные с длинными тасками и блокировкой main thread на несколько секунд).',
               [
-                'Разработка новых функциональных компонентов.',
-                'Фикс багов.',
-                'Оптимизация уже написанного кода на Vue.js и транспиляция его на ES6+ стандарт EcmaScript.',
-                'Переписывание некоторой кодовой базы, написанной с помощью Vue.js (как библиотеке), на ванильный JavaScript на классах с соблюдением принципов ООП.'
+                'Перенос существующего функционала с VueJS на нативный классовый EcmaScript 6+.',
+                'Оптимизация уже написанного кода.',
               ]
             ],
           }
@@ -356,5 +354,9 @@ export default {
   constants: {
     en: 'Click on the image to close the popup.',
     ru: 'Нажмите на изображение, чтобы закрыть попап.'
+  },
+  goToProject: {
+    en: 'Go to project',
+    ru: 'Перейти к проекту'
   }
 }

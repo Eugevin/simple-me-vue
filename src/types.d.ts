@@ -1,14 +1,14 @@
 interface Form {
   from: {
-    value: string,
+    value: string
     valid: boolean
   },
   email: {
-    value: string,
+    value: string
     valid: boolean
   },
   message: {
-    value: string,
+    value: string
     valid: boolean
   }
 }
@@ -26,13 +26,14 @@ interface Tech {
 }
 
 interface Work {
-  time: [string, string],
-  image: string,
-  pointer: string,
+  time: [string, string]
+  image: string
+  pointer: string
+  link: string
 }
 
 interface Social {
-  src: string,
-  title: string,
+  src: string
+  title: string
   link: string
 }
