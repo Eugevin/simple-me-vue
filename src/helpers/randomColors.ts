@@ -1,4 +1,4 @@
-const randomColorStep = () => Math.floor(Math.random() * 10)
+const randomColorStep = () => Math.floor(Math.random() * 9) + 1
 
 function randomColors(linear: boolean = false): Array<string> {
   const targetColorArr = []
@@ -8,8 +8,6 @@ function randomColors(linear: boolean = false): Array<string> {
   }
 
   const targetColor = `#${targetColorArr.join('')}`
-
-  console.log()
 
   return linear ? [targetColor, `#${Number(targetColorArr.join('')) - 5}`] : [targetColor]
 }
