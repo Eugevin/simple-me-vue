@@ -46,10 +46,6 @@ button {
     width: 100%;
     background: var(--white);
     transition: inherit;
-
-    .white-theme & {
-      background: var(--gray-1);
-    }
   }
 
   span {
@@ -65,17 +61,9 @@ button {
       transform: translateY(10%);
     }
 
-    .white-theme & {
-      color: var(--white);
-    }
-
     &::before {
       height: 100%;
     }
-  }
-
-  .white-theme & {
-    color: var(--gray-1);
   }
 }
 
@@ -101,18 +89,10 @@ textarea {
 
   &:focus {
     border-bottom: 2px solid var(--white);
-
-    .white-theme & {
-      border-bottom: 2px solid var(--gray-1);
-    }
   }
 
   &.invalid {
     border-bottom: 2px solid red !important;
-  }
-
-  .white-theme & {
-    color: var(--gray-1);
   }
 }
 </style>

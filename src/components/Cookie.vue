@@ -48,19 +48,11 @@ function acceptCookie() {
     color: var(--gray-5);
     margin: 0;
     transition: var(--transition);
-
-    .white-theme & {
-      color: var(--gray-2);
-    }
   }
 
   @include media-phone {
     max-width: calc(100% - 2rem);
     bottom: 7.25rem;
-  }
-
-  .white-theme & {
-    background: var(--white);
   }
 }
 </style>

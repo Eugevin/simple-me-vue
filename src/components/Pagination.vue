@@ -38,25 +38,12 @@ defineEmits(['update'])
       width: 1.875rem;
       background: var(--gray-3);
       transition: var(--transition);
-
-      .white-theme & {
-        background: var(--gray-6);
-      }
-    }
-
-    .white-theme & {
-      color: var(--gray-1);
     }
 
     &_active {
       pointer-events: none;
       color: var(--gray-3);
-
-      .white-theme & {
-        color: var(--gray-5);
-      }
     }
-
 
   }
 }

@@ -120,10 +120,6 @@ const language = inject('language') as 'ru' | 'en'
         opacity: 1;
       }
 
-      .white-theme & {
-        outline: 1px solid var(--gray-6);
-      }
-
       @include media-phone {
         flex: 0 0 100%;
       }
@@ -131,19 +127,6 @@ const language = inject('language') as 'ru' | 'en'
 
     @include media-phone {
       gap: 1rem;
-    }
-  }
-
-  .white-theme & {
-
-    h4 {
-      color: var(--gray-1);
-    }
-
-    @include media-phone {
-      .content:not(.content_inner) h2 {
-        color: var(--gray-1);
-      }
     }
   }
 }

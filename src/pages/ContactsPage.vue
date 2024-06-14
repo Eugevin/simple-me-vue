@@ -80,20 +80,8 @@ const language = inject('language') as 'ru' | 'en'
 @import "../styles/media";
 
 .contacts {
-  h2 {
-    .white-theme & {
-      @include media-phone {
-        color: var(--gray-1);
-      }
-    }
-  }
-
   h5 {
     margin-bottom: 1.5rem;
-
-    .white-theme & {
-      color: var(--gray-1);
-    }
 
     +p {
       margin-bottom: 5rem;

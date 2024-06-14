@@ -141,10 +141,6 @@ p {
     ~p {
       max-width: 50rem;
     }
-
-    .white-theme & {
-      color: var(--gray-1);
-    }
   }
 
   @include media-phone {

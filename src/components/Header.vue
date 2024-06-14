@@ -2,7 +2,6 @@
 import { inject, ref } from 'vue'
 
 const headerActive = ref<boolean>(false)
-const whiteTheme = inject('whiteTheme') as boolean
 const language = inject('language') as 'ru' | 'en'
 
 const headerLinks: Array<Link> = [
@@ -50,10 +49,6 @@ const headerLinks: Array<Link> = [
           style="font-size: 0.4em"
         >beta</sup>
       </div>
-      <div
-        class="header__visible__change"
-        @click="whiteTheme = !whiteTheme"
-      />
     </div>
     <div class="header__body">
       <div
@@ -96,7 +91,8 @@ const headerLinks: Array<Link> = [
     border-left: 1px solid var(--gray-1);
     will-change: border-left;
     transition: var(--transition);
-    background: #00000050;
+    background: #00000075;
+    backdrop-filter: blur(.5rem);
 
     &__menu {
       cursor: pointer;
@@ -114,10 +110,6 @@ const headerLinks: Array<Link> = [
         height: 0.125rem;
         background: var(--white);
         transition: inherit;
-
-        .white-theme .header:not(.header_active) & {
-          background: var(--gray-1);
-        }
 
         &:nth-of-type(2) {
           width: 1rem;
@@ -179,50 +171,6 @@ const headerLinks: Array<Link> = [
         transform: scale(1) rotate(5deg);
       }
 
-      .white-theme .header:not(.header_active) & {
-        color: var(--gray-1);
-      }
-
-      @include media-phone {
-        width: 6.25rem;
-      }
-    }
-
-    &__change {
-      position: relative;
-      height: 6.25rem;
-      width: 100%;
-      cursor: pointer;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 1rem;
-        width: 1rem;
-        border-radius: 100%;
-        border: 2px solid var(--white);
-        background: transparent;
-        will-change: background;
-        transition: var(--transition);
-
-        .white-theme .header:not(.header_active) & {
-          border: 2px solid var(--gray-1);
-        }
-      }
-
-      &:hover {
-        &::before {
-          background: var(--white);
-
-          .white-theme .header:not(.header_active) & {
-            background: var(--gray-1);
-          }
-        }
-      }
-
       @include media-phone {
         width: 6.25rem;
       }
@@ -230,7 +178,6 @@ const headerLinks: Array<Link> = [
 
     .header_active & {
       border-left: 1px solid transparent !important;
-      background: none !important;
     }
 
 
@@ -242,9 +189,15 @@ const headerLinks: Array<Link> = [
       flex-direction: row-reverse;
     }
 
-    .white-theme & {
-      border-left: 1px solid var(--gray-6);
-      background: #ffffff50;
+    &::before {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: #00000050;
     }
   }
 
@@ -252,10 +205,10 @@ const headerLinks: Array<Link> = [
     z-index: 98;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 6.25rem;
     height: 100%;
-    width: 100%;
-    backdrop-filter: blur(1rem);
+    width: calc(100% - 6.25rem);
+    backdrop-filter: blur(.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,7 +276,15 @@ const headerLinks: Array<Link> = [
 
       @include media-phone {
         width: 100%;
+        right: 0;
       }
+    }
+
+    @include media-phone {
+      width: 100%;
+      right: 0;
+      bottom: 6.25rem;
+      height: calc(100% - 6.25rem);
     }
 
     .header_active & {

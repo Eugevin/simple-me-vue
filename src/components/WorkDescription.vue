@@ -62,12 +62,6 @@ const worktime = computed(() => `${props.data.time[0]} - ${props.data.time[1]}`)
 
   h3 {
     margin: 2.5rem 0 1rem;
-
-    .white-theme & {
-      @include media-phone {
-        color: var(--gray-1);
-      }
-    }
   }
 
   &__description {

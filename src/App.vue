@@ -5,9 +5,6 @@ import Footer from './components/Footer.vue'
 import Loader from './components/Loader.vue'
 import Cookie from './components/Cookie.vue'
 
-const whiteTheme = ref<boolean>(false)
-provide('whiteTheme', whiteTheme)
-
 const overflowHidden = ref<boolean>(false)
 provide('overflowHidden', overflowHidden)
 
@@ -38,10 +35,7 @@ const loading = ref<boolean>(true)
       v-if="loading"
       @loaded="loading = false"
     />
-    <main
-      v-else
-      :class="whiteTheme ? 'white-theme' : ''"
-    >
+    <main v-else>
       <Header />
       <RouterView />
       <Footer />
@@ -95,14 +89,6 @@ main {
 
     @include media-phone {
       content: none;
-    }
-  }
-
-  &.white-theme {
-    background: var(--white);
-
-    &::after {
-      background: var(--gray-6);
     }
   }
 }
