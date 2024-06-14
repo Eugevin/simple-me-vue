@@ -81,10 +81,10 @@ const language = inject('language') as 'ru' | 'en'
 
 .contacts {
   h5 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 
     +p {
-      margin-bottom: 5rem;
+      margin-bottom: 3rem;
     }
   }
 
@@ -107,7 +107,6 @@ const language = inject('language') as 'ru' | 'en'
 
       &:hover {
         opacity: 1;
-        transform: scale(1.1);
       }
     }
   }

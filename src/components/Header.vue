@@ -92,7 +92,6 @@ const headerLinks: Array<Link> = [
     will-change: border-left;
     transition: var(--transition);
     background: #00000075;
-    backdrop-filter: blur(.5rem);
 
     &__menu {
       cursor: pointer;

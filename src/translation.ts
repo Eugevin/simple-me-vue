@@ -25,15 +25,15 @@ export default {
       },
       title: {
         en: 'Hi, my name\'s Eugene',
-        ru: 'Привет, я - Женька'
+        ru: 'Привет, я Женька'
       },
       description: {
-        en: ['I started to be interested in computers and technology at the age of 7 when I first got into a computer store with my father. I saw a bunch of randomly placed pieces of iron that you can put together, connect with cables and get a window with access to the coolest invention of the 21st century - the Internet!', 'At school, I did pretty well with the Pascal programming language, but I quickly realized that nothing really cool (from what I would like to do) is poorly implemented in it. I started learning PHP, coding programs (Eclipse) and unpacking games for fun.', 'At the age of 15, I even created my first commercially successful project on the Minecraft game (I edited the launcher sources in Eclipse, take my mother\'s card to pay for the domain and hosting, distributed the load). I managed to create it for less than $15 and after 2 months, having accumulated a certain player base, I sold it for $50! I think that minecraft as a whole had a very cool influence on me and I was able to choose the right vector for my future profession.', 'After my graduation, I realized that I was most drawn to Frontend development. I learned Javascript, HTML, CSS and went to work as a freelancer. After 1.5 years of freelancing, I went to work in my first office. I still believe that Frontend is awesome!', 'Today my main passion is create beautiful interfaces and fancy websites without issues! I don\'t want to take up too much time writing about how awesome I am, stress-resistant and result-driven developer (so cliché), so let\'s get straight to the point!'],
-        ru: ['Я начал интересоваться компьютерами и технологиями в 7 лет, когда впервые вместе с отцом попал в компьютерный магазин. Я увидел кучу хаотично расположенных железок, которые можно собрать вместе, соединить кабелями и получить окно с доступом к самому крутому изобретению 21 века - Интернету!', 'В школе я неплохо справлялся с языком программирования Паскаль, но быстро понял, что ничего действительно крутого (из того, чем мне хотелось бы заниматься) в нем плохо реализовано. Я начал изучать PHP, писать программы (Eclipse) и распаковывать игры ради удовольствия.', 'В 15 лет я даже создал свой первый коммерчески успешный проект по игре Майнкрафт (редактировал исходники лаунчера в Eclipse, взял мамину карту для оплаты домена и хостинга, распределял нагрузку). Мне удалось создать его менее чем за 15 долларов и через 2 месяца, накопив определенную базу игроков, я продал его за 50 долларов! Я думаю, что майнкрафт в целом оказал на меня очень крутое влияние и я смог выбрать правильный вектор своей будущей профессии.', 'После окончания учебы я понял, что больше всего меня привлекает Frontend-разработка. Я выучил Javascript, HTML, CSS и пошел работать фрилансером. После 1,5 лет фриланса я пошел работать в свой первый офис. Я до сих пор верю, что Frontend — это круто!', 'Сегодня моя главная страсть — создавать красивые интерфейсы и модные сайты без проблем! Я не хочу тратить слишком много времени на описание того, какой я классный, стрессоустойчивый и нацеленный на результат разработчик (такое клише), поэтому давайте сразу перейдем к делу!']
+        en: ['I started to be interested in computers and technology at the age of 7 when I first got into a computer store with my father. I saw a bunch of randomly placed...', `Wait, you're actually interested in reading this? Seriously? If so, you better contact me on Telegram - i have a lot of stories from my life. But if you're HR (I'm not implying anything, but you're probably HR), click on the button below - i've already made everything for you in one PDF file.`, `Don't say "thank you", i already know that i'm great 💝`],
+        ru: ['Я начал интересоваться компьютерами и технологиями в 7 лет, когда впервые вместе с отцом попал в компьютерный магазин. Я увидел кучу хаотично расположенных...', 'Стоп, тебе реально интересно это читать? Вот серьезно? Если так, то лучше обращайся в телеграм - у меня есть много историй из своей жизни. Но а если ты HR (я ни на что не намекаю, но скорее всего ты HR), то кликай по кнопочке ниже - я для тебя уже все сделал одним PDF файлом.', 'Не говори "спасибо", я и так знаю, что молодец 💝']
       },
       cv: {
-        en: 'Download CV',
-        ru: 'Скачать резюме'
+        en: 'Check CV',
+        ru: 'Посмотреть резюме'
       }
     },
     skills: {
@@ -43,13 +43,13 @@ export default {
           ru: 'Что я могу? С чем я работаю?'
         },
         title: {
-          en: ['Let me', 'Show you this'],
-          ru: ['Давай', 'Покажу тебе']
+          en: ['My skills'],
+          ru: ['Мои скилзы']
         }
       },
       heading: {
-        en: ['Did you think I was lying?', 'I\'m in love with Frontend!'],
-        ru: ['Ты думал я соврал?', 'Я влюблен в Frontend!']
+        en: ['Frontend - my love!'],
+        ru: ['Фронтенд - моя любовь!']
       },
       description: {
         en: 'A small description of the technology that I have ever worked with or dealt with, and have a fairly complete understanding of how it works:',
@@ -89,8 +89,8 @@ export default {
           ru: 'Некоторые компании и проекты над которыми я работал.'
         },
         title: {
-          en: ['Let\'s', 'See my works'],
-          ru: ['Посмотрим', 'На мои работы']
+          en: ['My works'],
+          ru: ['Мои проекты']
         }
       },
       content: {
@@ -277,13 +277,13 @@ export default {
           ru: 'Ты можешь найти меня по ссылкам ниже.'
         },
         title: {
-          en: ['Im always', 'Open to talk'],
-          ru: ['Я всегда', 'Открыт к диалогу']
+          en: ['My contacts'],
+          ru: ['Мои контакты']
         }
       },
       heading: {
-        en: 'Let’s work together and make beautiful projects.',
-        ru: 'Давай работать вместе и делать прекрасные проекты'
+        en: 'Wanna me?',
+        ru: 'Хочешь меня?'
       },
       content: {
         address: {

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import Content from '../components/Content.vue'
-// import Input from '../components/Input.vue'
+import Input from '../components/Input.vue'
 
-// TODO: It's not normal, need in refactor later... I think, i refactor this later... 🤡
+// TODO: It's not normal, need in refactor later... I think, i refactor this later... 🤡  (no i'm joking (no, i'm joker (no, youre not! (yup, i am (bruh...)))))
 const language = inject('language') as 'ru' | 'en'
 
-// function cvHandler() {
-//   window.open('https://cv.eugevin.ru', '_blank')
-// }
+function cvHandler() {
+  window.open('/cv', '_blank')
+}
 </script>
 
 <template>
@@ -30,12 +30,12 @@ const language = inject('language') as 'ru' | 'en'
         >
           {{ item }}
         </p>
-        <!-- <Input
+        <Input
           type="button"
           @click="cvHandler"
         >
           {{ $translate(`pages.index.cv.${language}`) }}
-        </Input> -->
+        </Input>
       </template>
     </Content>
   </div>
@@ -43,6 +43,6 @@ const language = inject('language') as 'ru' | 'en'
 
 <style scoped lang="scss">
 button {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 </style>
