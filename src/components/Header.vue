@@ -207,7 +207,6 @@ const headerLinks: Array<Link> = [
     right: 6.25rem;
     height: 100%;
     width: calc(100% - 6.25rem);
-    backdrop-filter: blur(.5rem);
     display: flex;
     align-items: center;
     justify-content: center;
