@@ -2,6 +2,7 @@
 import Content from '../components/Content.vue'
 import ContactForm from '../components/ContactForm.vue'
 import { inject } from 'vue'
+import randomColors from '@/helpers/randomColors'
 
 const socials: Array<Social> = [
   {
@@ -35,7 +36,7 @@ const language = inject('language') as 'ru' | 'en'
 
 <template>
   <div class="contacts">
-    <Content background="/images/contacts-inner.webp">
+    <Content :background="randomColors(true)">
       <template #body>
         <p style="color: var(--white)">
           {{ $translate(`pages.contacts.inner.heading.${language}`) }}

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { inject } from 'vue'
-import Content from '../components/Content.vue'
+
+import Content from '@/components/Content.vue'
+
+import randomColors from '@/helpers/randomColors'
 
 const techs: Array<Tech> = [
   {
@@ -40,7 +43,7 @@ const language = inject('language') as 'ru' | 'en'
 
 <template>
   <div class="skills">
-    <Content background="/images/skills-inner.webp">
+    <Content :background="randomColors(true)">
       <template #body>
         <p style="color: var(--white)">
           {{ $translate(`pages.skills.inner.heading.${language}`) }}

@@ -1,7 +1,4 @@
 const filesToPreload = [
-  '/images/skills-inner.webp',
-  '/images/works-inner.webp',
-  '/images/contacts-inner.webp',
   '/images/not-found-inner.webp',
   '/images/header-contacts.webp',
   '/images/header-home.webp',

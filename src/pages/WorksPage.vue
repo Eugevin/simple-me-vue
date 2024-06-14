@@ -4,6 +4,7 @@ import Content from '../components/Content.vue'
 import Pagination from '../components/Pagination.vue'
 import Work from '../components/Work.vue'
 import { useRoute, useRouter } from 'vue-router'
+import randomColors from '@/helpers/randomColors'
 
 const works: Array<Work> = [
   {
@@ -65,7 +66,7 @@ function pageHandler(newValue: number) {
 
 <template>
   <div class="works">
-    <Content background="/images/works-inner.webp">
+    <Content :background="randomColors(true)">
       <template #body>
         <p style="color: var(--white)">
           {{ $translate(`pages.projects.inner.heading.${language}`) }}
